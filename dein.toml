@@ -20,7 +20,11 @@ repo = 'fatih/vim-go'
 repo = 'rust-lang/rust.vim'
 
 [[plugins]]
-repo = 'nsf/gocode'
+repo = 'tpope/vim-fugitive'
 
+[[plugins]]
+repo = 'nsf/gocode'
+[[plugins]]
+repo = 'tomasr/molokai'
 [[plugins]]
 repo = 'w0rp/ale'
