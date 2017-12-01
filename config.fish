@@ -1,14 +1,16 @@
 # copy and paste from http://g-hyoga.hatenablog.com/entry/2016/09/23/233548
 
+set PATH $PATH /bin
+
 ## vi mode
 fish_vi_key_bindings
 
 # vi modeではなんか[I]みたいなの出るからオーバーライド
-function fish_mode_prompt 
+function fish_mode_prompt
 end
 
 ## prompt
-function fish_prompt 
+function fish_prompt
     if test "$fish_key_bindings" = "fish_vi_key_bindings"
         switch $fish_bind_mode
             case default
@@ -34,8 +36,8 @@ function fish_right_prompt
     echo (git_branch)
 end
 
-## cd後にls 
-function cd 
+## cd後にls
+function cd
     builtin cd $argv; and ls
 end
 
