@@ -1,7 +1,5 @@
 # copy and paste from http://g-hyoga.hatenablog.com/entry/2016/09/23/233548
 
-set PATH $PATH /bin
-
 ## vi mode
 fish_vi_key_bindings
 
@@ -45,5 +43,8 @@ end
 function fish_user_key_bindings
     for mode in insert default visual
         bind -M $mode \cf forward-char
+        bind -M $mode \ck up-or-search
+        bind -M $mode \cj down-or-search
     end
 end
+
