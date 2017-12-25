@@ -46,3 +46,5 @@ repo = 'othree/es.next.syntax.vim'
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 
+[[plugins]]
+repo = 'mxw/vim-jsx'
