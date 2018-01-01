@@ -142,8 +142,32 @@ nnoremap <C-y> :vsplit<Enter>
 imap { {}<C-h>
 imap [ []<C-h>
 imap ( ()<C-h>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""独自キーバインド""""""""""""""""""""""""
 
 au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 tnoremap <silent> <ESC> <C-\><C-n>
+
+
+""""""""""""""""""""""""denite"""""""""""""""""""""""""""""""""""""""""""""""""
+" 参考:http://replicity.hateblo.jp/entry/2017/06/03/140731
+"
+"C-j,C-kで上下移動
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+"ESCキーでdeniteを終了
+call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
+
+" C-sでsplit表示
+call denite#custom#map('insert', '<C-s>', '<denite:do_action:vsplit>', 'noremap')
+
+" tabopen
+call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>', 'noremap')
+
+" プロンプトの左端に表示される文字を指定
+call denite#custom#option('default', 'prompt', '>')
+""""""""""""""""""""""""denite"""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1

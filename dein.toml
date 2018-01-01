@@ -12,7 +12,6 @@ repo = 'tyru/caw.vim'
 
 [[plugins]]
 repo = 'vim-scripts/LanguageTool'
-
 [[plugins]]
 repo = 'fatih/vim-go'
 
@@ -48,3 +47,15 @@ repo = 'pangloss/vim-javascript'
 
 [[plugins]]
 repo = 'mxw/vim-jsx'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
