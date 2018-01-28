@@ -4,7 +4,7 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/mituba/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
 if dein#load_state('~/.cache/dein')
@@ -105,7 +105,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-set statusline=%F%m%r%h%w%=\ %{fugitive#statusline()}\ [%{&ff}:%{&fileencoding}]\ [%Y]\ [%04l,%04v]\ [%l/%L]\ %{strftime(\"%Y/%m/%d\ %H:%M:%S\")}
+set statusline=%F%m%r%h%w%=\ %{fugitive#statusline()}\ [%l/%L]\
 
 
 
@@ -141,11 +141,13 @@ nnoremap <C-s> :split<Enter>
 nnoremap <C-y> :vsplit<Enter>
 imap { {}<C-h>
 imap [ []<C-h>
+imap < <><C-h>
 imap ( ()<C-h>
 """"""""""""""""""""""""""""""""""""""""独自キーバインド""""""""""""""""""""""""
 
 au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:jsx_pragma_required = 1
 tnoremap <silent> <ESC> <C-\><C-n>
 
 
@@ -167,7 +169,23 @@ call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>', 'noremap
 
 " プロンプトの左端に表示される文字を指定
 call denite#custom#option('default', 'prompt', '>')
+
+" Deniteの設定
+nnoremap [denite] <Nop>
+nmap <C-f> [denite]
+
+" -buffer-name=
+nnoremap <silent> [denite]g  :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
+
+" Denite grep検索結果を再表示する
+nnoremap <silent> [denite]r :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+" resumeした検索結果の次の行の結果へ飛ぶ
+nnoremap <silent> [denite]n :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+" resumeした検索結果の前の行の結果へ飛ぶ
+nnoremap <silent> [denite]p :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
 """"""""""""""""""""""""denite"""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
