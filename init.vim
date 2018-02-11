@@ -141,7 +141,7 @@ nnoremap <C-s> :split<Enter>
 nnoremap <C-y> :vsplit<Enter>
 imap { {}<C-h>
 imap [ []<C-h>
-imap < <><C-h>
+" imap < <><C-h>
 imap ( ()<C-h>
 """"""""""""""""""""""""""""""""""""""""独自キーバインド""""""""""""""""""""""""
 
@@ -189,3 +189,9 @@ nnoremap <silent> [denite]p :<C-u>Denite -resume -buffer-name=search-buffer-deni
 let g:deoplete#enable_at_startup = 1
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+"""ale""""""""""
+let g:ale_fixers = {'python': ['autopep8', 'isort'],}
+let g:ale_fix_on_save = 1
+"""ale""""""""""
+

@@ -62,3 +62,9 @@ repo = 'Shougo/neco-syntax'
 
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+
+[[plugins]]
+repo = 'tell-k/vim-autopep8'
