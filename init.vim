@@ -116,9 +116,6 @@ imap [ []<C-h>
 imap ( ()<C-h>
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>独自キーバインド>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-let g:jsx_pragma_required = 1
 tnoremap <silent> <ESC> <C-\><C-n>
 
 

@@ -9,12 +9,15 @@ repo = 'tyru/caw.vim'
 
 [[plugins]]
 repo = 'fatih/vim-go'
+on_ft = ['go']
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
+on_ft = ['rust']
 
 [[plugins]]
 repo = 'nsf/gocode'
+on_ft = ['go']
 
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -24,24 +27,6 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'w0rp/ale'
-
-[[plugins]]
-repo = 'othree/yajs.vim'
-
-[[plugins]]
-repo = 'maxmellon/vim-jsx-pretty'
-
-[[plugins]]
-repo = 'othree/javascript-libraries-syntax.vim'
-
-[[plugins]]
-repo = 'othree/es.next.syntax.vim'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -57,6 +42,39 @@ repo = 'Shougo/neco-syntax'
 
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
+on_ft = ['scala']
 
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
+on_ft = ['dart']
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript', 'html', 'php']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript']
+hook_add = '''
+let g:jsx_ext_required = 0
+'''
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'moll/vim-node'
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'myhere/vim-nodejs-complete'
+on_ft = ['javascript']
+hook_add = '''
+  setl omnifunc=jscomplete#CompleteJS
+  if !exists('g:neocomplcache_omni_functions')
+    let g:neocomplcache_omni_functions = {}
+  endif
+  let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
+  let g:node_usejscomplete = 1
+'''
