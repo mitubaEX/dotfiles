@@ -35,11 +35,6 @@ endif
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-
 "End dein Scripts-------------------------
 autocmd BufWritePre * :%s/\s\+$//ge
 filetype indent plugin on
@@ -71,33 +66,11 @@ set sm
 set ai
 set noswapfile
 
-
-
 syntax on0autocmd ColorScheme * highlight Visual ctermbg=75
 autocmd ColorScheme * highlight Visual ctermbg=75
 autocmd ColorScheme * highlight Comment ctermfg=390
 colorscheme molokai
 set t_Co=256
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=247
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=246
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
-
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-			\ 'default' : ''
-      \ }
 
 " クリップボード連携
 set clipboard+=unnamed
@@ -107,9 +80,7 @@ set expandtab
 
 set statusline=%F%m%r%h%w%=\ %{fugitive#statusline()}\ [%l/%L]\
 
-
-
-""""""""""""""""""""""""""""""""""""""""独自キーバインド"""""""""""""""""""""""
+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<独自キーバインド<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
@@ -143,7 +114,7 @@ imap { {}<C-h>
 imap [ []<C-h>
 " imap < <><C-h>
 imap ( ()<C-h>
-""""""""""""""""""""""""""""""""""""""""独自キーバインド""""""""""""""""""""""""
+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>独自キーバインド>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -151,7 +122,7 @@ let g:jsx_pragma_required = 1
 tnoremap <silent> <ESC> <C-\><C-n>
 
 
-""""""""""""""""""""""""denite"""""""""""""""""""""""""""""""""""""""""""""""""
+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<denite<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " 参考:http://replicity.hateblo.jp/entry/2017/06/03/140731
 "
 "C-j,C-kで上下移動
@@ -183,12 +154,15 @@ nnoremap <silent> [denite]r :<C-u>Denite -resume -buffer-name=search-buffer-deni
 nnoremap <silent> [denite]n :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
 " resumeした検索結果の前の行の結果へ飛ぶ
 nnoremap <silent> [denite]p :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
-""""""""""""""""""""""""denite"""""""""""""""""""""""""""""""""""""""""""""""""
+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>denite>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" neosnippet
+let g:neosnippet#enable_completed_snippet = 1
 
 """ale""""""""""
 let g:ale_fixers = {'python': ['autopep8', 'isort'],}

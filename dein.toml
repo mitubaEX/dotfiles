@@ -2,16 +2,11 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
 
-[[plugins]]
-repo = 'vim-scripts/LanguageTool'
 [[plugins]]
 repo = 'fatih/vim-go'
 
@@ -19,13 +14,13 @@ repo = 'fatih/vim-go'
 repo = 'rust-lang/rust.vim'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'nsf/gocode'
 
 [[plugins]]
 repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'w0rp/ale'
@@ -65,6 +60,3 @@ repo = 'derekwyatt/vim-scala'
 
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
-
-[[plugins]]
-repo = 'tell-k/vim-autopep8'
