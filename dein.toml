@@ -78,3 +78,13 @@ hook_add = '''
   let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
   let g:node_usejscomplete = 1
 '''
+
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'icymind/NeoSolarized'

@@ -66,11 +66,12 @@ set sm
 set ai
 set noswapfile
 
-syntax on0autocmd ColorScheme * highlight Visual ctermbg=75
-autocmd ColorScheme * highlight Visual ctermbg=75
-autocmd ColorScheme * highlight Comment ctermfg=390
+
+" color
+let g:rehash256 = 1
 colorscheme molokai
 set t_Co=256
+
 
 " クリップボード連携
 set clipboard+=unnamed
@@ -78,7 +79,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-set statusline=%F%m%r%h%w%=\ %{fugitive#statusline()}\ [%l/%L]\
+set statusline=%F%m%r%h%w\ %{ALEGetStatusLine()}%=\ %{fugitive#statusline()}\ [%l/%L]\
 
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<独自キーバインド<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 noremap <Up> <Nop>
@@ -164,5 +165,31 @@ let g:neosnippet#enable_completed_snippet = 1
 """ale""""""""""
 let g:ale_fixers = {'python': ['autopep8', 'isort'],}
 let g:ale_fix_on_save = 1
+let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+function! ALEStatus()
+  return ALEGetStatusLine()
+endfunction
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linter_aliases = {'jsx': 'css'}
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1
+
 """ale""""""""""
 
+" lightline
+set noshowmode
+let g:lightline = {
+      \'active': {
+      \  'left': [
+      \    ['mode', 'paste'],
+      \    ['readonly', 'filename', 'modified'],
+      \    ['ale'],
+      \  ]
+      \},
+      \'component_function': {
+      \  'ale': 'ALEStatus'
+      \}
+      \ }
