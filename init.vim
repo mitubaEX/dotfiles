@@ -53,8 +53,8 @@ set visualbell
 set t_vb=
 set cmdheight=1
 set whichwrap=b,s,<,>,[,],h,l
-nmap <Leader>c <Plug>(caw:i:toggle)
-vmap <Leader>c <Plug>(caw:i:toggle)
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -68,8 +68,10 @@ set noswapfile
 
 
 " color
-let g:rehash256 = 1
-colorscheme molokai
+" let g:rehash256 = 1
+" colorscheme molokai
+set background=dark
+colorscheme solarized
 set t_Co=256
 
 
@@ -79,7 +81,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-set statusline=%F%m%r%h%w\ %{ALEGetStatusLine()}%=\ %{fugitive#statusline()}\ [%l/%L]\
 
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<独自キーバインド<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 noremap <Up> <Nop>
@@ -185,11 +186,20 @@ let g:lightline = {
       \'active': {
       \  'left': [
       \    ['mode', 'paste'],
-      \    ['readonly', 'filename', 'modified'],
+      \    [ 'gitbranch', 'readonly', 'filename', 'modified' ],
       \    ['ale'],
-      \  ]
+      \  ],
+      \  'right': [
+      \    [ 'lineinfo' ],
+      \    [ 'percent' ],
+      \    [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
+      \ ],
       \},
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
+      \ },
       \'component_function': {
-      \  'ale': 'ALEStatus'
+      \  'ale': 'ALEStatus',
+      \  'gitbranch': 'fugitive#head',
       \}
       \ }
