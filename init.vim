@@ -65,6 +65,8 @@ set number
 set sm
 set ai
 set noswapfile
+set cursorline
+
 
 
 " color
@@ -94,13 +96,13 @@ inoremap <Right> <Nop>
 inoremap <C-s> <Nop>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-e> :terminal<Enter>
-inoremap <C-w> <Esc>:w<Enter>
+inoremap <C-[> <Esc>:w<Enter>
 " 挿入モードでのカーソル移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-nnoremap <C-w> :w<Enter>
+nnoremap <C-[> :w<Enter>
 " nnoremap <C-s> :set spell<Enter>
 nnoremap <tab> gt
 nnoremap <C-j> <C-w>j
@@ -164,16 +166,18 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:neosnippet#enable_completed_snippet = 1
 
 """ale""""""""""
-let g:ale_fixers = {'python': ['autopep8', 'isort'],}
+let g:go_fmt_fail_silently = 1
 let g:ale_fix_on_save = 1
-let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+" let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 function! ALEStatus()
   return ALEGetStatusLine()
 endfunction
-let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linters = {'javascript': ['eslint'], 'jsx': ['stylelint', 'eslint']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = {
+\   'go': ['gofmt'],
+\   'python': ['autopep8', 'isort'],
 \   'javascript': ['eslint'],
 \}
 let g:ale_fix_on_save = 1
@@ -201,5 +205,10 @@ let g:lightline = {
       \'component_function': {
       \  'ale': 'ALEStatus',
       \  'gitbranch': 'fugitive#head',
+      \  'filename': 'LightLineFilename'
       \}
       \ }
+
+function! LightLineFilename()
+  return expand('%')
+endfunction
