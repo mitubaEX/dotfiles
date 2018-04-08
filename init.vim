@@ -56,6 +56,11 @@ set whichwrap=b,s,<,>,[,],h,l
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
+" {}, [], () で改行
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932
@@ -118,6 +123,8 @@ imap { {}<C-h>
 imap [ []<C-h>
 " imap < <><C-h>
 imap ( ()<C-h>
+
+inoremap <silent> jj <ESC>
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>独自キーバインド>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 tnoremap <silent> <ESC> <C-\><C-n>
