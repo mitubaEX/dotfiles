@@ -8,10 +8,6 @@ repo = 'scrooloose/nerdtree'
 repo = 'tyru/caw.vim'
 
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-
-[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
 
@@ -88,3 +84,14 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
+
+[[plugins]] # コード補完
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft= ['ruby']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
