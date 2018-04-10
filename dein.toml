@@ -95,3 +95,6 @@ on_ft= ['ruby']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'

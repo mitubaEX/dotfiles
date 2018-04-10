@@ -57,9 +57,9 @@ nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 " {}, [], () で改行
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" inoremap {<Enter> {}<Left><CR><ESC><S-o>
+" inoremap [<Enter> []<Left><CR><ESC><S-o>
+" inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -119,10 +119,11 @@ nnoremap <C-q> <Esc>:q<Enter>
 nnoremap <C-s> :split<Enter>
 " 横にsplitする
 nnoremap <C-y> :vsplit<Enter>
-imap { {}<C-h>
-imap [ []<C-h>
+
+" imap { {}<C-h>
+" imap [ []<C-h>
 " imap < <><C-h>
-imap ( ()<C-h>
+" imap ( ()<C-h>
 
 inoremap <silent> jj <ESC>
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>独自キーバインド>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
