@@ -67,8 +67,6 @@ set ai
 set noswapfile
 set cursorline
 
-
-
 " color
 " let g:rehash256 = 1
 " colorscheme molokai
@@ -76,13 +74,11 @@ set background=dark
 colorscheme solarized
 set t_Co=256
 
-
 " クリップボード連携
 set clipboard+=unnamed
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
 
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<独自キーバインド<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 noremap <Up> <Nop>
