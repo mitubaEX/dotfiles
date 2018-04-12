@@ -182,3 +182,9 @@ repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+hook_add = '''
+" ref: https://postd.cc/vim3/
+nmap ; :Buffers
+nmap t :Files
+nmap r :Tags
+'''
