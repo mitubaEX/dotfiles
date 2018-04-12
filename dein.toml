@@ -191,3 +191,6 @@ nmap r :Tags
 
 [[plugins]]
 repo = 'tpope/vim-sleuth'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
