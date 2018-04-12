@@ -188,3 +188,6 @@ nmap ; :Buffers
 nmap t :Files
 nmap r :Tags
 '''
+
+[[plugins]]
+repo = 'tpope/vim-sleuth'

@@ -124,3 +124,5 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " neosnippet
 let g:neosnippet#enable_completed_snippet = 1
 
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
