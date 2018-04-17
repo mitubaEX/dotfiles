@@ -12,10 +12,6 @@ repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
 
 [[plugins]]
-repo = 'nsf/gocode'
-on_ft = ['go']
-
-[[plugins]]
 repo = 'tomasr/molokai'
 
 [[plugins]]
@@ -34,7 +30,6 @@ hook_add = '''
   let g:ale_linters = {'javascript': ['eslint'], 'jsx': ['stylelint', 'eslint']}
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
-  \   'go': ['gofmt'],
   \   'python': ['autopep8', 'isort'],
   \   'javascript': ['eslint'],
   \}
@@ -217,3 +212,7 @@ depends = ['godlygeek/tabular']
 
 [[plugins]]
 repo = 'iamcco/markdown-preview.vim'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
