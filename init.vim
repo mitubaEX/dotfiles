@@ -126,3 +126,6 @@ let g:neosnippet#enable_completed_snippet = 1
 
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
+
+let g:vim_markdown_folding_disabled = 1
+

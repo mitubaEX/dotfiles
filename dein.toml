@@ -70,6 +70,9 @@ hook_add = '''
   " -buffer-name=
   nnoremap <silent> [denite]g  :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
 
+  " filename
+  nnoremap <silent> [denite]f  :<C-u>Denite file_rec -buffer-name=search-buffer-denite<CR>
+
   " Denite grep検索結果を再表示する
   nnoremap <silent> [denite]r :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
   " resumeした検索結果の次の行の結果へ飛ぶ
@@ -186,7 +189,7 @@ hook_add = '''
 " ref: https://postd.cc/vim3/
 nmap ; :Buffers
 nmap t :Files
-nmap r :Tags
+" nmap r :Tags
 '''
 
 [[plugins]]
@@ -194,3 +197,23 @@ repo = 'tpope/vim-sleuth'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = 'mattn/gist-vim'
+depends = ['mattn/webapi-vim']
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+depends = ['godlygeek/tabular']
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.vim'
