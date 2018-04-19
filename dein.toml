@@ -216,3 +216,7 @@ repo = 'iamcco/markdown-preview.vim'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
+
+[[plugins]]
+repo = 'justmao945/vim-clang'
+on_ft = ['c']
