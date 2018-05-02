@@ -70,7 +70,7 @@ set cursorline
 " color
 " let g:rehash256 = 1
 " colorscheme molokai
-set background=light
+set background=dark
 colorscheme solarized
 set t_Co=256
 
