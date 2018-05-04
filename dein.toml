@@ -137,7 +137,7 @@ hook_add = '''
         \'active': {
         \  'left': [
         \    ['mode', 'paste'],
-        \    [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+        \    [ 'readonly', 'filename', 'modified' ],
         \    ['ale'],
         \  ],
         \  'right': [
