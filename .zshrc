@@ -218,8 +218,11 @@ zle -N create_session_with_ghq
 bindkey '^G' create_session_with_ghq
 
 function delete_repository_with_ghq() {
-    repo=$(ghq root)/$(ghq list | fzf)
+  repo=$(ghq root)/$(ghq list | fzf)
+  if [ `basename $repo` != `basename $(ghq root)` ]
+  then
     rm -rf $repo
+  fi
 }
 zle -N delete_repository_with_ghq
 bindkey '^X' delete_repository_with_ghq
