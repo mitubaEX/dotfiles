@@ -112,6 +112,9 @@ nnoremap <C-s> :split<Enter>
 nnoremap <C-y> :vsplit<Enter>
 
 inoremap <silent> jj <ESC>
+
+" move previous buffer
+nnoremap <C-n> :b #<Enter>
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>独自キーバインド>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 tnoremap <silent> <ESC> <C-\><C-n>
