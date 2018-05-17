@@ -22,16 +22,17 @@ repo = 'w0rp/ale'
 hook_add = '''
   let g:go_fmt_fail_silently = 1
   let g:ale_fix_on_save = 1
-  " let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+  " let g:neomake_javascript_enabled_makers = ['tslint', 'eslint', 'flow']
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
   function! ALEStatus()
     return ALEGetStatusLine()
   endfunction
-  let g:ale_linters = {'javascript': ['eslint'], 'jsx': ['stylelint', 'eslint']}
+  let g:ale_linters = {'javascript': ['eslint'], 'jsx': ['stylelint', 'eslint'], 'tsx': ['tslint']}
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
   \   'python': ['autopep8', 'isort'],
   \   'javascript': ['eslint'],
+  \   'typescript': ['tslint'],
   \}
   let g:ale_fix_on_save = 1
 '''
@@ -107,7 +108,7 @@ let g:jsx_ext_required = 0
 
 [[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'
-on_ft = ['javascript']
+on_ft = ['javascript', 'typescript']
 
 [[plugins]]
 repo = 'moll/vim-node'
@@ -137,7 +138,7 @@ hook_add = '''
         \'active': {
         \  'left': [
         \    ['mode', 'paste'],
-        \    [ 'readonly', 'filename', 'modified' ],
+        \    [ 'gitbranch', 'readonly', 'filename', 'modified' ],
         \    ['ale'],
         \  ],
         \  'right': [
@@ -220,3 +221,8 @@ on_ft = ['go']
 [[plugins]]
 repo = 'justmao945/vim-clang'
 on_ft = ['c']
+
+#tex
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = ['tex']
