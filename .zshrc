@@ -51,7 +51,7 @@ alias atmkdir='for i in A B C D ; do mkdir "$i"; touch "$i"/main.py ;done '
 
 # go
 export GOPATH=$HOME/go:$HOME/.ghq
-export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin
 
 # vim
 stty stop undef
@@ -227,3 +227,27 @@ function delete_repository_with_ghq() {
 zle -N delete_repository_with_ghq
 bindkey '^X' delete_repository_with_ghq
 
+alias stigmata="java -jar ~/stigmata/target/stigmata-5.0-SNAPSHOT.jar"
+
+function create_session_with_dir() {
+    # rename session if in tmux
+    # moveto=$(pwd)/$(find . | fzf)
+    moveto=$(pwd)/$(find . | fzf)
+    if [[ ! -z ${TMUX} ]]
+    then
+        dir_name=`basename $moveto`
+        if [ $dir_name != `basename $(pwd)` ]
+        then
+          tmux new-session -d -c $moveto -s $dir_name  2> /dev/null
+          tmux switch-client -t $dir_name 2> /dev/null
+        fi
+        # cd $moveto
+        # tmux rename-session ${repo_name//./-}
+    fi
+}
+zle -N create_session_with_dir
+bindkey '^U' create_session_with_dir
+
+alias ghci='stack ghci'
+alias ghc='stack ghc --'
+alias runghc='stack runghc --'
