@@ -51,7 +51,7 @@ alias atmkdir='for i in A B C D ; do mkdir "$i"; touch "$i"/main.py ;done '
 
 # go
 export GOPATH=$HOME/go:$HOME/.ghq
-export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.cabal
 
 # vim
 stty stop undef
@@ -247,6 +247,19 @@ function create_session_with_dir() {
 }
 zle -N create_session_with_dir
 bindkey '^U' create_session_with_dir
+
+function move_session() {
+    moveto=$(tmux ls | fzf)
+    if [[ ! -z ${TMUX} ]]
+    then
+        if [ ! -z ${moveto} ]
+        then
+          tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
+        fi
+    fi
+}
+zle -N move_session
+bindkey '^N' move_session
 
 alias ghci='stack ghci'
 alias ghc='stack ghc --'
