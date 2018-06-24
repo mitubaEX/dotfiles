@@ -70,7 +70,7 @@ set cursorline
 " color
 " let g:rehash256 = 1
 " colorscheme molokai
-set background=dark
+set background=light
 colorscheme solarized
 set t_Co=256
 
@@ -131,4 +131,3 @@ let g:neosnippet#enable_completed_snippet = 1
 set rtp+=/usr/local/opt/fzf
 
 let g:vim_markdown_folding_disabled = 1
-
