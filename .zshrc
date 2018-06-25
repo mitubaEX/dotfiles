@@ -68,7 +68,7 @@ zle -N fzf-history-selection
 bindkey '^R' fzf-history-selection
 
 # ls
-function chpwd() { ls }
+function chpwd() { rename_session && ls }
 
 # POWERLEVEL9K_COLOR_SCHEME='dark'
 
@@ -266,3 +266,15 @@ alias ghc='stack ghc --'
 alias runghc='stack runghc --'
 
 alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
+
+function rename_session() {
+    name=$(basename `pwd`)
+    if [[ ! -z ${TMUX} ]]
+    then
+        if [ ! -z ${name} ]
+        then
+          tmux rename-session -t $(tmux display-message -p '#S') $name
+          # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
+        fi
+    fi
+}
