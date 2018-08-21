@@ -66,11 +66,13 @@ set sm
 set ai
 set noswapfile
 set cursorline
+set cursorcolumn
 
 " color
 " let g:rehash256 = 1
 " colorscheme molokai
 set background=light
+let g:solarized_termtrans = 1
 colorscheme solarized
 set t_Co=256
 
@@ -79,6 +81,13 @@ set clipboard+=unnamed
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" reader ref:https://postd.cc/how-to-boost-your-vim-productivity/
+let mapleader = "\<Space>"
+nnoremap <Leader>w <Esc>:w<CR>
+" inoremap <Leader>w <Esc>:w<CR>
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>s :source .config/nvim/init.vim<CR>
 
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<独自キーバインド<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 noremap <Up> <Nop>
@@ -92,13 +101,23 @@ inoremap <Right> <Nop>
 inoremap <C-s> <Nop>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-e> :terminal<Enter>
-inoremap <C-[> <Esc>:w<Enter>
+
+let g:NERDTreeWinSize=100
+let g:NERDTreeQuitOnOpen=1
+
+
+" inoremap <C-[> <Nop>
+" imap <C-[> <Esc>:w<CR>
+" nmap <C-[> <Esc>:w<CR>
+" inoremap <Esc> <Esc>:w<CR>
 " 挿入モードでのカーソル移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-nnoremap <C-[> :w<Enter>
+" inoremap <Esc> <Esc>:<C-u>w<CR>
+" inoremap <Esc> <Esc>:<C-u>w<CR>
+"
 " nnoremap <C-s> :set spell<Enter>
 nnoremap <tab> gt
 nnoremap <C-j> <C-w>j
@@ -131,3 +150,35 @@ let g:neosnippet#enable_completed_snippet = 1
 set rtp+=/usr/local/opt/fzf
 
 let g:vim_markdown_folding_disabled = 1
+
+" >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
+nnoremap [vim-fugitive] <Nop>
+nmap <C-g> [vim-fugitive]
+
+" status
+nnoremap <silent> [vim-fugitive]s  :<C-u>Gstatus<CR>
+
+" diff
+nnoremap <silent> [vim-fugitive]d  :<C-u>Gdiff<CR>
+
+" add
+nnoremap <silent> [vim-fugitive]a  :<C-u>Gwrite<CR>
+
+" commit
+nnoremap <silent> [vim-fugitive]c  :<C-u>Gcommit<CR>
+" >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
+
+set ignorecase
+set smartcase
+set wrapscan
+set incsearch
+set inccommand=split
+
+se ff=unix
+
+set ttimeout
+set ttimeoutlen=50
+
+noremap <Leader>p "0p
+noremap <Leader>P "0P
+vnoremap <Leader>p "0p

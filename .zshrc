@@ -273,8 +273,25 @@ function rename_session() {
     then
         if [ ! -z ${name} ]
         then
-          tmux rename-session -t $(tmux display-message -p '#S') $name
+          tmux rename-session -t $(tmux display-message -p '#S') $name 2> /dev/null
           # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
         fi
     fi
 }
+
+# cdr, add-zsh-hook を有効にする
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+# function move_cdr() {
+#     name=$(cdr -l | fzf)
+#     if [[ ! -z ${TMUX} ]]
+#     then
+#         if [ ! -z ${name} ]
+#         then
+#           cdr $(echo $name | awk '{print $1}')
+#         fi
+#     fi
+# }
+# zle -N move_cdr
+# bindkey '^N' move_cdr
