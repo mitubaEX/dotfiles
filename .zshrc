@@ -268,15 +268,19 @@ alias runghc='stack runghc --'
 alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
 
 function rename_session() {
-    name=$(basename `pwd`)
+  dir=$(pwd)
+  # remove ghq dir
+  if [[ $dir != *".ghq"* ]]; then
+    name=$(basename $dir)
     if [[ ! -z ${TMUX} ]]
     then
-        if [ ! -z ${name} ]
-        then
-          tmux rename-session -t $(tmux display-message -p '#S') $name 2> /dev/null
-          # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
-        fi
+      if [ ! -z ${name} ]
+      then
+        tmux rename-session -t $(tmux display-message -p '#S') $name
+        # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
+      fi
     fi
+  fi
 }
 
 # cdr, add-zsh-hook を有効にする
