@@ -183,5 +183,6 @@ noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
 
-
+" fzf
 nmap <Leader>t :Files<CR>
+nmap <Leader>a :Ag<Space>
