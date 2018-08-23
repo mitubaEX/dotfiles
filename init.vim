@@ -71,9 +71,9 @@ set cursorcolumn
 " color
 " let g:rehash256 = 1
 " colorscheme molokai
-set background=light
-let g:solarized_termtrans = 1
-colorscheme solarized
+" set background=light
+" let g:solarized_termtrans = 1
+colorscheme badwolf
 set t_Co=256
 
 " クリップボード連携
@@ -182,3 +182,6 @@ set ttimeoutlen=50
 noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
+
+
+nmap <Leader>t :Files<CR>

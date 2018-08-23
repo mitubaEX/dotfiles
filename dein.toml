@@ -27,7 +27,7 @@ hook_add = '''
   function! ALEStatus()
     return ALEGetStatusLine()
   endfunction
-  let g:ale_linters = {'javascript': ['eslint'], 'jsx': ['stylelint', 'eslint'], 'tsx': ['tslint', 'prettier']}
+  let g:ale_linters = {'javascript': ['eslint'], 'jsx': ['stylelint', 'eslint'], 'tsx': ['tslint', 'prettier'], 'hs': ['hlint']}
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
   \   'python': ['autopep8', 'isort'],
@@ -184,9 +184,9 @@ repo = 'cohama/lexima.vim'
 repo = 'junegunn/fzf.vim'
 hook_add = '''
 " ref: https://postd.cc/vim3/
-nmap ; :Buffers
-nmap t :Files
-" nmap r :Tags
+nmap ; :Buffers<CR>
+" nmap <Leader>t :Files<CR>
+" nmap r :Tags<CR>
 '''
 
 [[plugins]]
@@ -227,3 +227,12 @@ on_ft = ['c']
 [[plugins]]
 repo = 'lervag/vimtex'
 on_ft = ['tex']
+
+[[plugins]]
+repo = 'kien/ctrlp.vim'
+
+[[plugins]]
+repo = 'sjl/badwolf'
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
