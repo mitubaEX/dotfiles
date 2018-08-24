@@ -1,7 +1,7 @@
 # dotfiles
 
-## config.fish
+## install
 
 ```
-cp config.fish ~/.config/fish/.
+sh setup.sh
 ```
