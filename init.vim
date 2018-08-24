@@ -186,3 +186,6 @@ vnoremap <Leader>p "0p
 " fzf
 nmap <Leader>t :Files<CR>
 nmap <Leader>a :Ag<Space>
+
+" Codic
+nmap <Leader>c :Codic<Space>

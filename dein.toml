@@ -254,3 +254,6 @@ repo = 'sjl/badwolf'
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'koron/codic-vim'
