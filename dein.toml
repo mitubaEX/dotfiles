@@ -23,10 +23,22 @@ hook_add = '''
   let g:go_fmt_fail_silently = 1
   let g:ale_fix_on_save = 1
   " let g:neomake_javascript_enabled_makers = ['tslint', 'eslint', 'flow']
-  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+  " let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
   function! ALEStatus()
-    return ALEGetStatusLine()
+    " return ALEGetStatusLine()
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+		    \   '⚠ %d ⨉ %d',
+		    \   all_non_errors,
+		    \   all_errors
+		    \)
   endfunction
+
   let g:ale_linters = {'javascript': ['eslint'], 'jsx': ['stylelint', 'eslint'], 'tsx': ['tslint', 'prettier'], 'hs': ['hlint']}
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
@@ -41,7 +53,7 @@ hook_add = '''
   let g:ale_open_list = 1
 
   " エラーと警告がなくなっても開いたままにする
-  let g:ale_keep_list_window_open = 1
+  " let g:ale_keep_list_window_open = 1
 '''
 
 [[plugins]]
