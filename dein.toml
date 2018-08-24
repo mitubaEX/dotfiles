@@ -256,4 +256,4 @@ repo = 'sjl/badwolf'
 repo = 'rhysd/clever-f.vim'
 
 [[plugins]]
-repo = 'koron/codic-vim'
+repo = 'mitubaEX/codic-vim'
