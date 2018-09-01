@@ -39,11 +39,11 @@ hook_add = '''
 		    \)
   endfunction
 
-  let g:ale_linters = {'javascript': ['eslint'], 'jsx': ['stylelint', 'eslint'], 'tsx': ['tslint', 'prettier'], 'hs': ['hlint']}
+  let g:ale_linters = {'javascript': ['eslint', 'prettier'], 'jsx': ['stylelint', 'eslint', 'prettier'], 'tsx': ['tslint', 'prettier'], 'hs': ['hlint']}
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
   \   'python': ['autopep8', 'isort'],
-  \   'javascript': ['eslint'],
+  \   'javascript': ['eslint', 'prettier'],
   \   'typescript': ['tslint', 'prettier'],
   \}
   let g:ale_fix_on_save = 1
