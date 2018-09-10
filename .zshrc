@@ -70,6 +70,8 @@ bindkey '^R' fzf-history-selection
 # ls
 function chpwd() { rename_session && ls }
 
+export TERM='screen-256color'
+
 # POWERLEVEL9K_COLOR_SCHEME='dark'
 
 # Advanced `vcs` color customization
@@ -102,8 +104,9 @@ function chpwd() { rename_session && ls }
 #
 # # time
 # POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S | %y/%m/%d}"
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
-POWERLEVEL9K_TIME_BACKGROUND="249"
+#
+# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
+# POWERLEVEL9K_TIME_BACKGROUND="249"
 #
 # # context
 # POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="039"
@@ -129,11 +132,11 @@ POWERLEVEL9K_TIME_BACKGROUND="249"
 # POWERLEVEL9K_DIR_WRITABLE_BACKGROUND="white"
 # POWERLEVEL9K_DIR_WRITABLE_FOREGROUND="black"
 
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-
-POWERLEVEL9K_SHORTEN_DELIMITER=..
-POWERLEVEL9K_VI_INSERT_MODE_STRING="😍"
-POWERLEVEL9K_VI_COMMAND_MODE_STRING="😐"
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+#
+# POWERLEVEL9K_SHORTEN_DELIMITER=..
+# POWERLEVEL9K_VI_INSERT_MODE_STRING="😍"
+# POWERLEVEL9K_VI_COMMAND_MODE_STRING="😐"
 #
 # # multiline
 # POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -154,27 +157,24 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}"
-zstyle ':vcs_info:*' formats "%F{green}%c%u %b%f"
+zstyle ':vcs_info:*' formats "%F{4} - [%F{green}%c%u %b%f%F{4}]"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 # git
 function git_information() {
-  # autoload -Uz vcs_info
-  # setopt prompt_subst
-  # zstyle ':vcs_info:git:*' check-for-changes true
-  # zstyle ':vcs_info:git:*' stagedstr "%F{yellow}"
-  # zstyle ':vcs_info:git:*' unstagedstr "%F{red}"
-  # zstyle ':vcs_info:*' formats "%F{green}%c%u %b%f"
-  # zstyle ':vcs_info:*' actionformats '[%b|%a]'
-  # vcs_info
-  echo ${vcs_info_msg_0_}
+  echo  ${vcs_info_msg_0_}
 }
 
-POWERLEVEL9K_CUSTOM_GIT_INFO="git_information"
-POWERLEVEL9K_CUSTOM_GIT_INFO_BACKGROUND="black"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( vi_mode custom_git_info ssh dir )
+# POWERLEVEL9K_CUSTOM_GIT_INFO="git_information"
+# POWERLEVEL9K_CUSTOM_GIT_INFO_BACKGROUND="black"
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( vi_mode custom_git_info ssh dir )
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( dir_writable command_execution_time )
+
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( status dir_writable command_execution_time ip time )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( dir_writable command_execution_time )
+#
+#
+PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)$(git_information)${editor_info[keymap]} '
+RPROMPT=''
 
 # ref: https://qiita.com/ssh0/items/a9956a74bff8254a606a
 if [[ ! -n $TMUX ]]; then
