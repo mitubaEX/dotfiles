@@ -102,7 +102,7 @@ inoremap <C-s> <Nop>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-e> :terminal<Enter>
 
-let g:NERDTreeWinSize=100
+let g:NERDTreeWinSize=30
 let g:NERDTreeQuitOnOpen=1
 
 

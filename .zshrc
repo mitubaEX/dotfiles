@@ -248,18 +248,19 @@ function create_session_with_dir() {
 zle -N create_session_with_dir
 bindkey '^U' create_session_with_dir
 
-function move_session() {
-    moveto=$(tmux ls | fzf)
+function remove_session() {
+    session_name=$(tmux ls | fzf)
     if [[ ! -z ${TMUX} ]]
     then
-        if [ ! -z ${moveto} ]
+        if [ ! -z ${session_name} ]
         then
-          tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
+          # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
+          tmux kill-session -t $(echo $session_name | IFS=":" read -r a b; echo $a) 2> /dev/null
         fi
     fi
 }
-zle -N move_session
-bindkey '^N' move_session
+zle -N remove_session
+bindkey '^N' remove_session
 
 alias ghci='stack ghci'
 alias ghc='stack ghc --'
@@ -304,6 +305,11 @@ add-zsh-hook chpwd chpwd_recent_dirs
 # Aliases
 # (sorted alphabetically)
 #
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+
+
+# =====================git alias==============================
 
 alias g='git'
 
