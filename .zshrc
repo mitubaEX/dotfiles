@@ -155,9 +155,9 @@ export TERM='screen-256color'
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}"
-zstyle ':vcs_info:*' formats "%F{4} - [%F{green}%c%u %b%f%F{4}]"
+zstyle ':vcs_info:git:*' stagedstr "%F{4}|%F{yellow}+"
+zstyle ':vcs_info:git:*' unstagedstr "%F{4}|%F{red}*"
+zstyle ':vcs_info:*' formats "%F{4} - [%F{green}%b%c%u%F{4}]"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 # git
