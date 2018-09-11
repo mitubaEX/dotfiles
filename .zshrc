@@ -70,7 +70,7 @@ bindkey '^R' fzf-history-selection
 # ls
 function chpwd() { rename_session && ls }
 
-export TERM='screen-256color'
+# export TERM='screen-256color'
 
 # POWERLEVEL9K_COLOR_SCHEME='dark'
 
