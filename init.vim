@@ -71,10 +71,10 @@ set cursorcolumn
 " color
 " let g:rehash256 = 1
 " colorscheme molokai
-let g:solarized_termtrans = 1
-set background=dark
-colorscheme solarized
-" colorscheme badwolf
+" let g:solarized_termtrans = 1
+" set background=light
+" colorscheme solarized
+colorscheme badwolf
 set t_Co=256
 
 " クリップボード連携
