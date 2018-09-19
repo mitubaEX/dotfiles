@@ -59,7 +59,7 @@ stty start undef
 
 # fzf
 function fzf-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | fzf`
+    BUFFER=`history -n 1 | tail --retry | awk '!a[$0]++' | fzf`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
