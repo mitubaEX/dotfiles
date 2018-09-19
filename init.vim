@@ -78,7 +78,7 @@ colorscheme badwolf
 set t_Co=256
 
 " クリップボード連携
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set tabstop=2
 set shiftwidth=2
 set expandtab
