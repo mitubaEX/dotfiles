@@ -261,3 +261,10 @@ repo = 'mitubaEX/codic-vim'
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
+
+[[plugins]]
+repo = 'sebastianmarkow/deoplete-rust'
+hook_add = '''
+let g:deoplete#sources#rust#racer_binary='/usr/local/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/usr/local/Cellar/rust/1.25.0/lib/rustlib/src/rust/src'
+'''
