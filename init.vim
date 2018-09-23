@@ -190,3 +190,5 @@ nmap <Leader>a :Ag<Space>
 
 " Codic
 nmap <Leader>c :Codic<Space>
+
+au VimLeave * set guicursor=a:hor100
