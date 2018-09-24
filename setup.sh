@@ -4,3 +4,6 @@ ln -sf $(pwd)/.zshrc $HOME/.zshrc
 ln -sf $(pwd)/.zpreztorc $HOME/.zpreztorc
 ln -sf $(pwd)/.tmux.conf.local $HOME/.tmux.conf.local
 ln -sf $(pwd)/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+
+mkdir $HOME/.config/i3
+ln -sf $(pwd)/config $HOME/.config/i3/config
