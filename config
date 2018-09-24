@@ -223,7 +223,13 @@ bar {
 #####################
 
 # set wallpaper using nitrogen
-exec --no-startup-id nitrogen --restore
+# exec --no-startupid fcitx --restore
+exec --no-startup-id fcitx
 
 # toggle between keyboard layouts
-exec --no-startup-id setxkbmap us,de -option 'grp:alt_shift_toggle'
+exec --no-startup-id setxkbmap us -option 'grp:alt_shift_toggle'
+# exec --no-startup-id setxkbmap us
+
+exec --no-startup-id compton -cbm 0.75
+
+exec --no-startup-id feh --randomize --bg-fill ~/Downloads/fe721e6710.jpg
