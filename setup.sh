@@ -7,3 +7,6 @@ ln -sf $(pwd)/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 mkdir $HOME/.config/i3
 ln -sf $(pwd)/config $HOME/.config/i3/config
+
+ln -sf $(pwd)/.xintrc $HOME/.xintrc
+ln -sf $(pwd)/.xprofile $HOME/.xprofile
