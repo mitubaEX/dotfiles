@@ -209,30 +209,27 @@ function create_session_with_ghq() {
           tmux new-session -d -c $moveto -s $repo_name  2> /dev/null
           tmux switch-client -t $repo_name 2> /dev/null
         fi
-        # cd $moveto
-        # tmux rename-session ${repo_name//./-}
     fi
 }
 
 zle -N create_session_with_ghq
 bindkey '^G' create_session_with_ghq
 
-function delete_repository_with_ghq() {
-  repo=$(ghq root)/$(ghq list | fzf)
-  if [ `basename $repo` != `basename $(ghq root)` ]
-  then
-    rm -rf $repo
-  fi
-}
-zle -N delete_repository_with_ghq
-bindkey '^X' delete_repository_with_ghq
+# function delete_repository_with_ghq() {
+#   repo=$(ghq root)/$(ghq list | fzf)
+#   if [ `basename $repo` != `basename $(ghq root)` ]
+#   then
+#     rm -rf $repo
+#   fi
+# }
+# zle -N delete_repository_with_ghq
+# bindkey '^X' delete_repository_with_ghq
 
 alias stigmata="java -jar ~/stigmata/target/stigmata-5.0-SNAPSHOT.jar"
 
 function create_session_with_dir() {
     # rename session if in tmux
-    # moveto=$(pwd)/$(find . | fzf)
-    moveto=$(pwd)/$(find . | fzf)
+    moveto=$(pwd)/$(find . -type d | fzf)
     if [[ ! -z ${TMUX} ]]
     then
         dir_name=`basename $moveto`
@@ -241,26 +238,24 @@ function create_session_with_dir() {
           tmux new-session -d -c $moveto -s $dir_name  2> /dev/null
           tmux switch-client -t $dir_name 2> /dev/null
         fi
-        # cd $moveto
-        # tmux rename-session ${repo_name//./-}
     fi
 }
 zle -N create_session_with_dir
 bindkey '^U' create_session_with_dir
 
 function remove_session() {
-    session_name=$(tmux ls | fzf)
+    session_name=$(tmux display-message -p '#S')
     if [[ ! -z ${TMUX} ]]
     then
         if [ ! -z ${session_name} ]
         then
-          # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
-          tmux kill-session -t $(echo $session_name | IFS=":" read -r a b; echo $a) 2> /dev/null
+          tmux switch-client -n
+          tmux kill-session -t $session_name 2> /dev/null
         fi
     fi
 }
 zle -N remove_session
-bindkey '^N' remove_session
+bindkey '^X' remove_session
 
 alias ghci='stack ghci'
 alias ghc='stack ghc --'
