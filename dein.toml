@@ -182,9 +182,6 @@ hook_add = '''
   endfunction
 '''
 
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-
 [[plugins]] # コード補完
 repo = 'Shougo/deoplete.nvim'
 hook_add = 'let g:deoplete#enable_at_startup = 1'
@@ -251,9 +248,6 @@ on_ft = ['tex']
 repo = 'kien/ctrlp.vim'
 
 [[plugins]]
-repo = 'sjl/badwolf'
-
-[[plugins]]
 repo = 'rhysd/clever-f.vim'
 
 [[plugins]]
@@ -268,3 +262,6 @@ hook_add = '''
 let g:deoplete#sources#rust#racer_binary='/usr/local/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='/usr/local/Cellar/rust/1.25.0/lib/rustlib/src/rust/src'
 '''
+
+[[plugins]]
+repo = 'morhetz/gruvbox'

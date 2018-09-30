@@ -74,7 +74,9 @@ set cursorcolumn
 " let g:solarized_termtrans = 1
 " set background=light
 " colorscheme solarized
-colorscheme badwolf
+colorscheme gruvbox
+set background=dark
+highlight Normal ctermbg=None
 set t_Co=256
 
 " クリップボード連携
