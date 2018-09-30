@@ -51,7 +51,7 @@ alias atmkdir='for i in A B C D ; do mkdir "$i"; touch "$i"/main.py ;done '
 
 # go
 export GOPATH=$HOME/go:$HOME/.ghq
-export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.cabal
+export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin
 
 # vim
 stty stop undef
