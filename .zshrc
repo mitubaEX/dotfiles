@@ -182,15 +182,15 @@ if [[ ! -n $TMUX ]]; then
   ID="`tmux list-sessions`"
   if [[ -z "$ID" ]]; then
     # tmux new-session && exit
-    tmux -u new-session
+    tmux new-session
   fi
   create_new_session="Create New Session"
   ID="$ID\n${create_new_session}:"
   ID="`echo $ID | fzf | cut -d: -f1`"
   if [[ "$ID" = "${create_new_session}" ]]; then
-    tmux -u new-session
+    tmux new-session
   elif [[ -n "$ID" ]]; then
-    tmux -u attach-session -t "$ID"
+    tmux attach-session -t "$ID"
   else
     :  # Start terminal normally
   fi
@@ -206,8 +206,8 @@ function create_session_with_ghq() {
         repo_name=`basename $moveto`
         if [ $repo_name != `basename $(ghq root)` ]
         then
-          tmux -u new-session -d -c $moveto -s $repo_name  2> /dev/null
-          tmux -u switch-client -t $repo_name 2> /dev/null
+          tmux new-session -d -c $moveto -s $repo_name  2> /dev/null
+          tmux switch-client -t $repo_name 2> /dev/null
         fi
     fi
 }
@@ -235,8 +235,8 @@ function create_session_with_dir() {
         dir_name=`basename $moveto`
         if [ $dir_name != `basename $(pwd)` ]
         then
-          tmux -u new-session -d -c $moveto -s $dir_name  2> /dev/null
-          tmux -u switch-client -t $dir_name 2> /dev/null
+          tmux new-session -d -c $moveto -s $dir_name  2> /dev/null
+          tmux switch-client -t $dir_name 2> /dev/null
         fi
     fi
 }
@@ -249,8 +249,8 @@ function remove_session() {
     then
         if [ ! -z ${session_name} ]
         then
-          tmux -u switch-client -n
-          tmux -u kill-session -t $session_name 2> /dev/null
+          tmux switch-client -n
+          tmux kill-session -t $session_name 2> /dev/null
         fi
     fi
 }
@@ -272,7 +272,7 @@ function rename_session() {
     then
       if [ ! -z ${name} ]
       then
-        tmux -u rename-session -t $(tmux display-message -p '#S') $name
+        tmux rename-session -t $(tmux display-message -p '#S') $name
         # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
       fi
     fi
