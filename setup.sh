@@ -1,3 +1,5 @@
+mkdir $HOME/.config
+
 ln -sf $(pwd)/dein.toml $HOME/dein.toml
 
 mkdir $HOME/.config/nvim
