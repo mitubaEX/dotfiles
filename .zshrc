@@ -49,6 +49,9 @@ alias dockerrm='docker rm -f $(docker ps -qa)'
 alias dockerrmi='docker rmi -f $(docker images -q)'
 alias atmkdir='for i in A B C D ; do mkdir "$i"; touch "$i"/main.py ;done '
 
+# change ls to exa
+alias ls='exa'
+
 # go
 export GOPATH=$HOME/go:$HOME/.ghq
 export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin
