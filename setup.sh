@@ -17,3 +17,6 @@ ln -sf $(pwd)/config $HOME/.config/i3/config
 
 ln -sf $(pwd)/.xintrc $HOME/.xintrc
 ln -sf $(pwd)/.xprofile $HOME/.xprofile
+
+# amethyst config
+ln -sf $(pwd)/com.amethyst.Amethyst.plist $HOME/Library/Preferences/com.amethyst.Amethyst.plist
