@@ -538,3 +538,15 @@ fi
 alias nasm='/usr/local/bin/nasm'
 
 source <(kubectl completion zsh)
+
+# required pup command(https://github.com/ericchiang/pup)
+function niconew () {
+  rm $HOME/index.html
+  echo "<html><header/><body>" > $HOME/index.html
+  for i in `seq 1 10`
+  do
+    paste -d "\n" <(curl "https://www.nicovideo.jp/newarrival?page=$i" | pup 'a[href]' | grep watch | grep title | sed 's/watch\//https\:\/\/www.nicovideo.jp\/watch\//g') <(curl "https://www.nicovideo.jp/newarrival?page=$i" | pup 'img[src]' | grep smile)  >> $HOME/index.html
+  done
+  echo "</body></html>" >> $HOME/index.html
+  open $HOME/index.html
+}
