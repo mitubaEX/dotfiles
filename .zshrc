@@ -550,3 +550,5 @@ function niconew () {
   echo "</body></html>" >> $HOME/index.html
   open $HOME/index.html
 }
+
+export RUST_BACKTRACE=1
