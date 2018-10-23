@@ -554,3 +554,4 @@ function niconew () {
 alias pochicomp="java -jar $HOME/pochi/pochi-runner/target/pochi-runner-1.0-SNAPSHOT.jar $HOME/compare.js"
 
 alias bydi="java -jar /Users/mituba/.ghq/src/github.com/tamadalab/bydi/target/bydi-1.0-SNAPSHOT.jar"
+export RUST_BACKTRACE=1
