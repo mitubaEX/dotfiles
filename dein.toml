@@ -277,3 +277,6 @@ repo = 'Shougo/deoplete-clangx'
 
 [[plugins]]
 repo = 'maxbrunsfeld/vim-yankstack'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
