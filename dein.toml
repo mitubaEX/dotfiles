@@ -271,3 +271,9 @@ repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'Shougo/deoplete-clangx'
+
+[[plugins]]
+repo = 'maxbrunsfeld/vim-yankstack'

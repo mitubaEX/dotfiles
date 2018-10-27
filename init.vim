@@ -186,6 +186,8 @@ set ttimeoutlen=50
 noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
+nmap <leader>s <Plug>yankstack_substitute_older_paste
+nmap <leader>S <Plug>yankstack_substitute_newer_paste
 
 " fzf
 nmap <Leader>t :Files<CR>
