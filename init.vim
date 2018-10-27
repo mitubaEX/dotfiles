@@ -78,6 +78,7 @@ colorscheme gruvbox
 set background=dark
 highlight Normal ctermbg=None
 set t_Co=256
+let g:gruvbox_contrast_dark="hard"
 
 " クリップボード連携
 set clipboard+=unnamedplus
@@ -194,3 +195,5 @@ nmap <Leader>a :Ag<Space>
 nmap <Leader>c :Codic<Space>
 
 au VimLeave * set guicursor=a:hor100
+
+set virtualedit=block
