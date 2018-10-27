@@ -268,3 +268,6 @@ repo = 'morhetz/gruvbox'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'

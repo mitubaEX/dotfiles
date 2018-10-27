@@ -19,8 +19,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#load_toml('~/dein.toml')
   if !has('nvim')
-   	call dein#add('roxma/nvim-yarp')
-		call dein#add('roxma/vim-hug-neovim-rpc')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
   " You can specify revision/branch/tag.
@@ -197,3 +197,7 @@ nmap <Leader>c :Codic<Space>
 au VimLeave * set guicursor=a:hor100
 
 set virtualedit=block
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size=1
