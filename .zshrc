@@ -560,4 +560,4 @@ alias bydiextract="java -jar /Users/mituba/.ghq/src/github.com/tamadalab/bydi/ta
 
 alias g++="g++ -std=c++11"
 
-alias atinit="sh $HOME/.ghq/src/github.com/mitubaEX/cpp_template/contest_setting.sh"
+alias coninit="sh $HOME/.ghq/src/github.com/mitubaEX/cpp_template/contest_setting.sh"

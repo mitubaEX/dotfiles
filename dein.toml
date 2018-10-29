@@ -265,3 +265,18 @@ let g:deoplete#sources#rust#rust_source_path='/usr/local/Cellar/rust/1.25.0/lib/
 
 [[plugins]]
 repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'Shougo/deoplete-clangx'
+
+[[plugins]]
+repo = 'maxbrunsfeld/vim-yankstack'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'

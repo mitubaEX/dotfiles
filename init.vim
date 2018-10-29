@@ -19,8 +19,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#load_toml('~/dein.toml')
   if !has('nvim')
-   	call dein#add('roxma/nvim-yarp')
-		call dein#add('roxma/vim-hug-neovim-rpc')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
   " You can specify revision/branch/tag.
@@ -78,6 +78,7 @@ colorscheme gruvbox
 set background=dark
 highlight Normal ctermbg=None
 set t_Co=256
+let g:gruvbox_contrast_dark="hard"
 
 " クリップボード連携
 set clipboard+=unnamedplus
@@ -185,6 +186,8 @@ set ttimeoutlen=50
 noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
+nmap <leader>s <Plug>yankstack_substitute_older_paste
+nmap <leader>S <Plug>yankstack_substitute_newer_paste
 
 " fzf
 nmap <Leader>t :Files<CR>
@@ -194,3 +197,9 @@ nmap <Leader>a :Ag<Space>
 nmap <Leader>c :Codic<Space>
 
 au VimLeave * set guicursor=a:hor100
+
+set virtualedit=block
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size=1
