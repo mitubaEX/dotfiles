@@ -555,3 +555,9 @@ alias pochicomp="java -jar $HOME/pochi/pochi-runner/target/pochi-runner-1.0-SNAP
 
 alias bydi="java -jar /Users/mituba/.ghq/src/github.com/tamadalab/bydi/target/bydi-1.0-SNAPSHOT.jar"
 export RUST_BACKTRACE=1
+
+alias bydiextract="java -jar /Users/mituba/.ghq/src/github.com/tamadalab/bydi/target/bydi-1.0-SNAPSHOT.jar jp.ac.kyoto_su.ise.tamadalab.bydi.extractor.Main"
+
+alias g++="g++ -std=c++11"
+
+alias atinit="sh $HOME/.ghq/src/github.com/mitubaEX/cpp_template/contest_setting.sh"
