@@ -89,91 +89,20 @@ __fzf_use_tmux__() {
 zle     -N   fzf-history-widget
 bindkey '^R' fzf-history-widget
 
+# fbr - checkout git branch (including remote branches)
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+zle     -N   fbr
+bindkey '^B' fbr
+
 # ls
 function chpwd() { rename_session && ls }
 
-# export TERM='screen-256color'
-
-# POWERLEVEL9K_COLOR_SCHEME='dark'
-
-# Advanced `vcs` color customization
-# POWERLEVEL9K_VCS_CLEAN_FOREGROUND='white'
-# POWERLEVEL9K_VCS_CLEAN_BACKGROUND='070'
-# POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='white'
-# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='197'
-# POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='white'
-# POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='197'
-#
-# # dir
-# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='white'
-# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='white'
-# # POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='039'
-# POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
-# # POWERLEVEL9K_DIR_HOME_BACKGROUND='039'
-#
-# # vi
-# POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='white'
-# POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='white'
-# POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='241'
-# POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='039'
-#
-# # icon
-# POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-# POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-#
-# # newline
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-#
-# # time
-# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S | %y/%m/%d}"
-#
-# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
-# POWERLEVEL9K_TIME_BACKGROUND="249"
-#
-# # context
-# POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="039"
-# POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="white"
-# POWERLEVEL9K_HOST_REMOTE_BACKGROUND="197"
-# POWERLEVEL9K_HOST_REMOTE_FOREGROUND="white"
-#
-# # user
-# POWERLEVEL9K_USER_DEFAULT_BACKGROUND="white"
-# POWERLEVEL9K_USER_DEFAULT_FOREGROUND="black"
-# POWERLEVEL9K_USER_ROOT_BACKGROUND="white"
-# POWERLEVEL9K_USER_ROOT_FOREGROUND="red"
-#
-# # battery
-# POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="white"
-# POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND="white"
-# POWERLEVEL9K_BATTERY_LOW_BACKGROUND="white"
-#
-# # status
-# POWERLEVEL9K_STATUS_OK_BACKGROUND="white"
-#
-# # writable
-# POWERLEVEL9K_DIR_WRITABLE_BACKGROUND="white"
-# POWERLEVEL9K_DIR_WRITABLE_FOREGROUND="black"
-
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-#
-# POWERLEVEL9K_SHORTEN_DELIMITER=..
-# POWERLEVEL9K_VI_INSERT_MODE_STRING="😍"
-# POWERLEVEL9K_VI_COMMAND_MODE_STRING="😐"
-#
-# # multiline
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
-# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{014}╭%F{cyan}"
-# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
-#
-# # command_execution_time
-# POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='white'
-# POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
-# POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-#
-# POWERLEVEL9K_RAM_BACKGROUND='white'
-# POWERLEVEL9K_IP_BACKGROUND='white'
-#
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -187,14 +116,6 @@ function git_information() {
   echo  ${vcs_info_msg_0_}
 }
 
-# POWERLEVEL9K_CUSTOM_GIT_INFO="git_information"
-# POWERLEVEL9K_CUSTOM_GIT_INFO_BACKGROUND="black"
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( vi_mode custom_git_info ssh dir )
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( dir_writable command_execution_time )
-
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( status dir_writable command_execution_time ip time )
-#
-#
 PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)$(git_information)${editor_info[keymap]} '
 RPROMPT=''
 
