@@ -60,15 +60,34 @@ export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin
 stty stop undef
 stty start undef
 
-# fzf
-function fzf-history-selection() {
-    BUFFER=$( history -n 1 | awk '!a[$0]++' | fzf --height='30%' --layout='reverse')
-    CURSOR=$#BUFFER
-    zle reset-prompt
+# ref: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
+# CTRL-R - Paste the selected command from history into the command line
+fzf-history-widget() {
+  local selected num
+  setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+  selected=( $(fc -rl 1 |
+    FZF_DEFAULT_OPTS="--layout=reverse --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
+  local ret=$?
+  if [ -n "$selected" ]; then
+    num=$selected[1]
+    if [ -n "$num" ]; then
+      zle vi-fetch-history -n $num
+    fi
+  fi
+  zle reset-prompt
+  return $ret
+}
+__fzfcmd() {
+  __fzf_use_tmux__ &&
+    echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
 }
 
-zle -N fzf-history-selection
-bindkey '^R' fzf-history-selection
+__fzf_use_tmux__() {
+  [ -n "$TMUX_PANE" ] && [ "${FZF_TMUX:-0}" != 0 ] && [ ${LINES:-40} -gt 15 ]
+}
+
+zle     -N   fzf-history-widget
+bindkey '^R' fzf-history-widget
 
 # ls
 function chpwd() { rename_session && ls }
@@ -210,23 +229,16 @@ function create_session_with_ghq() {
         if [ $repo_name != `basename $(ghq root)` ]
         then
           tmux new-session -d -c $moveto -s $repo_name  2> /dev/null
+          zle reset-prompt
           tmux switch-client -t $repo_name 2> /dev/null
+        else
+          zle reset-prompt
         fi
     fi
 }
 
 zle -N create_session_with_ghq
 bindkey '^G' create_session_with_ghq
-
-# function delete_repository_with_ghq() {
-#   repo=$(ghq root)/$(ghq list | fzf)
-#   if [ `basename $repo` != `basename $(ghq root)` ]
-#   then
-#     rm -rf $repo
-#   fi
-# }
-# zle -N delete_repository_with_ghq
-# bindkey '^X' delete_repository_with_ghq
 
 alias stigmata="java -jar ~/stigmata/target/stigmata-5.0-SNAPSHOT.jar"
 
@@ -239,7 +251,10 @@ function create_session_with_dir() {
         if [ $dir_name != `basename $(pwd)` ]
         then
           tmux new-session -d -c $moveto -s $dir_name  2> /dev/null
+          zle reset-prompt
           tmux switch-client -t $dir_name 2> /dev/null
+        else
+          zle reset-prompt
         fi
     fi
 }
@@ -254,6 +269,8 @@ function remove_session() {
         then
           tmux switch-client -n
           tmux kill-session -t $session_name 2> /dev/null
+        else
+          zle reset-prompt
         fi
     fi
 }
@@ -286,18 +303,21 @@ function rename_session() {
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
-# function move_cdr() {
-#     name=$(cdr -l | fzf)
-#     if [[ ! -z ${TMUX} ]]
-#     then
-#         if [ ! -z ${name} ]
-#         then
-#           cdr $(echo $name | awk '{print $1}')
-#         fi
-#     fi
-# }
-# zle -N move_cdr
-# bindkey '^N' move_cdr
+function move_cdr() {
+    name=$(cdr -l | fzf --height='30%' --layout='reverse')
+    if [[ ! -z ${TMUX} ]]
+    then
+        if [ ! -z ${name} ]
+        then
+          cdr $(echo $name | awk '{print $1}')
+          zle reset-prompt
+        else
+          zle reset-prompt
+        fi
+    fi
+}
+zle -N move_cdr
+bindkey '^N' move_cdr
 
 # ref: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
 # Aliases
