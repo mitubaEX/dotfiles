@@ -62,7 +62,7 @@ stty start undef
 
 # fzf
 function fzf-history-selection() {
-    BUFFER=`history -n 1 | awk '!a[$0]++' | fzf`
+    BUFFER=$( history -n 1 | awk '!a[$0]++' | fzf --height='30%' --layout='reverse')
     CURSOR=$#BUFFER
     zle reset-prompt
 }
@@ -189,7 +189,7 @@ if [[ ! -n $TMUX ]]; then
   fi
   create_new_session="Create New Session"
   ID="$ID\n${create_new_session}:"
-  ID="`echo $ID | fzf | cut -d: -f1`"
+  ID="`echo $ID | fzf --height='30%' --layout='reverse'| cut -d: -f1`"
   if [[ "$ID" = "${create_new_session}" ]]; then
     tmux new-session
   elif [[ -n "$ID" ]]; then
@@ -203,7 +203,7 @@ fi
 ## ref: http://blog.chairoi.me/entry/2017/12/26/233926
 function create_session_with_ghq() {
     # rename session if in tmux
-    moveto=$(ghq root)/$(ghq list | fzf)
+    moveto=$(ghq root)/$(ghq list | fzf --height='30%' --layout='reverse')
     if [[ ! -z ${TMUX} ]]
     then
         repo_name=`basename $moveto`
@@ -232,7 +232,7 @@ alias stigmata="java -jar ~/stigmata/target/stigmata-5.0-SNAPSHOT.jar"
 
 function create_session_with_dir() {
     # rename session if in tmux
-    moveto=$(pwd)/$(find . -type d | fzf)
+    moveto=$(pwd)/$(find . -type d | fzf --height='30%' --layout='reverse')
     if [[ ! -z ${TMUX} ]]
     then
         dir_name=`basename $moveto`
