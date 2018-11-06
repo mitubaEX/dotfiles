@@ -484,6 +484,7 @@ source <(kubectl completion zsh)
 function niconew () {
   rm $HOME/index.html
   echo "<html><header/><body>" > $HOME/index.html
+  echo '<meta http-equiv="content-type" charset="utf-8">' >> $HOME/index.html
   for i in `seq 1 10`
   do
     paste -d "\n" <(curl "https://www.nicovideo.jp/newarrival?page=$i" | pup 'a[href]' | grep watch | grep title | sed 's/watch\//https\:\/\/www.nicovideo.jp\/watch\//g') <(curl "https://www.nicovideo.jp/newarrival?page=$i" | pup 'img[src]' | grep smile)  >> $HOME/index.html
