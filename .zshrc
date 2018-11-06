@@ -116,7 +116,7 @@ function git_information() {
   echo  ${vcs_info_msg_0_}
 }
 
-PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)$(git_information)${editor_info[keymap]} '
+PROMPT='%2~${vcs_info_msg_0_} ${editor_info[keymap]} '
 RPROMPT=''
 
 # ref: https://qiita.com/ssh0/items/a9956a74bff8254a606a
