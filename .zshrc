@@ -116,7 +116,7 @@ function git_information() {
   echo  ${vcs_info_msg_0_}
 }
 
-PROMPT='%2~${vcs_info_msg_0_} ${editor_info[keymap]} '
+PROMPT='%F{blue}%2~${vcs_info_msg_0_} ${editor_info[keymap]} '
 RPROMPT=''
 
 # ref: https://qiita.com/ssh0/items/a9956a74bff8254a606a
