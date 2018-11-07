@@ -20,3 +20,7 @@ ln -sf $(pwd)/.xprofile $HOME/.xprofile
 
 # amethyst config
 ln -sf $(pwd)/com.amethyst.Amethyst.plist $HOME/Library/Preferences/com.amethyst.Amethyst.plist
+
+# aquaskk
+ln -sf $(pwd)/keymap.conf $HOME/Library/Application Support/AquaSKK/keymap.conf
+
