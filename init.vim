@@ -216,3 +216,8 @@ let g:indent_guides_guide_size=1
 
 " autocmd VimEnter * new | terminal
 language en_US
+
+set foldmethod=indent
+set foldlevel=2
+set foldcolumn=3
+nnoremap <Leader>f za
