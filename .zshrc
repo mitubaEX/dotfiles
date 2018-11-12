@@ -96,6 +96,7 @@ fbr() {
   branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  zle reset-prompt
 }
 zle     -N   fbr
 bindkey '^B' fbr
@@ -239,6 +240,19 @@ function move_cdr() {
 }
 zle -N move_cdr
 bindkey '^N' move_cdr
+
+# fshow - git commit browser
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --toggle-sort=\` \
+      --bind "ctrl-m:execute:
+                echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R'"
+}
+
+zle -N fshow
+bindkey '^O' fshow
 
 # ref: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
 # Aliases
