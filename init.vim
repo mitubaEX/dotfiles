@@ -1,223 +1,230 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+"dein Scripts----------------------------- {{{
+	if &compatible
+		set nocompatible               " Be iMproved
+	endif
 
-" Required:
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+	" Required:
+	set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" Required:
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+	" Required:
+	if dein#load_state('~/.cache/dein')
+		call dein#begin('~/.cache/dein')
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+		" Let dein manage dein
+		" Required:
+		call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#load_toml('~/dein.toml')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+		" Add or remove your plugins here:
+		call dein#add('Shougo/neosnippet.vim')
+		call dein#add('Shougo/neosnippet-snippets')
+		call dein#load_toml('~/dein.toml')
+		if !has('nvim')
+			call dein#add('roxma/nvim-yarp')
+			call dein#add('roxma/vim-hug-neovim-rpc')
+		endif
 
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
+		" You can specify revision/branch/tag.
+		call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+		" Required:
+		call dein#end()
+		call dein#save_state()
+	endif
 
-" Required:
-filetype plugin indent on
-syntax enable
+	" Required:
+	filetype plugin indent on
+	syntax enable
 
-"End dein Scripts-------------------------
+"End dein Scripts------------------------- }}}
 autocmd BufWritePre * :%s/\s\+$//ge
 filetype indent plugin on
-set hidden
-set wildmenu
-set showcmd
-set hlsearch
-set ignorecase
-set smartcase
-set backspace=indent,eol,start
-set nostartofline
-set ruler
-set laststatus=2
-set confirm
-set visualbell
-set t_vb=
-set cmdheight=1
-set whichwrap=b,s,<,>,[,],h,l
-nmap <Leader>c <Plug>(caw:hatpos:toggle)
-vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,cp932
-set wrap
-set autoindent
-set number
-set sm
-set ai
-set noswapfile
-set cursorline
-set cursorcolumn
+" set {{{
+	set hidden
+	set wildmenu
+	set showcmd
+	set wildmode=list:longest
+	set shell=$SHELL
+	set title " set terminal title
+	set showmatch " show matching braces
 
-" color
-" let g:rehash256 = 1
-" colorscheme molokai
-" let g:solarized_termtrans = 1
-" set background=light
-" colorscheme solarized
-colorscheme gruvbox
-set background=dark
-highlight Normal ctermbg=None
-set t_Co=256
-let g:gruvbox_contrast_dark="hard"
+	" search
+	set hlsearch
+	set ignorecase
+	set smartcase
+	set incsearch
+	set inccommand=split
+	set nolazyredraw
 
-" クリップボード連携
-set clipboard+=unnamedplus
-set tabstop=2
-set shiftwidth=2
-set expandtab
+	set magic
 
-" reader ref:https://postd.cc/how-to-boost-your-vim-productivity/
-let mapleader = "\<Space>"
-nnoremap <Leader>w <Esc>:w<CR>
-" inoremap <Leader>w <Esc>:w<CR>
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <Leader>s :source .config/nvim/init.vim<CR>
+	set backspace=indent,eol,start
+	set nostartofline
+	set ruler
+	set laststatus=2
+	set confirm
+	set visualbell
+	set t_vb=
+	set cmdheight=1
+	set whichwrap=b,s,<,>,[,],h,l
 
-"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<独自キーバインド<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <C-s> <Nop>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-e> :terminal<Enter>
+	set encoding=utf-8
+	set fileencoding=utf-8
+	set fileencodings=utf-8,cp932
+	set wrap
+	set autoindent
+	set ttyfast
+	set number
+	set sm
+	set ai
+	set noswapfile
+	set cursorline
+	set cursorcolumn
 
-let g:NERDTreeWinSize=30
-let g:NERDTreeQuitOnOpen=1
+	set linebreak
+	set showbreak=…
+	set so=7
+
+	" color
+	colorscheme gruvbox
+	set background=dark
+	highlight Normal ctermbg=None
+	set t_Co=256
+	let g:gruvbox_contrast_dark="hard"
 
 
-" inoremap <C-[> <Nop>
-" imap <C-[> <Esc>:w<CR>
-" nmap <C-[> <Esc>:w<CR>
-" inoremap <Esc> <Esc>:w<CR>
-" 挿入モードでのカーソル移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-" inoremap <Esc> <Esc>:<C-u>w<CR>
-" inoremap <Esc> <Esc>:<C-u>w<CR>
+	" clipboard combination
+	set clipboard+=unnamedplus
+	set tabstop=2
+	set shiftwidth=2
+	set expandtab
+
+	" If installed using Homebrew
+	set rtp+=/usr/local/opt/fzf
+
+	set wrapscan
+
+	se ff=unix
+
+	set ttimeout
+	set ttimeoutlen=50
+
+	set virtualedit=block
+
+	set foldmethod=indent
+	set foldlevel=2
+	set foldcolumn=3
+" }}}
 "
-" nnoremap <C-s> :set spell<Enter>
-nnoremap <tab> gt
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-q> <Esc>:BufferClose<Enter>
+" keybind {{{
+	nmap <Leader>c <Plug>(caw:hatpos:toggle)
+	vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
-function! s:bufferClose() abort
-  if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    execute "q"
-  else
-    execute "bd"
-  endif
-endfunction
-command! -nargs=* BufferClose call s:bufferClose()
+	" reader ref:https://postd.cc/how-to-boost-your-vim-productivity/
+	let mapleader = "\<Space>"
+	nnoremap <Leader>w <Esc>:w<CR>
+	nnoremap <Leader>o :CtrlP<CR>
+	nnoremap <Leader>s :source .config/nvim/init.vim<CR>
 
-" 縦にsplitする
-nnoremap <C-s> :split<Enter>
-" 横にsplitする
-nnoremap <C-y> :vsplit<Enter>
+	noremap <Up> <Nop>
+	noremap <Down> <Nop>
+	noremap <Left> <Nop>
+	noremap <Right> <Nop>
+	inoremap <Up> <Nop>
+	inoremap <Down> <Nop>
+	inoremap <Left> <Nop>
+	inoremap <Right> <Nop>
+	inoremap <C-s> <Nop>
+	nnoremap <C-t> :NERDTreeToggle<CR>
+	nnoremap <C-e> :terminal<Enter>
 
-inoremap <silent> jj <ESC>
+	" move method of cursor in insert mode
+	inoremap <C-j> <Down>
+	inoremap <C-k> <Up>
+	inoremap <C-h> <Left>
+	inoremap <C-l> <Right>
 
-" move previous buffer
-nnoremap <C-n> :b #<Enter>
-">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>独自キーバインド>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	nnoremap <tab> gt
+	nnoremap <C-j> <C-w>j
+	nnoremap <C-k> <C-w>k
+	nnoremap <C-l> <C-w>l
+	nnoremap <C-h> <C-w>h
+	nnoremap <C-q> <Esc>:BufferClose<Enter>
 
-tnoremap <silent> <ESC> <C-\><C-n>
+	" bd or q command
+	function! s:bufferClose() abort
+		if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+			execute "q"
+		else
+			execute "bd"
+		endif
+	endfunction
+	command! -nargs=* BufferClose call s:bufferClose()
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+	" vertical split
+	nnoremap <C-s> :split<Enter>
+	" horizontal split
+	nnoremap <C-y> :vsplit<Enter>
 
-" neosnippet
-let g:neosnippet#enable_completed_snippet = 1
+	" escape
+	inoremap <silent> jj <ESC>
 
-" If installed using Homebrew
-set rtp+=/usr/local/opt/fzf
+	" move previous buffer
+	nnoremap <C-n> :b #<Enter>
 
-let g:vim_markdown_folding_disabled = 1
+	tnoremap <silent> <ESC> <C-\><C-n>
 
-" >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
-nnoremap [vim-fugitive] <Nop>
-nmap <C-g> [vim-fugitive]
+	" deoplete tab-complete
+	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-" status
-nnoremap <silent> [vim-fugitive]s  :<C-u>Gstatus<CR>
 
-" diff
-nnoremap <silent> [vim-fugitive]d  :<C-u>Gdiff<CR>
+	" >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
+		nnoremap [vim-fugitive] <Nop>
+		nmap <C-g> [vim-fugitive]
 
-" add
-nnoremap <silent> [vim-fugitive]a  :<C-u>Gwrite<CR>
+		" status
+		nnoremap <silent> [vim-fugitive]s  :<C-u>Gstatus<CR>
 
-" commit
-nnoremap <silent> [vim-fugitive]c  :<C-u>Gcommit<CR>
-" >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
+		" diff
+		nnoremap <silent> [vim-fugitive]d  :<C-u>Gdiff<CR>
 
-set ignorecase
-set smartcase
-set wrapscan
-set incsearch
-set inccommand=split
+		" add
+		nnoremap <silent> [vim-fugitive]a  :<C-u>Gwrite<CR>
 
-se ff=unix
+		" commit
+		nnoremap <silent> [vim-fugitive]c  :<C-u>Gcommit<CR>
+	" >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
 
-set ttimeout
-set ttimeoutlen=50
+	noremap <Leader>p "0p
+	noremap <Leader>P "0P
+	vnoremap <Leader>p "0p
+	nmap <leader>s <Plug>yankstack_substitute_older_paste
+	nmap <leader>S <Plug>yankstack_substitute_newer_paste
 
-noremap <Leader>p "0p
-noremap <Leader>P "0P
-vnoremap <Leader>p "0p
-nmap <leader>s <Plug>yankstack_substitute_older_paste
-nmap <leader>S <Plug>yankstack_substitute_newer_paste
+	" fzf
+	nmap <Leader>t :Files<CR>
+	nmap <Leader>a :Ag<Space>
 
-" fzf
-nmap <Leader>t :Files<CR>
-nmap <Leader>a :Ag<Space>
+	" Codic
+	nmap <Leader>c :Codic<Space>
 
-" Codic
-nmap <Leader>c :Codic<Space>
+	nnoremap <Leader>f za
 
-au VimLeave * set guicursor=a:hor100
+" }}}
 
-set virtualedit=block
-
+language en_US
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size=1
 
-" autocmd VimEnter * new | terminal
-language en_US
+au VimLeave * set guicursor=a:hor100
 
-set foldmethod=indent
-set foldlevel=2
-set foldcolumn=3
-nnoremap <Leader>f za
+let g:NERDTreeWinSize=30
+let g:NERDTreeQuitOnOpen=1
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" neosnippet
+let g:neosnippet#enable_completed_snippet = 1
+
+let g:vim_markdown_folding_disabled = 1
