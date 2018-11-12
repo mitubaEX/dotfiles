@@ -1,31 +1,18 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-#
-#
-# 大文字小文字区別しない
+# no check uppper case and lower case
 zstyle ':completion:*' matcher-list 'm:{}a-z}={}A-Z}'
 
-# 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
-# コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
+# remove duplication of history
 setopt hist_ignore_all_dups
 
-# cd した先のディレクトリをディレクトリスタックに追加する
-# ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
-# `cd -<Tab>` でディレクトリの履歴が表示され、そこに移動できる
+# use dir stack
 setopt auto_pushd
 
-# pushd したとき、ディレクトリがすでにスタックに含まれていればスタックに追加しない
+# remove duplication of dir stack
 setopt pushd_ignore_dups
 
 # no-beep
@@ -40,11 +27,9 @@ bindkey -v '^J'   down-line-or-history
 
 # alias
 alias e='exit'
-
 alias rm='rm -rf'
 alias vi='nvim'
 alias vim='nvim'
-# alias nv='nvim'
 alias dockerrm='docker rm -f $(docker ps -qa)'
 alias dockerrmi='docker rmi -f $(docker images -q)'
 alias atmkdir='for i in A B C D ; do mkdir "$i"; touch "$i"/main.py ;done '
@@ -60,46 +45,6 @@ export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin
 stty stop undef
 stty start undef
 
-# ref: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
-# CTRL-R - Paste the selected command from history into the command line
-fzf-history-widget() {
-  local selected num
-  setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-  selected=( $(fc -rl 1 |
-    FZF_DEFAULT_OPTS="--layout=reverse --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
-  local ret=$?
-  if [ -n "$selected" ]; then
-    num=$selected[1]
-    if [ -n "$num" ]; then
-      zle vi-fetch-history -n $num
-    fi
-  fi
-  zle reset-prompt
-  return $ret
-}
-__fzfcmd() {
-  __fzf_use_tmux__ &&
-    echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
-}
-
-__fzf_use_tmux__() {
-  [ -n "$TMUX_PANE" ] && [ "${FZF_TMUX:-0}" != 0 ] && [ ${LINES:-40} -gt 15 ]
-}
-
-zle     -N   fzf-history-widget
-bindkey '^R' fzf-history-widget
-
-# fbr - checkout git branch (including remote branches)
-fbr() {
-  local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-  zle reset-prompt
-}
-zle     -N   fbr
-bindkey '^B' fbr
 
 # ls
 function chpwd() { rename_session && ls }
@@ -120,364 +65,403 @@ function git_information() {
 PROMPT='%F{blue}%2~${vcs_info_msg_0_} ${editor_info[keymap]} '
 RPROMPT=''
 
-# ref: https://qiita.com/ssh0/items/a9956a74bff8254a606a
-if [[ ! -n $TMUX ]]; then
-  # get the IDs
-  ID="`tmux list-sessions`"
-  if [[ -z "$ID" ]]; then
-    # tmux new-session && exit
-    tmux new-session
-  fi
-  create_new_session="Create New Session"
-  ID="$ID\n${create_new_session}:"
-  ID="`echo $ID | fzf --height='30%' --layout='reverse'| cut -d: -f1`"
-  if [[ "$ID" = "${create_new_session}" ]]; then
-    tmux new-session
-  elif [[ -n "$ID" ]]; then
-    tmux attach-session -t "$ID"
-  else
-    :  # Start terminal normally
-  fi
-fi
-
-## ref: https://www.matsub.net/posts/2017/12/01/ghq-fzf-on-tmux
-## ref: http://blog.chairoi.me/entry/2017/12/26/233926
-function create_session_with_ghq() {
-    # rename session if in tmux
-    moveto=$(ghq root)/$(ghq list | fzf --height='30%' --layout='reverse')
-    if [[ ! -z ${TMUX} ]]
-    then
-        repo_name=`basename $moveto`
-        if [ $repo_name != `basename $(ghq root)` ]
-        then
-          tmux new-session -d -c $moveto -s $repo_name  2> /dev/null
-          zle reset-prompt
-          tmux switch-client -t $repo_name 2> /dev/null
-        else
-          zle reset-prompt
-        fi
-    fi
-}
-
-zle -N create_session_with_ghq
-bindkey '^G' create_session_with_ghq
-
-alias stigmata="java -jar ~/stigmata/target/stigmata-5.0-SNAPSHOT.jar"
-
-function create_session_with_dir() {
-    # rename session if in tmux
-    moveto=$(pwd)/$(find . -type d | fzf --height='30%' --layout='reverse')
-    if [[ ! -z ${TMUX} ]]
-    then
-        dir_name=`basename $moveto`
-        if [ $dir_name != `basename $(pwd)` ]
-        then
-          tmux new-session -d -c $moveto -s $dir_name  2> /dev/null
-          zle reset-prompt
-          tmux switch-client -t $dir_name 2> /dev/null
-        else
-          zle reset-prompt
-        fi
-    fi
-}
-zle -N create_session_with_dir
-bindkey '^U' create_session_with_dir
-
-function remove_session() {
-    session_name=$(tmux display-message -p '#S')
-    if [[ ! -z ${TMUX} ]]
-    then
-        if [ ! -z ${session_name} ]
-        then
-          tmux switch-client -n
-          tmux kill-session -t $session_name 2> /dev/null
-        else
-          zle reset-prompt
-        fi
-    fi
-}
-zle -N remove_session
-bindkey '^X' remove_session
-
-alias ghci='stack ghci'
-alias ghc='stack ghc --'
-alias runghc='stack runghc --'
-
-alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
-
-function rename_session() {
-  dir=$(pwd)
-  # remove ghq dir
-  if [[ $dir != *".ghq"* ]]; then
-    name=$(basename $dir)
-    if [[ ! -z ${TMUX} ]]
-    then
-      if [ ! -z ${name} ]
-      then
-        tmux rename-session -t $(tmux display-message -p '#S') $name
-        # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
+# fzf functions ================= {{{
+  # ref: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
+  # CTRL-R - Paste the selected command from history into the command line
+  fzf-history-widget() {
+    local selected num
+    setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+    selected=( $(fc -rl 1 |
+      FZF_DEFAULT_OPTS="--layout=reverse --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
+    local ret=$?
+    if [ -n "$selected" ]; then
+      num=$selected[1]
+      if [ -n "$num" ]; then
+        zle vi-fetch-history -n $num
       fi
     fi
+    zle reset-prompt
+    return $ret
+  }
+  __fzfcmd() {
+    __fzf_use_tmux__ &&
+      echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
+  }
+
+  __fzf_use_tmux__() {
+    [ -n "$TMUX_PANE" ] && [ "${FZF_TMUX:-0}" != 0 ] && [ ${LINES:-40} -gt 15 ]
+  }
+
+  zle     -N   fzf-history-widget
+  bindkey '^R' fzf-history-widget
+
+  # fbr - checkout git branch (including remote branches)
+  fbr() {
+    local branches branch
+    branches=$(git branch --all | grep -v HEAD) &&
+    branch=$(echo "$branches" |
+             fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+    git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+    zle reset-prompt
+  }
+  zle     -N   fbr
+  bindkey '^B' fbr
+
+  # ref: https://qiita.com/ssh0/items/a9956a74bff8254a606a
+  if [[ ! -n $TMUX ]]; then
+    # get the IDs
+    ID="`tmux list-sessions`"
+    if [[ -z "$ID" ]]; then
+      # tmux new-session && exit
+      tmux new-session
+    fi
+    create_new_session="Create New Session"
+    ID="$ID\n${create_new_session}:"
+    ID="`echo $ID | fzf --height='30%' --layout='reverse'| cut -d: -f1`"
+    if [[ "$ID" = "${create_new_session}" ]]; then
+      tmux new-session
+    elif [[ -n "$ID" ]]; then
+      tmux attach-session -t "$ID"
+    else
+      :  # Start terminal normally
+    fi
   fi
-}
 
-# cdr, add-zsh-hook を有効にする
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
+  ## ref: https://www.matsub.net/posts/2017/12/01/ghq-fzf-on-tmux
+  ## ref: http://blog.chairoi.me/entry/2017/12/26/233926
+  function create_session_with_ghq() {
+      # rename session if in tmux
+      moveto=$(ghq root)/$(ghq list | fzf --height='30%' --layout='reverse')
+      if [[ ! -z ${TMUX} ]]
+      then
+          repo_name=`basename $moveto`
+          if [ $repo_name != `basename $(ghq root)` ]
+          then
+            tmux new-session -d -c $moveto -s $repo_name  2> /dev/null
+            zle reset-prompt
+            tmux switch-client -t $repo_name 2> /dev/null
+          else
+            zle reset-prompt
+          fi
+      fi
+  }
 
-function move_cdr() {
-    name=$(cdr -l | fzf --height='30%' --layout='reverse')
-    if [[ ! -z ${TMUX} ]]
-    then
+  zle -N create_session_with_ghq
+  bindkey '^G' create_session_with_ghq
+
+  alias stigmata="java -jar ~/stigmata/target/stigmata-5.0-SNAPSHOT.jar"
+
+  function create_session_with_dir() {
+      # rename session if in tmux
+      moveto=$(pwd)/$(find . -type d | fzf --height='30%' --layout='reverse')
+      if [[ ! -z ${TMUX} ]]
+      then
+          dir_name=`basename $moveto`
+          if [ $dir_name != `basename $(pwd)` ]
+          then
+            tmux new-session -d -c $moveto -s $dir_name  2> /dev/null
+            zle reset-prompt
+            tmux switch-client -t $dir_name 2> /dev/null
+          else
+            zle reset-prompt
+          fi
+      fi
+  }
+  zle -N create_session_with_dir
+  bindkey '^U' create_session_with_dir
+
+  function remove_session() {
+      session_name=$(tmux display-message -p '#S')
+      if [[ ! -z ${TMUX} ]]
+      then
+          if [ ! -z ${session_name} ]
+          then
+            tmux switch-client -n
+            tmux kill-session -t $session_name 2> /dev/null
+          else
+            zle reset-prompt
+          fi
+      fi
+  }
+  zle -N remove_session
+  bindkey '^X' remove_session
+
+  function rename_session() {
+    dir=$(pwd)
+    # remove ghq dir
+    if [[ $dir != *".ghq"* ]]; then
+      name=$(basename $dir)
+      if [[ ! -z ${TMUX} ]]
+      then
         if [ ! -z ${name} ]
         then
-          cdr $(echo $name | awk '{print $1}')
-          zle reset-prompt
-        else
-          zle reset-prompt
+          tmux rename-session -t $(tmux display-message -p '#S') $name
+          # tmux switch-client -t $(echo $moveto | IFS=":" read -r a b; echo $a) 2> /dev/null
         fi
+      fi
     fi
-}
-zle -N move_cdr
-bindkey '^N' move_cdr
+  }
 
-# fshow - git commit browser
-fshow() {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --toggle-sort=\` \
-      --bind "ctrl-m:execute:
-                echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R'"
-}
+  # cdr, add-zsh-hook を有効にする
+  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+  add-zsh-hook chpwd chpwd_recent_dirs
 
-zle -N fshow
-bindkey '^O' fshow
+  function move_cdr() {
+      name=$(cdr -l | fzf --height='30%' --layout='reverse')
+      if [[ ! -z ${TMUX} ]]
+      then
+          if [ ! -z ${name} ]
+          then
+            cdr $(echo $name | awk '{print $1}')
+            zle reset-prompt
+          else
+            zle reset-prompt
+          fi
+      fi
+  }
+  zle -N move_cdr
+  bindkey '^N' move_cdr
 
-# ref: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
-# Aliases
-# (sorted alphabetically)
-#
+  # fshow - git commit browser
+  fshow() {
+    git log --graph --color=always \
+        --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+    fzf --ansi --no-sort --reverse --tiebreak=index --toggle-sort=\` \
+        --bind "ctrl-m:execute:
+                  echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 |
+                  xargs -I % sh -c 'git show --color=always % | less -R'"
+  }
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+  zle -N fshow
+  bindkey '^O' fshow
+
+  # ref: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
+  # Aliases
+  # (sorted alphabetically)
+  #
+
+  export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+
+# }}}
 
 
-# =====================git alias==============================
+# =====================git alias============================== {{{
+  alias g='git'
 
-alias g='git'
+  alias ga='git add'
+  alias gaa='git add --all'
+  alias gapa='git add --patch'
+  alias gau='git add --update'
+  alias gav='git add --verbose'
+  alias gap='git apply'
 
-alias ga='git add'
-alias gaa='git add --all'
-alias gapa='git add --patch'
-alias gau='git add --update'
-alias gav='git add --verbose'
-alias gap='git apply'
+  alias gb='git branch'
+  alias gba='git branch -a'
+  alias gbd='git branch -d'
+  alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+  alias gbl='git blame -b -w'
+  alias gbnm='git branch --no-merged'
+  alias gbr='git branch --remote'
+  alias gbs='git bisect'
+  alias gbsb='git bisect bad'
+  alias gbsg='git bisect good'
+  alias gbsr='git bisect reset'
+  alias gbss='git bisect start'
 
-alias gb='git branch'
-alias gba='git branch -a'
-alias gbd='git branch -d'
-alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
-alias gbl='git blame -b -w'
-alias gbnm='git branch --no-merged'
-alias gbr='git branch --remote'
-alias gbs='git bisect'
-alias gbsb='git bisect bad'
-alias gbsg='git bisect good'
-alias gbsr='git bisect reset'
-alias gbss='git bisect start'
+  alias gc='git commit -v'
+  alias gc!='git commit -v --amend'
+  alias gcn!='git commit -v --no-edit --amend'
+  alias gca='git commit -v -a'
+  alias gca!='git commit -v -a --amend'
+  alias gcan!='git commit -v -a --no-edit --amend'
+  alias gcans!='git commit -v -a -s --no-edit --amend'
+  alias gcam='git commit -a -m'
+  alias gcsm='git commit -s -m'
+  alias gcb='git checkout -b'
+  alias gcf='git config --list'
+  alias gcl='git clone --recurse-submodules'
+  alias gclean='git clean -fd'
+  alias gpristine='git reset --hard && git clean -dfx'
+  alias gcm='git checkout master'
+  alias gcd='git checkout develop'
+  alias gcmsg='git commit -m'
+  alias gco='git checkout'
+  alias gcount='git shortlog -sn'
+  compdef _git gcount
+  alias gcp='git cherry-pick'
+  alias gcpa='git cherry-pick --abort'
+  alias gcpc='git cherry-pick --continue'
+  alias gcs='git commit -S'
 
-alias gc='git commit -v'
-alias gc!='git commit -v --amend'
-alias gcn!='git commit -v --no-edit --amend'
-alias gca='git commit -v -a'
-alias gca!='git commit -v -a --amend'
-alias gcan!='git commit -v -a --no-edit --amend'
-alias gcans!='git commit -v -a -s --no-edit --amend'
-alias gcam='git commit -a -m'
-alias gcsm='git commit -s -m'
-alias gcb='git checkout -b'
-alias gcf='git config --list'
-alias gcl='git clone --recurse-submodules'
-alias gclean='git clean -fd'
-alias gpristine='git reset --hard && git clean -dfx'
-alias gcm='git checkout master'
-alias gcd='git checkout develop'
-alias gcmsg='git commit -m'
-alias gco='git checkout'
-alias gcount='git shortlog -sn'
-compdef _git gcount
-alias gcp='git cherry-pick'
-alias gcpa='git cherry-pick --abort'
-alias gcpc='git cherry-pick --continue'
-alias gcs='git commit -S'
+  alias gd='git diff'
+  alias gdca='git diff --cached'
+  alias gdcw='git diff --cached --word-diff'
+  alias gdct='git describe --tags `git rev-list --tags --max-count=1`'
+  alias gds='git diff --staged'
+  alias gdt='git diff-tree --no-commit-id --name-only -r'
+  alias gdw='git diff --word-diff'
 
-alias gd='git diff'
-alias gdca='git diff --cached'
-alias gdcw='git diff --cached --word-diff'
-alias gdct='git describe --tags `git rev-list --tags --max-count=1`'
-alias gds='git diff --staged'
-alias gdt='git diff-tree --no-commit-id --name-only -r'
-alias gdw='git diff --word-diff'
+  gdv() { git diff -w "$@" | view - }
+  compdef _git gdv=git-diff
 
-gdv() { git diff -w "$@" | view - }
-compdef _git gdv=git-diff
+  alias gf='git fetch'
+  alias gfa='git fetch --all --prune'
+  alias gfo='git fetch origin'
 
-alias gf='git fetch'
-alias gfa='git fetch --all --prune'
-alias gfo='git fetch origin'
+  function gfg() { git ls-files | grep $@ }
+  compdef _grep gfg
 
-function gfg() { git ls-files | grep $@ }
-compdef _grep gfg
+  alias gg='git gui citool'
+  alias gga='git gui citool --amend'
 
-alias gg='git gui citool'
-alias gga='git gui citool --amend'
-
-ggf() {
+  ggf() {
+    [[ "$#" != 1 ]] && local b="$(git_current_branch)"
+    git push --force origin "${b:=$1}"
+  }
+  ggfl() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  git push --force origin "${b:=$1}"
-}
-ggfl() {
-[[ "$#" != 1 ]] && local b="$(git_current_branch)"
-git push --force-with-lease origin "${b:=$1}"
-}
-compdef _git ggf=git-checkout
+  git push --force-with-lease origin "${b:=$1}"
+  }
+  compdef _git ggf=git-checkout
 
-ggl() {
-  if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-    git pull origin "${*}"
-  else
-    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-    git pull origin "${b:=$1}"
-  fi
-}
-compdef _git ggl=git-checkout
+  ggl() {
+    if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
+      git pull origin "${*}"
+    else
+      [[ "$#" == 0 ]] && local b="$(git_current_branch)"
+      git pull origin "${b:=$1}"
+    fi
+  }
+  compdef _git ggl=git-checkout
 
-ggp() {
-  if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-    git push origin "${*}"
-  else
-    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-    git push origin "${b:=$1}"
-  fi
-}
-compdef _git ggp=git-checkout
+  ggp() {
+    if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
+      git push origin "${*}"
+    else
+      [[ "$#" == 0 ]] && local b="$(git_current_branch)"
+      git push origin "${b:=$1}"
+    fi
+  }
+  compdef _git ggp=git-checkout
 
-ggpnp() {
-  if [[ "$#" == 0 ]]; then
-    ggl && ggp
-  else
-    ggl "${*}" && ggp "${*}"
-  fi
-}
-compdef _git ggpnp=git-checkout
+  ggpnp() {
+    if [[ "$#" == 0 ]]; then
+      ggl && ggp
+    else
+      ggl "${*}" && ggp "${*}"
+    fi
+  }
+  compdef _git ggpnp=git-checkout
 
-ggu() {
-  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  git pull --rebase origin "${b:=$1}"
-}
-compdef _git ggu=git-checkout
+  ggu() {
+    [[ "$#" != 1 ]] && local b="$(git_current_branch)"
+    git pull --rebase origin "${b:=$1}"
+  }
+  compdef _git ggu=git-checkout
 
-alias ggpur='ggu'
-compdef _git ggpur=git-checkout
+  alias ggpur='ggu'
+  compdef _git ggpur=git-checkout
 
-alias ggpull='git pull origin $(git_current_branch)'
-compdef _git ggpull=git-checkout
+  alias ggpull='git pull origin $(git_current_branch)'
+  compdef _git ggpull=git-checkout
 
-alias ggpush='git push origin $(git_current_branch)'
-compdef _git ggpush=git-checkout
+  alias ggpush='git push origin $(git_current_branch)'
+  compdef _git ggpush=git-checkout
 
-alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
-alias gpsup='git push --set-upstream origin $(git_current_branch)'
+  alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
+  alias gpsup='git push --set-upstream origin $(git_current_branch)'
 
-alias ghh='git help'
+  alias ghh='git help'
 
-alias gignore='git update-index --assume-unchanged'
-alias gignored='git ls-files -v | grep "^[[:lower:]]"'
-alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
-compdef _git git-svn-dcommit-push=git
+  alias gignore='git update-index --assume-unchanged'
+  alias gignored='git ls-files -v | grep "^[[:lower:]]"'
+  alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
+  compdef _git git-svn-dcommit-push=git
 
-alias gk='\gitk --all --branches'
-compdef _git gk='gitk'
-alias gke='\gitk --all $(git log -g --pretty=%h)'
-compdef _git gke='gitk'
+  alias gk='\gitk --all --branches'
+  compdef _git gk='gitk'
+  alias gke='\gitk --all $(git log -g --pretty=%h)'
+  compdef _git gke='gitk'
 
-alias gl='git pull'
-alias glg='git log --stat'
-alias glgp='git log --stat -p'
-alias glgg='git log --graph'
-alias glgga='git log --graph --decorate --all'
-alias glgm='git log --graph --max-count=10'
-alias glo='git log --oneline --decorate'
-alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
-alias glod="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
-alias glods="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
-alias glola="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
-alias glog='git log --oneline --decorate --graph'
-alias gloga='git log --oneline --decorate --graph --all'
-alias glp="_git_log_prettily"
-compdef _git glp=git-log
+  alias gl='git pull'
+  alias glg='git log --stat'
+  alias glgp='git log --stat -p'
+  alias glgg='git log --graph'
+  alias glgga='git log --graph --decorate --all'
+  alias glgm='git log --graph --max-count=10'
+  alias glo='git log --oneline --decorate'
+  alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+  alias glod="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
+  alias glods="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+  alias glola="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
+  alias glog='git log --oneline --decorate --graph'
+  alias gloga='git log --oneline --decorate --graph --all'
+  alias glp="_git_log_prettily"
+  compdef _git glp=git-log
 
-alias gm='git merge'
-alias gmom='git merge origin/master'
-alias gmt='git mergetool --no-prompt'
-alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
-alias gmum='git merge upstream/master'
-alias gma='git merge --abort'
+  alias gm='git merge'
+  alias gmom='git merge origin/master'
+  alias gmt='git mergetool --no-prompt'
+  alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
+  alias gmum='git merge upstream/master'
+  alias gma='git merge --abort'
 
-alias gp='git push'
-alias gpd='git push --dry-run'
-alias gpoat='git push origin --all && git push origin --tags'
-compdef _git gpoat=git-push
-alias gpu='git push upstream'
-alias gpv='git push -v'
+  alias gp='git push'
+  alias gpd='git push --dry-run'
+  alias gpoat='git push origin --all && git push origin --tags'
+  compdef _git gpoat=git-push
+  alias gpu='git push upstream'
+  alias gpv='git push -v'
 
-alias gr='git remote'
-alias gra='git remote add'
-alias grb='git rebase'
-alias grba='git rebase --abort'
-alias grbc='git rebase --continue'
-alias grbd='git rebase develop'
-alias grbi='git rebase -i'
-alias grbm='git rebase master'
-alias grbs='git rebase --skip'
-alias grh='git reset'
-alias grhh='git reset --hard'
-alias grmv='git remote rename'
-alias grrm='git remote remove'
-alias grset='git remote set-url'
-alias grt='cd $(git rev-parse --show-toplevel || echo ".")'
-alias gru='git reset --'
-alias grup='git remote update'
-alias grv='git remote -v'
+  alias gr='git remote'
+  alias gra='git remote add'
+  alias grb='git rebase'
+  alias grba='git rebase --abort'
+  alias grbc='git rebase --continue'
+  alias grbd='git rebase develop'
+  alias grbi='git rebase -i'
+  alias grbm='git rebase master'
+  alias grbs='git rebase --skip'
+  alias grh='git reset'
+  alias grhh='git reset --hard'
+  alias grmv='git remote rename'
+  alias grrm='git remote remove'
+  alias grset='git remote set-url'
+  alias grt='cd $(git rev-parse --show-toplevel || echo ".")'
+  alias gru='git reset --'
+  alias grup='git remote update'
+  alias grv='git remote -v'
 
-alias gsb='git status -sb'
-alias gsd='git svn dcommit'
-alias gsh='git show'
-alias gsi='git submodule init'
-alias gsps='git show --pretty=short --show-signature'
-alias gsr='git svn rebase'
-alias gss='git status -s'
-alias gst='git status'
-alias gsta='git stash save'
-alias gstaa='git stash apply'
-alias gstc='git stash clear'
-alias gstd='git stash drop'
-alias gstl='git stash list'
-alias gstp='git stash pop'
-alias gsts='git stash show --text'
-alias gsu='git submodule update'
+  alias gsb='git status -sb'
+  alias gsd='git svn dcommit'
+  alias gsh='git show'
+  alias gsi='git submodule init'
+  alias gsps='git show --pretty=short --show-signature'
+  alias gsr='git svn rebase'
+  alias gss='git status -s'
+  alias gst='git status'
+  alias gsta='git stash save'
+  alias gstaa='git stash apply'
+  alias gstc='git stash clear'
+  alias gstd='git stash drop'
+  alias gstl='git stash list'
+  alias gstp='git stash pop'
+  alias gsts='git stash show --text'
+  alias gsu='git submodule update'
 
-alias gts='git tag -s'
-alias gtv='git tag | sort -V'
+  alias gts='git tag -s'
+  alias gtv='git tag | sort -V'
 
-alias gunignore='git update-index --no-assume-unchanged'
-alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
-alias gup='git pull --rebase'
-alias gupv='git pull --rebase -v'
-alias glum='git pull upstream master'
+  alias gunignore='git update-index --no-assume-unchanged'
+  alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+  alias gup='git pull --rebase'
+  alias gupv='git pull --rebase -v'
+  alias glum='git pull upstream master'
 
-alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
-alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
+  alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+  alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
+
+# }}}
 
 # fzf
 if [ "$(uname)" = "Linux" ]; then
@@ -518,3 +502,8 @@ alias g++="g++ -std=c++11"
 
 alias coninit="sh $HOME/.ghq/src/github.com/mitubaEX/cpp_template/contest_setting.sh"
 export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
+alias ghci='stack ghci'
+alias ghc='stack ghc --'
+alias runghc='stack runghc --'
+
+alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
