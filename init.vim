@@ -111,9 +111,9 @@ filetype indent plugin on
 
 	set virtualedit=block
 
-	set foldmethod=indent
+	set foldmethod=marker
 	set foldlevel=2
-	set foldcolumn=3
+	set foldcolumn=1
 " }}}
 "
 " keybind {{{
@@ -206,7 +206,7 @@ filetype indent plugin on
 	nmap <Leader>a :Ag<Space>
 
 	" Codic
-	nmap <Leader>c :Codic<Space>
+	nmap <Leader>C :Codic<Space>
 
 	nnoremap <Leader>f za
 
