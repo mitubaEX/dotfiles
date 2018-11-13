@@ -41,6 +41,9 @@ brew cask install font-hack-nerd-font
 # neovim-remote
 pip3 install neovim-remote
 
+mkdir $HOME/.ghq
+export GOPATH=$HOME/.ghq
+
 # install gocode
 go get -u github.com/mdempsky/gocode
 
@@ -58,7 +61,7 @@ fi
 
 
 # ghq
-go get github.com/motemen/ghq
+go get -u github.com/motemen/ghq
 
 echo '[ghq]' >> $HOME/.gitconfig
 echo '    root = ~/.ghq/src' >> $HOME/.gitconfig

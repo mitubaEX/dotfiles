@@ -39,8 +39,8 @@ alias atmkdir='for i in A B C D ; do mkdir "$i"; touch "$i"/main.py ;done '
 alias ls='exa'
 
 # go
-export GOPATH=$HOME/go:$HOME/.ghq
-export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin
+export GOPATH=$HOME/.ghq
+export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin
 
 # vim
 stty stop undef
@@ -508,3 +508,5 @@ alias ghc='stack ghc --'
 alias runghc='stack runghc --'
 
 alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
