@@ -362,3 +362,6 @@ map <silent>sr <Plug>(operator-surround-replace)
 
 [[plugins]]
 repo = 'rhysd/vim-grammarous'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
