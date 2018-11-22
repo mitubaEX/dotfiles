@@ -365,3 +365,12 @@ repo = 'rhysd/vim-grammarous'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'elixir-editors/vim-elixir'
+
+[[plugins]]
+repo = 'JuliaEditorSupport/julia-vim'
+
+[[plugins]]
+repo = 'kristijanhusak/deoplete-phpactor'
