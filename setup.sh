@@ -22,5 +22,6 @@ ln -sf $(pwd)/.xprofile $HOME/.xprofile
 ln -sf $(pwd)/com.amethyst.Amethyst.plist $HOME/Library/Preferences/com.amethyst.Amethyst.plist
 
 # aquaskk
+mkdir $HOME/Library/Application Support/AquaSKK
 ln -sf $(pwd)/keymap.conf "$HOME/Library/Application Support/AquaSKK/keymap.conf"
 
