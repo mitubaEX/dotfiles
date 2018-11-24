@@ -45,7 +45,7 @@ alias ls='exa'
 
 # go
 export GOPATH=$HOME/.ghq
-export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin
+export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin:$HOME/.cargo/bin
 
 # vim
 stty stop undef
