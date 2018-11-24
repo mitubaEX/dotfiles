@@ -349,3 +349,17 @@ repo = 'JuliaEditorSupport/julia-vim'
 
 [[plugins]]
 repo = 'kristijanhusak/deoplete-phpactor'
+
+[[plugins]]
+repo = 'mhinz/vim-startify'
+hook_add = '''
+
+let g:startify_lists = [
+\ { 'type': 'files',     'header': ['   MRU']            },
+  \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+  \ { 'type': 'sessions',  'header': ['   Sessions']       },
+  \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+  \ { 'type': 'commands',  'header': ['   Commands']       },
+  \ ]
+let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, '~/.zshrc' ]
+'''
