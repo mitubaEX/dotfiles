@@ -206,7 +206,7 @@ filetype indent plugin on
 	nmap <Leader>a :Ag<Space>
 
 	" Codic
-	nmap <Leader>C :Codic<Space>
+	nmap <Leader>c :Codic<Space>
 
 	nnoremap <Leader>h za
 
@@ -230,6 +230,7 @@ let g:neosnippet#enable_completed_snippet = 1
 let g:vim_markdown_folding_disabled = 1
 
 
+" easymotion {{{
 let mapleader = "\<Space>"
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -243,8 +244,9 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+" }}}
 
-
+" rainbow_parentheses.vim {{{
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -271,3 +273,4 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+" }}}
