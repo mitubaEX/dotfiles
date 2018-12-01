@@ -1,7 +1,38 @@
 # homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst
+# arch linux
+if [ "$(uname)" = "Linux" ]; then
+  sudo apt install cargo
+  sudo apt-get install python3 zsh neovim tree wget tmux scala gcc make golang i3 rofi cmake curl libfreetype6-dev libfontconfig1-dev xclip git cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev
+
+  # alacritty
+  cd $HOME
+  git clone https://github.com/jwilm/alacritty.git
+  cargo build --release
+  sudo cp target/release/alacritty /usr/local/bin
+
+  # exa
+  cargo install exa
+
+  # polybar
+  cd $HOME
+  git clone https://github.com/jaagr/polybar.git
+  cd polybar && ./build.sh
+
+  # keymap config
+  sudo dpkg-reconfigure keyboard-configuration
+
+  # neovim
+  sudo apt-add-repository ppa:neovim-ppa/stable
+  sudo apt-get update
+  sudo apt-get install neovim
+  sudo apt-get install python-dev python-pip python3-dev python3-pip
+  pip3 install pynvim
+else
+  brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst
+fi
+
 
 # prezto
 cd $HOME
