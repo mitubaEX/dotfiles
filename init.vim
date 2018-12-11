@@ -24,7 +24,7 @@
 		endif
 
 		" You can specify revision/branch/tag.
-		call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
+		call dein#add('Shougo/deol.nvim')
 
 		" Required:
 		call dein#end()
@@ -275,3 +275,4 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 " }}}
+let g:latex_latexmk_options = '-pdf'
