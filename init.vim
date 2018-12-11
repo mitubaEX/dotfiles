@@ -203,10 +203,11 @@ filetype indent plugin on
 
 	" fzf
 	nmap <Leader>t :Files<CR>
-	nmap <Leader>a :Ag<Space>
+	nmap <Leader>a :Rg<CR>
+	nmap <Leader>c :Tags<CR>
 
 	" Codic
-	nmap <Leader>c :Codic<Space>
+	nmap <Leader>C :Codic<Space>
 
 	nnoremap <Leader>h za
 
