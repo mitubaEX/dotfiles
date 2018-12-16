@@ -43,7 +43,8 @@ filetype indent plugin on
 	set hidden
 	set wildmenu
 	set showcmd
-	set wildmode=list:longest
+	set wildmode=list,full
+	set wildignorecase
 	set shell=$SHELL
 	set title " set terminal title
 	set showmatch " show matching braces
@@ -52,6 +53,7 @@ filetype indent plugin on
 	set hlsearch
 	set ignorecase
 	set smartcase
+	set smartindent
 	set incsearch
 	set inccommand=split
 	set nolazyredraw
@@ -71,6 +73,8 @@ filetype indent plugin on
 	set encoding=utf-8
 	set fileencoding=utf-8
 	set fileencodings=utf-8,cp932
+	set fenc=utf-8
+	scriptencoding utf-8
 	set wrap
 	set autoindent
 	set ttyfast
@@ -210,6 +214,8 @@ filetype indent plugin on
 	nmap <Leader>C :Codic<Space>
 
 	nnoremap <Leader>h za
+
+	nnoremap <Esc><Esc> :noh<CR>
 
 " }}}
 
