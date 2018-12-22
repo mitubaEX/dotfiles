@@ -25,3 +25,6 @@ ln -sf $(pwd)/com.amethyst.Amethyst.plist $HOME/Library/Preferences/com.amethyst
 mkdir $HOME/Library/Application Support/AquaSKK
 ln -sf $(pwd)/keymap.conf "$HOME/Library/Application Support/AquaSKK/keymap.conf"
 
+# oni
+mkdir $HOME/.config/oni
+ln -sf $(pwd)/.config/oni/config.js $HOME/.config/oni/config.js
