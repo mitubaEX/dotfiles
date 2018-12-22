@@ -502,7 +502,7 @@ alias bydiextract="java -jar /Users/mituba/.ghq/src/github.com/tamadalab/bydi/ta
 
 alias g++="g++ -std=c++11"
 
-alias coninit="sh $HOME/.ghq/src/github.com/mitubaEX/cpp_template/contest_setting.sh"
+alias coninit='(){curl https://raw.githubusercontent.com/mitubaEX/cpp_template/master/contest_setting.sh | sh -s $1 $2}'
 export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
 alias ghci='stack ghci'
 alias ghc='stack ghc --'
