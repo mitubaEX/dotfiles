@@ -2,6 +2,12 @@
 set surround
 
 " nnoremap <Space>l :action AceAction<CR>
+nnoremap zM <Nop>
+nnoremap zc <Nop>
+nnoremap zC <Nop>
+nnoremap zR <Nop>
+nnoremap zo <Nop>
+nnoremap zO <Nop>
 
 map f :action AceAction<CR>
 
@@ -51,6 +57,3 @@ nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR>
 nnoremap <Space>w :<C-u>action SaveAll<CR>
 
 nnoremap \c :<C-u>action CommentByLineComment<CR>
-
-nnoremap <C-j> :<C-u>action GotoNextSplitter<CR>
-nnoremap <C-k> :<C-u>action GotoPreviousSplitter<CR>
