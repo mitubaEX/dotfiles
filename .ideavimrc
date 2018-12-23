@@ -47,11 +47,9 @@ nnoremap <Space>o :<C-u>action FileStructurePopup<CR>
 nnoremap <Space>q :<C-u>action CloseContent<CR>
 nnoremap <Space>Q :<C-u>action ReopenClosedTab<CR>
 nnoremap <Space>e :<C-u>action SearchEverywhere<CR>
-nnoremap <Space>f :<C-u>action GotoFile<CR>
-" nnoremap <Space>F :<C-u>action FindInPath<CR>
+nnoremap <Space>t :<C-u>action GotoFile<CR>
 nnoremap <Space>s :<C-u>action GotoClass<CR>
 nnoremap <Space>S :<C-u>action GotoSymbol<CR>
-nnoremap <Space>t :<C-u>action ActivateTerminalToolWindow<CR>
 nnoremap <Space>P :<C-u>action ManageRecentProjects<CR>
 nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR>
 nnoremap <Space>w :<C-u>action SaveAll<CR>
