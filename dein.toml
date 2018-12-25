@@ -306,6 +306,16 @@ repo = 'maxbrunsfeld/vim-yankstack'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+hook_add = '''
+let g:quickrun_config = {
+\   'haskell' : { 'type' : 'haskell/stack' },
+\   'haskell/stack' : {
+\       'command' : 'stack',
+\       'exec' : '%c %o %s %a',
+\       'cmdopt' : 'runghc',
+\   },
+\}
+'''
 
 [[plugins]]
 repo = 'ElmCast/elm-vim'
