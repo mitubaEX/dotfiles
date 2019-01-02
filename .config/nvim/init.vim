@@ -217,6 +217,10 @@ nnoremap <Leader>h za
 
 nnoremap <Esc><Esc> :noh<CR>
 
+" Tagbar
+nmap <C-p> :TagbarToggle<CR>
+autocmd VimEnter * :TagbarToggle
+
 " }}}
 
 language en_US.UTF-8

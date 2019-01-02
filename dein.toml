@@ -271,9 +271,6 @@ repo = 'lervag/vimtex'
 on_ft = ['tex']
 
 [[plugins]]
-repo = 'kien/ctrlp.vim'
-
-[[plugins]]
 repo = 'rhysd/clever-f.vim'
 
 [[plugins]]
@@ -413,3 +410,6 @@ let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 '''
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
