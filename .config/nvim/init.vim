@@ -24,7 +24,7 @@ if dein#load_state('~/.cache/dein')
     endif
 
     " You can specify revision/branch/tag.
-    call dein#add('Shougo/deol.nvim')
+    " call dein#add('Shougo/deol.nvim')
 
     " Required:
     call dein#end()
