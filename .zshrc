@@ -34,7 +34,7 @@ alias vim='nvim'
 alias dockerrm='docker rm -f $(docker ps -qa)'
 alias dockerrmi='docker rmi -f $(docker images -q)'
 alias atmkdir='for i in A B C D ; do mkdir "$i"; touch "$i"/main.py ;done '
-alias mkdir='(){mkdir $1;cd $1}'
+alias mkdir='(){if [ $# -gt 1 ] ; then mkdir $@ ; else mkdir $1;cd $1 ;fi}'
 
 # change ls to exa
 alias ls='exa'

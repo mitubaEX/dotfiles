@@ -219,7 +219,6 @@ nnoremap <Esc><Esc> :noh<CR>
 
 " Tagbar
 nmap <C-p> :TagbarToggle<CR>
-autocmd VimEnter * :TagbarToggle
 
 " }}}
 
