@@ -101,6 +101,9 @@ go get -u github.com/motemen/ghq
 echo '[ghq]' >> $HOME/.gitconfig
 echo '    root = ~/.ghq/src' >> $HOME/.gitconfig
 
+mkdir -p ~/.zsh/completion
+curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+
 # mac config {{{
 ## mute startup sound
 sudo nvram SystemAudioVolume=" "

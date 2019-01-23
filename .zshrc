@@ -524,3 +524,10 @@ function gadd() {
         git add $(echo $selected | awk '{sub(/.$/,""); print}')
     fi
 }
+
+# Docker completions
+if [ -e ~/.zsh/completion ]; then
+  fpath=(~/.zsh/completion $fpath)
+fi
+
+autoload -Uz compinit && compinit -i
