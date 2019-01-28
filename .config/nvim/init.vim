@@ -220,6 +220,9 @@ nnoremap <Esc><Esc> :noh<CR>
 " Tagbar
 nmap <C-p> :TagbarToggle<CR>
 
+" insert new line without entering insert mode
+nnoremap O o<Esc>
+
 " }}}
 
 language en_US.UTF-8
