@@ -415,3 +415,13 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
+
+[[plugins]]
+repo = 'basyura/twibill.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'basyura/TweetVim'
+depends = ['basyura/twibill.vim', 'tyru/open-browser.vim']
