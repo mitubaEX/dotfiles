@@ -103,8 +103,12 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" If installed using Homebrew
-set rtp+=/usr/local/opt/fzf
+" fzf condition
+if has("mac")
+    set rtp+=/usr/local/opt/fzf
+elseif has("unix")
+    set rtp+=~/.fzf
+endif
 
 set wrapscan
 

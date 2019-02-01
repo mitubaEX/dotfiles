@@ -6,14 +6,13 @@ if [ "$(uname)" = "Linux" ]; then
   sudo apt install cargo
   sudo apt-get install python3 zsh neovim tree wget tmux scala gcc make golang i3 rofi cmake curl libfreetype6-dev libfontconfig1-dev xclip git cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libgnome-keyring-dev
 
-  # alacritty
-  cd $HOME
-  git clone https://github.com/jwilm/alacritty.git
-  cargo build --release
-  sudo cp target/release/alacritty /usr/local/bin
+  # alacritty(install release page)
 
   # exa
   cargo install exa
+
+  # rg
+  cargo install ripgrep
 
   # polybar
   cd $HOME
@@ -92,6 +91,10 @@ sh ./installer.sh ~/.cache/dein/. ; rm ./installer.sh
 # arch linux
 if [ "$(uname)" = "Linux" ]; then
   git config --global credential.helper /usr/lib/git-core/git-credential-gnome-keyring
+  cd /usr/share/doc/git/contrib/credential/gnome-keyring
+  sudo make
+  git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+  cd $HOME
 fi
 
 

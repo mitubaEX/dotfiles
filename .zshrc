@@ -531,3 +531,7 @@ if [ -e ~/.zsh/completion ]; then
 fi
 
 autoload -Uz compinit && compinit -i
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export WINIT_HIDPI_FACTOR="1"

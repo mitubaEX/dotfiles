@@ -156,10 +156,6 @@ client.placeholder	$bg	$bg	$shade	$light	    $bg
 # set window borders
 for_window [class="^.*"] border pixel 1
 
-# set gaps (i3-gaps only)
-gaps inner 10
-gaps outer 0
-
 
 ################
 #  Status Bar  #
@@ -168,7 +164,6 @@ gaps outer 0
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    height 28
     position top
     status_command i3status
     font pango:DejaVu Sans Mono, FontAwesome 10
