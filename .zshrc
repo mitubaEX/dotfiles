@@ -1,4 +1,7 @@
 alias tmux='tmux -u'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -531,7 +534,5 @@ if [ -e ~/.zsh/completion ]; then
 fi
 
 autoload -Uz compinit && compinit -i
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export WINIT_HIDPI_FACTOR="1"

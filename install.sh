@@ -38,6 +38,23 @@ if [ "$(uname)" = "Linux" ]; then
   sudo add-apt-repository ppa:apandada1/brightness-controller
   sudo apt-get update
   sudo apt-get install brightness-controller
+
+  # docker
+  cd $HOME
+  sudo apt-get update
+  sudo apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+  sudo apt-get update
+  sudo apt-get install -y docker-ce
 else
   brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst ripgrep ctags
 fi
