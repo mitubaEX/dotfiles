@@ -33,6 +33,11 @@ if [ "$(uname)" = "Linux" ]; then
   cd $HOME
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
+
+  # brightness controller
+  sudo add-apt-repository ppa:apandada1/brightness-controller
+  sudo apt-get update
+  sudo apt-get install brightness-controller
 else
   brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst ripgrep ctags
 fi
