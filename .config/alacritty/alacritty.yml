@@ -31,7 +31,7 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: true
+  decorations: full
 
 scrolling:
   # How many lines of scrollback to keep,
@@ -101,7 +101,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 15.0
+  size: 11.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -120,7 +120,7 @@ font:
   # screens and make reading text a little easier.
   # On X11 it is possible to change the DPI for each instance of alacritty by using
   # `WINIT_HIDPI_FACTOR=1.0 alacritty` to scale the font.
-  scale_with_dpi: true
+  # scale_with_dpi: true
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -132,7 +132,7 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: true
+# custom_cursor_colors: true
 
 # Base16 Tomorrow Night 256 - alacritty color config
 # Chris Kempson (http://chriskempson.com)
@@ -230,18 +230,17 @@ selection:
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
-
+mouse.hide_when_typing: false
 # Style of the cursor
 #
 # Values for 'cursor_style':
 # - Block
 # - Underline
 # - Beam
-cursor_style: Underline
+cursor.style: Underline
 
 # Whether the cursor should be a hollow block on window focus loss
-unfocused_hollow_cursor: true
+cursor.unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
