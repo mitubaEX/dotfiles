@@ -11,3 +11,10 @@ sh install.sh
 ```
 sh setup.sh
 ```
+
+## for Ubuntu
+
+- alacritty
+  - [release page](https://github.com/jwilm/alacritty/releases)
+- google chrome
+  - [download page](https://www.google.com/chrome/)
