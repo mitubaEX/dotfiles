@@ -225,7 +225,7 @@ nnoremap <Esc><Esc> :noh<CR>
 nmap <C-p> :TagbarToggle<CR>
 
 " insert new line without entering insert mode
-nnoremap O o<Esc>
+nnoremap <Leader>o o<Esc>
 
 " }}}
 
