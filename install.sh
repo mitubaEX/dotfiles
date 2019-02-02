@@ -59,6 +59,14 @@ if [ "$(uname)" = "Linux" ]; then
   # docker-compose
   sudo curl -L "https://github.com/docker/compose/releases/download/1.12.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   sudo chmod +x /usr/local/bin/docker-compose
+
+  # discord
+  sudo apt install snapd-xdg-open
+  sudo snap install discord
+
+  # slack
+  sudo apt install snapd
+  sudo snap install slack --classic
 else
   brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst ripgrep ctags
 fi
