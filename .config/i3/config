@@ -118,7 +118,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r exec "i3lock -n"
 
 
 # focus should not follow mouse cursor
@@ -194,4 +194,4 @@ exec --no-startup-id fcitx
 
 exec --no-startup-id compton -cbm 0.75
 
-exec --no-startup-id feh --randomize --bg-fill ~/Downloads/maxresdefault.jpg
+exec --no-startup-id feh --randomize --bg-fill $HOME/DaYXBsTVAAElEg2.jpg
