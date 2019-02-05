@@ -5,9 +5,12 @@
 if [ "$(uname)" = "Linux" ]; then
   sudo apt-get update
   sudo apt install -y cargo
-  sudo apt-get install -y python3 zsh neovim tree wget tmux scala gcc make golang i3 rofi cmake curl libfreetype6-dev libfontconfig1-dev xclip git cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libgnome-keyring-dev fcitx-mozc i3lock feh compton
+  sudo apt-get install -y python3 zsh neovim tree wget tmux scala gcc make golang i3 rofi cmake curl libfreetype6-dev libfontconfig1-dev xclip git cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libgnome-keyring-dev fcitx-mozc i3lock feh compton gdebi
 
   # alacritty(install release page)
+
+  # install slack
+  # ref: https://qiita.com/akjgskwi/items/a65d396e353e31f235d2
 
   # exa
   cargo install exa
