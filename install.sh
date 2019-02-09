@@ -153,6 +153,9 @@ fi
 # ghq
 go get -u github.com/motemen/ghq
 
+# gitin
+go get -d github.com/isacikgoz/gitin
+
 echo '[ghq]' >> $HOME/.gitconfig
 echo '    root = ~/.ghq/src' >> $HOME/.gitconfig
 

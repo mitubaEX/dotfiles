@@ -519,7 +519,7 @@ export LANG=en_US.UTF-8
 printf "\e[4 q"
 
 # ref: https://dev.classmethod.jp/tool/fzf-original-app-for-git-add/
-function gadd() {
+function ggaa() {
     local selected
     selected=$(git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
     if [[ -n "$selected" ]]; then
