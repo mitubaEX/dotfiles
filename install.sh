@@ -78,6 +78,12 @@ if [ "$(uname)" = "Linux" ]; then
   # download desktop image
   cd $HOME
   wget https://pbs.twimg.com/media/DaYXBsTVAAElEg2.jpg
+
+  # remove sudo of docker command
+  # ref: https://qiita.com/DQNEO/items/da5df074c48b012152ee
+  sudo groupadd docker
+  sudo gpasswd -a $USER docker
+  sudo systemctl restart docker
 else
   brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst ripgrep ctags
 fi

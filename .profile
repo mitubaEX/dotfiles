@@ -30,4 +30,4 @@ export DefaultImModule=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
-xset r rate 180 25
+xset r rate 160 25
