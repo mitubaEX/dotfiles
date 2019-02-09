@@ -37,6 +37,7 @@ if [ "$(uname)" = "Linux" ]; then
   cd $HOME
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
+  sudo chmod 660 /dev/tty
 
   # brightness controller
   sudo add-apt-repository ppa:apandada1/brightness-controller
