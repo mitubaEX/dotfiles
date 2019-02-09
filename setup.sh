@@ -30,3 +30,5 @@ mkdir $HOME/.config/oni
 ln -sf $(pwd)/.config/oni/config.js $HOME/.config/oni/config.js
 
 ln -sf $(pwd)/.ideavimrc $HOME/.ideavimrc
+
+ln -sf $(pwd)/.profile $HOME/.profile
