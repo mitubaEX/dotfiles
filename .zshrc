@@ -539,9 +539,16 @@ export WINIT_HIDPI_FACTOR="1"
 
 function dexec() {
     local selected
-    # selected=$(docker ps --format "table {{.ID}} {{.Names}}" | sed '1d' | fzf --ansi --height='30%' --preview="echo {} | awk '{print \$1}' | xargs docker logs")
     selected=$(docker ps --format "table {{.ID}} {{.Names}}" | sed '1d' | fzf --ansi --height='30%')
     if [[ -n "$selected" ]]; then
       docker exec  -it $(awk '{print $1}' <<< $selected) $@
+    fi
+}
+
+function drm() {
+    local selected
+    selected=$(docker ps -a --format "table {{.ID}} {{.Names}}" | sed '1d' | fzf -m --ansi --height='30%')
+    if [[ -n "$selected" ]]; then
+      docker rm -f $(awk '{print $1}' <<< $selected) $@
     fi
 }
