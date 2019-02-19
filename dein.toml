@@ -425,3 +425,6 @@ repo = 'tyru/open-browser.vim'
 [[plugins]]
 repo = 'basyura/TweetVim'
 depends = ['basyura/twibill.vim', 'tyru/open-browser.vim']
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
