@@ -229,6 +229,7 @@ hook_add = '''
 nmap ; :Buffers<CR>
 " nmap <Leader>t :Files<CR>
 " nmap r :Tags<CR>
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 '''
 
 [[plugins]]
