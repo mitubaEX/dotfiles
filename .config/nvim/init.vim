@@ -227,6 +227,9 @@ nmap <C-p> :TagbarToggle<CR>
 " insert new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 
+" indent all lines
+map <Leader>= gg=G<C-o><C-o>
+
 " }}}
 
 language en_US.UTF-8
