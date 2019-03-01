@@ -213,6 +213,7 @@ nmap <leader>S <Plug>yankstack_substitute_newer_paste
 nmap <Leader>t :Files<CR>
 nmap <Leader>a :Rg<CR>
 nmap <Leader>c :Tags<CR>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " Codic
 nmap <Leader>C :Codic<Space>
