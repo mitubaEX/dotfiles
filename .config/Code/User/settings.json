@@ -1,0 +1,36 @@
+{
+    "vetur.format.defaultFormatter.html": "prettier",
+    "prettier.eslintIntegration": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["leader", "w"],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": ["<Esc>", "<Esc>"],
+            "commands": [":nohl"]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    }
+}
