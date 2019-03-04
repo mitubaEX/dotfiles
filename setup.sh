@@ -32,3 +32,10 @@ ln -sf $(pwd)/.config/oni/config.js $HOME/.config/oni/config.js
 ln -sf $(pwd)/.ideavimrc $HOME/.ideavimrc
 
 ln -sf $(pwd)/.profile $HOME/.profile
+
+# vscode
+if [ "$(uname)" = "Linux" ]; then
+  ln -sf $(pwd)/.config/Code/User/settings.json $HOME/.config/Code/User/.
+else
+  ln -sf $(pwd)/.config/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/.
+fi
