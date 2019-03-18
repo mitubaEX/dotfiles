@@ -44,7 +44,7 @@ alias ls='exa'
 
 # go
 export GOPATH=$HOME/.ghq
-export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.cabal:/usr/local/bin:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.cabal:/usr/local/bin:$HOME/.cargo/bin
 
 # vim
 stty stop undef
@@ -552,3 +552,6 @@ function drm() {
       docker rm -f $(awk '{print $1}' <<< $selected) $@
     fi
 }
+
+eval "$(nodenv init -)"
+eval "$(rbenv init -)"
