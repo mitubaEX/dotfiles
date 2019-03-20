@@ -39,7 +39,7 @@ hook_add = '''
 		    \)
   endfunction
 
-  let g:ale_linters = {'javascript': ['eslint', 'prettier'], 'jsx': ['stylelint', 'eslint', 'prettier'], 'tsx': ['tslint', 'prettier'], 'hs': ['hlint'], 'tex': ['alex']}
+  let g:ale_linters = {'javascript': ['eslint', 'prettier', 'flow'], 'jsx': ['stylelint', 'eslint', 'prettier'], 'tsx': ['tslint', 'prettier'], 'hs': ['hlint'], 'tex': ['alex']}
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
   \   'python': ['autopep8', 'isort'],
@@ -429,3 +429,10 @@ depends = ['basyura/twibill.vim', 'tyru/open-browser.vim']
 
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = 'css'
+hook_add = '''
+au BufRead,BufNewFile *.scss set filetype=scss.css
+'''
