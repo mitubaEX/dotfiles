@@ -48,11 +48,11 @@ set showbreak=…
 set so=7
 
 " color
-colorscheme gruvbox
-set background=dark
-highlight Normal ctermbg=None
+colorscheme iceberg
+" set background=dark
+" highlight Normal ctermbg=None
 set t_Co=256
-let g:gruvbox_contrast_dark="hard"
+" let g:gruvbox_contrast_dark="hard"
 
 
 " clipboard combination

@@ -436,3 +436,6 @@ on_ft = 'css'
 hook_add = '''
 au BufRead,BufNewFile *.scss set filetype=scss.css
 '''
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
