@@ -2,8 +2,14 @@ mkdir $HOME/.config
 
 ln -sf $(pwd)/dein.toml $HOME/dein.toml
 
+# nvim
 mkdir $HOME/.config/nvim
 ln -sf $(pwd)/.config/nvim/init.vim $HOME/.config/nvim/init.vim
+mkdir $HOME/.config/nvim/config
+ln -sf $(pwd)/.config/nvim/config/dein_script.vimrc $HOME/.config/nvim/config/dein_script.vimrc
+ln -sf $(pwd)/.config/nvim/config/keybinds.vimrc $HOME/.config/nvim/config/keybinds.vimrc
+ln -sf $(pwd)/.config/nvim/config/set.vimrc $HOME/.config/nvim/config/set.vimrc
+
 
 ln -sf $(pwd)/.zshrc $HOME/.zshrc
 ln -sf $(pwd)/.zpreztorc $HOME/.zpreztorc
