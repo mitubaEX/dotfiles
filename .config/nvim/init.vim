@@ -50,7 +50,6 @@ let g:rbpt_colorpairs = [
 	    \ ['darkmagenta', 'DarkOrchid3'],
 	    \ ['brown',       'firebrick3'],
 	    \ ['gray',        'RoyalBlue3'],
-	    \ ['black',       'SeaGreen3'],
 	    \ ['darkmagenta', 'DarkOrchid3'],
 	    \ ['Darkblue',    'firebrick3'],
 	    \ ['darkgreen',   'RoyalBlue3'],
@@ -59,7 +58,7 @@ let g:rbpt_colorpairs = [
 	    \ ['red',         'firebrick3'],
 	    \ ]
 
-let g:rbpt_max = 16
+let g:rbpt_max = 15
 let g:rbpt_loadcmd_toggle = 0
 
 au VimEnter * RainbowParenthesesToggle
