@@ -439,3 +439,6 @@ au BufRead,BufNewFile *.scss set filetype=scss.css
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'junegunn/seoul256.vim'
