@@ -172,7 +172,7 @@ for_window [class="^.*"] border pixel 1
 # finds out, if available)
 bar {
     position top
-    status_command i3status
+    status_command $HOME/bin/conky-i3bar
     font pango:DejaVu Sans Mono, FontAwesome 10
     strip_workspace_numbers yes
     colors {
@@ -197,4 +197,4 @@ exec --no-startup-id fcitx
 
 exec --no-startup-id compton -cbm 0.75
 
-exec --no-startup-id feh --randomize --bg-fill $HOME/DaYXBsTVAAElEg2.jpg
+exec --no-startup-id feh --randomize --bg-fill $HOME/ダウンロード/cocoa_pc.jpg

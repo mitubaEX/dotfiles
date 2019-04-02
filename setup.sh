@@ -45,3 +45,8 @@ if [ "$(uname)" = "Linux" ]; then
 else
   ln -sf $(pwd)/.config/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/.
 fi
+
+# conky
+mkdir $HOME/bin
+ln -sf $(pwd)/.conkyrc $HOME/.conkyrc
+ln -sf $(pwd)/bin/conky-i3bar $HOME/bin/conky-i3bar
