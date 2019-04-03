@@ -86,7 +86,20 @@ if [ "$(uname)" = "Linux" ]; then
   sudo gpasswd -a $USER docker
   sudo systemctl restart docker
 else
+  # chunkwm
+  brew tap crisidev/homebrew-chunkwm
+  brew tap koekeishiya/formulae
+  brew install --HEAD chunkwm
+
+  # khd
+  brew install khd
+  cp /usr/local/opt/chunkwm/share/chunkwm/examples/khdrc ~/.khdrc
+
   brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst ripgrep ctags
+
+  # launchctl load
+  brew services start chunkwm
+  brew services start khd
 fi
 
 # prezto
