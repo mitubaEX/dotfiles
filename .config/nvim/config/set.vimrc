@@ -50,13 +50,10 @@ set so=7
 set termguicolors
 
 " color
-let g:seoul256_background = 234
-colorscheme seoul256
-" set background=dark
-" highlight Normal ctermbg=None
+" let g:seoul256_background = 234
+colorscheme iceberg
 set t_Co=256
-let g:seoul256_srgb = 1
-" let g:gruvbox_contrast_dark="hard"
+" let g:seoul256_srgb = 1
 
 
 " clipboard combination
