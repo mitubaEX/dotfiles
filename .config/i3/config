@@ -198,3 +198,7 @@ exec --no-startup-id fcitx
 exec --no-startup-id compton -cbm 0.75
 
 exec --no-startup-id feh --randomize --bg-fill $HOME/ダウンロード/cocoa_pc.jpg
+
+for_window [class="^.*"] border pixel 2
+gaps inner 10
+gaps outer 5

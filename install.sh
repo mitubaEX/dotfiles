@@ -5,7 +5,7 @@
 if [ "$(uname)" = "Linux" ]; then
   sudo apt-get update
   sudo apt install -y cargo
-  sudo apt-get install -y python3 zsh neovim tree wget tmux scala gcc make golang i3 rofi cmake curl libfreetype6-dev libfontconfig1-dev xclip git cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libgnome-keyring-dev fcitx-mozc i3lock feh compton gdebi binutils-avr gcc-avr avr-libc avrdude conky
+  sudo apt-get install -y python3 zsh neovim tree wget tmux scala gcc make golang i3 rofi cmake curl libfreetype6-dev libfontconfig1-dev xclip git cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libgnome-keyring-dev fcitx-mozc i3lock feh compton gdebi binutils-avr gcc-avr avr-libc avrdude conky libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev libtool
 
   # alacritty(install release page)
 
@@ -85,6 +85,29 @@ if [ "$(uname)" = "Linux" ]; then
   sudo groupadd docker
   sudo gpasswd -a $USER docker
   sudo systemctl restart docker
+
+  # gaps
+  cd $HOME
+  mkdir tmp
+  cd /tmp
+  git clone https://github.com/Airblader/xcb-util-xrm
+  cd xcb-util-xrm
+  git submodule update --init
+  ./autogen.sh --prefix=/usr
+  make
+  sudo make install
+
+  cd /tmp
+  git clone https://www.github.com/Airblader/i3 i3-gaps
+  cd i3-gaps
+  git checkout gaps && git pull
+  autoreconf --force --install
+  rm -rf build
+  mkdir build
+  cd build
+  ../configure --prefix=/usr --sysconfdir=/etc
+  make
+  sudo make install
 else
   # chunkwm
   brew tap crisidev/homebrew-chunkwm
