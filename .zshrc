@@ -43,8 +43,8 @@ alias mkdir='(){if [ $# -gt 1 ] ; then mkdir $@ ; else mkdir $1;cd $1 ;fi}'
 alias ls='exa'
 
 # go
-export GOPATH=$HOME/.ghq
-export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.cabal:/usr/local/bin:$HOME/.cargo/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.cabal:/usr/local/bin:$HOME/.cargo/bin
 
 # vim
 stty stop undef
