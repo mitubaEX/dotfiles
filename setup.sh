@@ -9,6 +9,7 @@ mkdir $HOME/.config/nvim/config
 ln -sf $(pwd)/.config/nvim/config/dein_script.vimrc $HOME/.config/nvim/config/dein_script.vimrc
 ln -sf $(pwd)/.config/nvim/config/keybinds.vimrc $HOME/.config/nvim/config/keybinds.vimrc
 ln -sf $(pwd)/.config/nvim/config/set.vimrc $HOME/.config/nvim/config/set.vimrc
+ln -sf $(pwd)/.config/nvim/config/lsp.vimrc $HOME/.config/nvim/config/lsp.vimrc
 
 
 ln -sf $(pwd)/.zshrc $HOME/.zshrc

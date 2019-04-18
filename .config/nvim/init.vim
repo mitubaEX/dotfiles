@@ -1,6 +1,7 @@
 source $HOME/.config/nvim/config/dein_script.vimrc
 source $HOME/.config/nvim/config/set.vimrc
 source $HOME/.config/nvim/config/keybinds.vimrc
+source $HOME/.config/nvim/config/lsp.vimrc
 
 autocmd BufWritePre * :%s/\s\+$//ge
 filetype indent plugin on
