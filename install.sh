@@ -189,6 +189,9 @@ fi
 # ghq
 go get -u github.com/motemen/ghq
 
+# gopls
+go get -u golang.org/x/tools/cmd/gopls
+
 # gitin
 go get -d github.com/isacikgoz/gitin
 
