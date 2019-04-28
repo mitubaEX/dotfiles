@@ -1,0 +1,1 @@
+*/5 * * * * wget 'https://wallhaven.now.sh/random?keyword=anime' -O $HOME/image/random.jpg && DISPLAY=:0.0 feh --bg-fill $HOME/image/*
