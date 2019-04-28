@@ -123,6 +123,8 @@ else
   # launchctl load
   brew services start chunkwm
   brew services start khd
+
+  crontab ./mycron
 fi
 
 # prezto
