@@ -70,3 +70,4 @@ au Syntax * RainbowParenthesesLoadBraces
 let g:latex_latexmk_options = '-pdf'
 
 hi! Visual ctermbg=236 guibg=#363d5b
+hi! Normal ctermbg=NONE guibg=NONE
