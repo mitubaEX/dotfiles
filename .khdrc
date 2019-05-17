@@ -113,7 +113,7 @@ ctrl + alt - l : chunkc tiling::window --use-insertion-point east
 # alt - a : chunkc tiling::desktop --toggle offset
 
 # toggle window fullscreen
-cmd - p : chunkc tiling::window --toggle fullscreen
+cmd - o : chunkc tiling::window --toggle fullscreen
 
 # toggle window native fullscreen
 shift + alt - f : chunkc tiling::window --toggle native-fullscreen
