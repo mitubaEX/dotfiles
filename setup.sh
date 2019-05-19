@@ -43,8 +43,10 @@ ln -sf $(pwd)/.profile $HOME/.profile
 # vscode
 if [ "$(uname)" = "Linux" ]; then
   ln -sf $(pwd)/.config/Code/User/settings.json $HOME/.config/Code/User/.
+  ln -sf $(pwd)/.config/Code/User/keybindings.json $HOME/.config/Code/User/.
 else
   ln -sf $(pwd)/.config/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/.
+  ln -sf $(pwd)/.config/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/.
 fi
 
 # conky
