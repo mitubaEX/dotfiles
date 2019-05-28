@@ -60,3 +60,6 @@ ln -sf $(pwd)/.khdrc $HOME/.khdrc
 
 # compton
 ln -sf $(pwd)/.config/compton.conf $HOME/.config/compton.conf
+
+# .env
+ln -sf $(pwd)/.env $HOME/.env
