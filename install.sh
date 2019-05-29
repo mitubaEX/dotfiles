@@ -118,7 +118,7 @@ else
   brew install khd
   cp /usr/local/opt/chunkwm/share/chunkwm/examples/khdrc ~/.khdrc
 
-  brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst ripgrep ctags
+  brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst ripgrep ctags direnv
 
   # launchctl load
   brew services start chunkwm
@@ -140,6 +140,10 @@ nvim -e -c "UpdateRemotePlugins"
 git config --global core.editor 'nvr'
 git config --global user.name "mitubaEX"
 git config --global user.email "g1344955@cse.kyoto-su.ac.jp"
+
+# gitignore global
+ln -sf $(pwd)/.gitignore_global $HOME/.gitignore_global
+git config --global core.excludesfile $HOME/.gitignore_global
 
 # powerline fonts
 # clone

@@ -559,4 +559,7 @@ eval "$(rbenv init -)"
 export NRFSDK12_ROOT=$HOME/Downloads/nRF5_SDK_12.3.0_d7731ad/nRF5_SDK_12.3.0_d7731ad
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-source ./.env
+source $HOME/.env
+
+export EDITOR=nvim
+eval "$(direnv hook zsh)"
