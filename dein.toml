@@ -146,10 +146,6 @@ repo = 'Shougo/deoplete.nvim'
 hook_add = 'let g:deoplete#enable_at_startup = 1'
 
 [[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft= ['ruby']
-
-[[plugins]]
 repo = 'leafgarland/typescript-vim'
 
 [[plugins]]
@@ -374,3 +370,10 @@ repo = 'HerringtonDarkholme/yats.vim'
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
 build = './install.sh'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make -f make_mac.mak'
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
