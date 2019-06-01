@@ -207,6 +207,10 @@ echo '    root = ~/.ghq/src' >> $HOME/.gitconfig
 mkdir -p ~/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 
+# node
+brew install node
+npm -g install typescript
+
 # mac config {{{
 ## mute startup sound
 sudo nvram SystemAudioVolume=" "
