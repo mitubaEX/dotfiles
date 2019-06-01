@@ -159,6 +159,7 @@ nmap ; :Buffers<CR>
 " nmap <Leader>t :Files<CR>
 " nmap r :Tags<CR>
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=test --exclude=spec --exclude=vendor'
 '''
 
 [[plugins]]
@@ -369,7 +370,7 @@ repo = 'HerringtonDarkholme/yats.vim'
 # build できない場合は、$HOME/.cache/dein/repos/github.com/mhartington/nvim-typescriptのinstall.shをrunする
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
-build = './install.sh'
+build = 'bash install.sh'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -377,3 +378,27 @@ build = 'make -f make_mac.mak'
 
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+on_ft = ['go']
+hook_add = '''
+let g:LanguageClient_serverCommands = {
+    \ 'go': ['gopls'],
+    \ }
+    " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+set completefunc=LanguageClient#complete
+let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_selectionUI = 'fzf'
+let g:LanguageClient_loggingLevel = 'INFO'
+let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
+let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+
+" jump to method
+nnoremap <silent> <C-y>d :call LanguageClient#textDocument_definition()<CR>
+
+" check each reference
+nnoremap <silent> <C-y>r :call LanguageClient#textDocument_references()<CR>
+'''

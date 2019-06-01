@@ -45,7 +45,7 @@ command! -nargs=* BufferClose call s:bufferClose()
 " vertical split
 nnoremap <C-s> :split<Enter>
 " horizontal split
-nnoremap <C-y> :vsplit<Enter>
+" nnoremap <C-y> :vsplit<Enter>
 
 " escape
 inoremap <silent> jj <ESC>
@@ -88,10 +88,16 @@ nmap <leader>S <Plug>yankstack_substitute_newer_paste
 " fzf
 nmap <Leader>t :Files<CR>
 nmap <Leader>a :Rg<CR>
-nmap <Leader>c :Tags<CR>
+nmap <Leader>c :TagsCurrentWordQuery<CR>
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+function! s:tagsCurrentWordQuery() abort
+	let cword = expand("<cword>")
+	execute "Tags " . cword
+endfunction
+command! -nargs=* TagsCurrentWordQuery call s:tagsCurrentWordQuery()
 
 " Codic
 nmap <Leader>C :Codic<Space>
