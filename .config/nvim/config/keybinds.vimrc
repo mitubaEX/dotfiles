@@ -34,11 +34,11 @@ nnoremap <C-q> <Esc>:BufferClose<Enter>
 
 " bd or q command
 function! s:bufferClose() abort
-    if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-	execute "q"
-    else
-	execute "bd"
-    endif
+  if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    execute "q"
+  else
+    execute "bd"
+  endif
 endfunction
 command! -nargs=* BufferClose call s:bufferClose()
 
@@ -91,7 +91,7 @@ nmap <Leader>a :Rg<CR>
 nmap <Leader>c :Tags<CR>
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " Codic
 nmap <Leader>C :Codic<Space>

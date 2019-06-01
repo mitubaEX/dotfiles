@@ -15,8 +15,6 @@ au VimLeave * set guicursor=a:hor100
 
 let g:NERDTreeWinSize=30
 let g:NERDTreeQuitOnOpen=1
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
 
 " neosnippet
 let g:neosnippet#enable_completed_snippet = 1
