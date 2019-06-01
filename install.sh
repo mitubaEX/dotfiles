@@ -209,6 +209,7 @@ curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose versio
 
 # node
 brew install node
+npm install -g neovim
 npm -g install typescript
 
 # mac config {{{

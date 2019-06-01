@@ -237,6 +237,9 @@ repo = 'tpope/vim-sleuth'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+hook_add = '''
+set shell=/bin/bash
+'''
 
 [[plugins]]
 repo = 'posva/vim-vue'
@@ -460,3 +463,8 @@ repo = 'HerringtonDarkholme/yats.vim'
 
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
+
+# build できない場合は、$HOME/.cache/dein/repos/github.com/mhartington/nvim-typescriptのinstall.shをrunする
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+build = './install.sh'
