@@ -367,7 +367,7 @@ repo = 'junegunn/seoul256.vim'
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
 
-# build できない場合は、$HOME/.cache/dein/repos/github.com/mhartington/nvim-typescriptのinstall.shをrunする
+# build できない場合は、$HOME/.config/nvim/repos/github.com/mhartington/nvim-typescriptのinstall.shをrunする
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
 build = 'bash install.sh'
@@ -412,3 +412,9 @@ nnoremap <silent> <C-y>d :call LanguageClient#textDocument_definition()<CR>
 " check each reference
 nnoremap <silent> <C-y>r :call LanguageClient#textDocument_references()<CR>
 '''
+
+[[plugins]]
+repo = 'takkii/totolot'
+
+[[plugins]]
+repo = 'takkii/ruby-dictionary3'
