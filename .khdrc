@@ -158,6 +158,8 @@ shift + cmd - n : chunkc tiling::desktop --create;\
 
 shift + cmd - d : chunkc tiling::desktop --annihilate;
 
+ctrl + cmd - h : chunkc tiling::desktop --focus $(expr $(chunkc tiling::query --desktop id) - 1)
+ctrl + cmd - l : chunkc tiling::desktop --focus $(expr $(chunkc tiling::query --desktop id) + 1)
 cmd - 1 : i=1; chunkc tiling::desktop --focus $(( $(chunkc tiling::query --desktop id) == $i ? $(chunkc get _last_active_desktop) : $i ))
 cmd - 2 : i=2; chunkc tiling::desktop --focus $(( $(chunkc tiling::query --desktop id) == $i ? $(chunkc get _last_active_desktop) : $i ))
 cmd - 3 : i=3; chunkc tiling::desktop --focus $(( $(chunkc tiling::query --desktop id) == $i ? $(chunkc get _last_active_desktop) : $i ))
