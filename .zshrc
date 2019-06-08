@@ -563,3 +563,15 @@ source $HOME/.env
 
 export EDITOR=nvim
 eval "$(direnv hook zsh)"
+
+export NRFSDK15_ROOT=$HOME/nRF5_SDK_15.0.0_a53641a
+
+function gcopr() {
+  git fetch upstream pull/$1/head:$1
+  git checkout $1
+}
+
+
+function gplpr() {
+  git pull upstream pull/$(git branch | grep \* | cut -d ' ' -f2)/head
+}

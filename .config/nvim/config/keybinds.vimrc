@@ -16,7 +16,7 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 inoremap <C-s> <Nop>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <C-e> :terminal<Enter>
 
 " move method of cursor in insert mode
