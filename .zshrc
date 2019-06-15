@@ -67,8 +67,8 @@ function git_information() {
   echo  ${vcs_info_msg_0_}
 }
 
-PROMPT='%F{blue}%2~${vcs_info_msg_0_} ${editor_info[keymap]} '
-RPROMPT=''
+# PROMPT='%F{blue}%2~${vcs_info_msg_0_} ${editor_info[keymap]} '
+# RPROMPT=''
 
 # fzf functions ================= {{{
   # ref: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
@@ -154,8 +154,20 @@ RPROMPT=''
   zle -N create_session_with_ghq
   bindkey '^G' create_session_with_ghq
 
-  alias stigmata="java -jar ~/stigmata/target/stigmata-5.0-SNAPSHOT.jar"
+  function switch_session_with_fzf() {
+      # rename session if in tmux
+      moveto=$(tmux ls | cut -d ':' -f 1 | fzf --height='30%' --layout='reverse')
+      if [[ ! -z ${TMUX} ]]
+      then
+          zle reset-prompt
+          tmux switch-client -t $moveto 2> /dev/null
+      fi
+  }
 
+  zle -N switch_session_with_fzf
+  bindkey '^U' switch_session_with_fzf
+
+  # deprecated
   function create_session_with_dir() {
       # rename session if in tmux
       moveto=$(pwd)/$(find . -type d | fzf --height='30%' --layout='reverse')
@@ -172,8 +184,6 @@ RPROMPT=''
           fi
       fi
   }
-  zle -N create_session_with_dir
-  bindkey '^U' create_session_with_dir
 
   function remove_session() {
       session_name=$(tmux display-message -p '#S')
