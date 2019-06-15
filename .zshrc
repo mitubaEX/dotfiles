@@ -42,6 +42,10 @@ alias mkdir='(){if [ $# -gt 1 ] ; then mkdir $@ ; else mkdir $1;cd $1 ;fi}'
 # change ls to exa
 alias ls='exa'
 
+# lang
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # go
 export GOPATH=$HOME/.ghq
 export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.cabal:/usr/local/bin:$HOME/.cargo/bin
@@ -50,6 +54,43 @@ export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.cabal:
 stty stop undef
 stty start undef
 
+# direnv
+export EDITOR=nvim
+eval "$(direnv hook zsh)"
+
+export NRFSDK12_ROOT=$HOME/Downloads/nRF5_SDK_12.3.0_d7731ad/nRF5_SDK_12.3.0_d7731ad
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/node_modules/.bin"
+source $HOME/.env
+
+export NRFSDK15_ROOT=$HOME/nRF5_SDK_15.0.0_a53641a
+
+autoload -Uz compinit && compinit -i
+
+# alacritty
+export WINIT_HIDPI_FACTOR="1"
+
+eval "$(nodenv init -)"
+eval "$(rbenv init -)"
+
+alias g++="g++ -std=c++11"
+
+alias ghci='stack ghci'
+alias ghc='stack ghc --'
+alias runghc='stack runghc --'
+
+alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
+
+alias nasm='/usr/local/bin/nasm'
+
+source <(kubectl completion zsh)
+
+# Docker completions
+if [ -e ~/.zsh/completion ]; then
+  fpath=(~/.zsh/completion $fpath)
+fi
+
+printf "\e[4 q"
 
 # ls
 function chpwd() { rename_session && ls }
@@ -490,10 +531,6 @@ if [ "$(uname)" = "Linux" ]; then
   fi
 fi
 
-alias nasm='/usr/local/bin/nasm'
-
-source <(kubectl completion zsh)
-
 # required pup command(https://github.com/ericchiang/pup)
 function niconew () {
   rm $HOME/index.html
@@ -507,27 +544,6 @@ function niconew () {
   open $HOME/index.html
 }
 
-alias pochicomp="java -jar $HOME/pochi/pochi-runner/target/pochi-runner-1.0-SNAPSHOT.jar $HOME/compare.js"
-
-alias bydi="java -jar /Users/mituba/.ghq/src/github.com/tamadalab/bydi/target/bydi-1.0-SNAPSHOT.jar"
-export RUST_BACKTRACE=1
-
-alias bydiextract="java -jar /Users/mituba/.ghq/src/github.com/tamadalab/bydi/target/bydi-1.0-SNAPSHOT.jar jp.ac.kyoto_su.ise.tamadalab.bydi.extractor.Main"
-
-alias g++="g++ -std=c++11"
-
-alias coninit='(){curl https://raw.githubusercontent.com/mitubaEX/cpp_template/master/contest_setting.sh | sh -s $1 $2}'
-export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
-alias ghci='stack ghci'
-alias ghc='stack ghc --'
-alias runghc='stack runghc --'
-
-alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-printf "\e[4 q"
-
 # ref: https://dev.classmethod.jp/tool/fzf-original-app-for-git-add/
 function ggaa() {
     local selected
@@ -537,15 +553,6 @@ function ggaa() {
         git add $(echo $selected | awk '{sub(/.$/,""); print}')
     fi
 }
-
-# Docker completions
-if [ -e ~/.zsh/completion ]; then
-  fpath=(~/.zsh/completion $fpath)
-fi
-
-autoload -Uz compinit && compinit -i
-
-export WINIT_HIDPI_FACTOR="1"
 
 function dexec() {
     local selected
@@ -563,24 +570,10 @@ function drm() {
     fi
 }
 
-eval "$(nodenv init -)"
-eval "$(rbenv init -)"
-
-export NRFSDK12_ROOT=$HOME/Downloads/nRF5_SDK_12.3.0_d7731ad/nRF5_SDK_12.3.0_d7731ad
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/node_modules/.bin"
-source $HOME/.env
-
-export EDITOR=nvim
-eval "$(direnv hook zsh)"
-
-export NRFSDK15_ROOT=$HOME/nRF5_SDK_15.0.0_a53641a
-
 function gcopr() {
   git fetch upstream pull/$1/head:$1
   git checkout $1
 }
-
 
 function gplpr() {
   git pull upstream pull/$(git branch | grep \* | cut -d ' ' -f2)/head
