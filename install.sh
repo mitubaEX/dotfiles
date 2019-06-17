@@ -1,7 +1,7 @@
 # homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# arch linux
+# for ubuntu
 if [ "$(uname)" = "Linux" ]; then
   sudo apt-get update
   sudo apt install -y cargo
@@ -132,7 +132,7 @@ cd $HOME
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 export PYTHONPATH=python3:pip3
-pip3 install neovim
+pip3 install pynvim
 nvim -e -c "call dein#install()"
 nvim -e -c "UpdateRemotePlugins"
 
