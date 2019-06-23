@@ -1,0 +1,50 @@
+#deoplete
+[[plugins]] # コード補完
+repo = 'Shougo/deoplete.nvim'
+on_source = ['LanguageClient-neovim']
+on_event = ['InsertEnter']
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+hook_post_update = 'UpdateRemotePlugins'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+depends = 'deoplete.nvim'
+on_event = ['InsertEnter']
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+on_ft = ['go']
+hook_source = '''
+let g:LanguageClient_serverCommands = {
+    \ 'go': ['gopls'],
+    \ }
+    " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+set completefunc=LanguageClient#complete
+let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_selectionUI = 'fzf'
+let g:LanguageClient_loggingLevel = 'INFO'
+let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
+let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+
+" jump to method
+nnoremap <silent> <C-y>d :call LanguageClient#textDocument_definition()<CR>
+
+" check each reference
+nnoremap <silent> <C-y>r :call LanguageClient#textDocument_references()<CR>
+'''
+
+# 動かない時は、yarn add global typescript, yarn add global neovimとかしたらrunする
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+on_ft = ['typescript', 'tsx', 'typescrip.tsx']
+hook_post_update = 'UpdateRemotePlugins'
+hook_source = '''
+
+" C-] jump definition
+
+" check each reference
+nnoremap <silent> <C-y>r :TsuReferences<CR>
+
+'''

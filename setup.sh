@@ -1,6 +1,9 @@
 mkdir $HOME/.config
 
+# dein
 ln -sf $(pwd)/dein.toml $HOME/dein.toml
+ln -sf $(pwd)/dein_lang.toml $HOME/dein_lang.toml
+ln -sf $(pwd)/dein_lazy.toml $HOME/dein_lazy.toml
 
 # nvim
 mkdir $HOME/.config/nvim
