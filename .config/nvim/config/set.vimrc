@@ -40,8 +40,6 @@ set number
 set sm
 set ai
 set noswapfile
-set cursorline
-set cursorcolumn
 
 set linebreak
 set showbreak=…

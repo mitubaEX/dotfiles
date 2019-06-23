@@ -3,8 +3,36 @@
 repo = 'Shougo/deoplete.nvim'
 on_source = ['LanguageClient-neovim']
 on_event = ['InsertEnter']
-hook_add = 'let g:deoplete#enable_at_startup = 1'
+depends = ['context_filetype.vim']
 hook_post_update = 'UpdateRemotePlugins'
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('')[col - 1]  =~ '\s'
+endfunction
+
+call deoplete#custom#option('keyword_patterns', {
+      \ '_': '[a-zA-Z_]\k*\(?',
+      \ })
+call deoplete#custom#option('camel_case', v:true)
+
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#manual_complete()
+
+call deoplete#custom#source('_', 'converters', [
+      \ 'converter_remove_paren',
+      \ 'converter_remove_overlap',
+      \ 'matcher_length',
+      \ 'converter_truncate_abbr',
+      \ 'converter_truncate_menu',
+      \ 'converter_auto_delimiter',
+      \ ])
+'''
 
 [[plugins]]
 repo = 'Shougo/neco-syntax'
@@ -16,6 +44,8 @@ repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 build = 'bash install.sh'
 on_ft = ['go']
+on_event = ['InsertEnter']
+hook_post_update = 'UpdateRemotePlugins'
 hook_source = '''
 let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls'],
