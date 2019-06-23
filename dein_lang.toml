@@ -112,3 +112,16 @@ on_ft = ['ruby']
 [[plugins]]
 repo = 'thoughtbot/vim-rspec'
 on_ft = ['ruby']
+
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+depends = ['godlygeek/tabular']
+on_ft = ['markdown', 'md']
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.vim'
+on_ft = ['markdown', 'md']

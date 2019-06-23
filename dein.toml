@@ -1,14 +1,8 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
-
-[[plugins]]
-repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -115,30 +109,10 @@ set shell=/bin/bash
 '''
 
 [[plugins]]
-repo = 'mattn/gist-vim'
-depends = ['mattn/webapi-vim']
-
-[[plugins]]
-repo = 'mattn/webapi-vim'
-
-[[plugins]]
-repo = 'godlygeek/tabular'
-
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-depends = ['godlygeek/tabular']
-
-[[plugins]]
-repo = 'iamcco/markdown-preview.vim'
-
-[[plugins]]
 repo = 'rhysd/clever-f.vim'
 
 [[plugins]]
 repo = 'mitubaEX/codic-vim'
-
-[[plugins]]
-repo = 'morhetz/gruvbox'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -232,9 +206,6 @@ depends = ['basyura/twibill.vim', 'tyru/open-browser.vim']
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
-
-[[plugins]]
-repo = 'junegunn/seoul256.vim'
 
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
