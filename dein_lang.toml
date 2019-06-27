@@ -125,3 +125,12 @@ on_ft = ['markdown', 'md']
 [[plugins]]
 repo = 'iamcco/markdown-preview.vim'
 on_ft = ['markdown', 'md']
+
+[[plugins]]
+repo = 'chrisbra/csv.vim'
+on_ft = ['csv']
+hook_source = '''
+" for chrisbra/csv
+let g:csv_highlight_column = 'y'
+let g:csv_hiGroup = 'Visual'
+'''

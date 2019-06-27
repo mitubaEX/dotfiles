@@ -221,9 +221,9 @@ build = 'make -f make_mac.mak'
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
-[[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
+[[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 
-[[plugins]] # カーソル位置のコンテキストのftを判定するライブラリ
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
