@@ -16,8 +16,8 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 inoremap <C-s> <Nop>
-nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <C-e> :terminal<Enter>
+" nnoremap <Leader>n :NERDTreeToggle<CR>
+" nnoremap <C-e> :terminal<Enter>
 
 " move method of cursor in insert mode
 inoremap <C-j> <Down>
@@ -132,3 +132,6 @@ nnoremap <Leader>o o<Esc>
 
 " indent all lines
 map <Leader>= gg=G<C-o><C-o>
+
+" defx
+nnoremap <Leader>n :Defx<CR>
