@@ -14,6 +14,7 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
+  let g:ale_completion_enabled = 1
   let g:go_fmt_fail_silently = 1
   let g:ale_fix_on_save = 1
   " let g:neomake_javascript_enabled_makers = ['tslint', 'eslint', 'flow']
@@ -296,4 +297,21 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> cd
 	\ defx#do_action('change_vim_cwd')
 endfunction
+'''
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+hook_add = '''
+" defx
+let g:defx_icons_enable_syntax_highlight = 1
+let g:defx_icons_column_length = 2
+let g:defx_icons_directory_icon = ''
+let g:defx_icons_mark_icon = '*'
+let g:defx_icons_parent_icon = ''
+let g:defx_icons_default_icon = ''
+let g:defx_icons_directory_symlink_icon = ''
+" Options below are applicable only when using "tree" feature
+let g:defx_icons_root_opened_tree_icon = ''
+let g:defx_icons_nested_opened_tree_icon = ''
+let g:defx_icons_nested_closed_tree_icon = ''
 '''

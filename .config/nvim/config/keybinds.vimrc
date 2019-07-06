@@ -17,7 +17,7 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 inoremap <C-s> <Nop>
 " nnoremap <Leader>n :NERDTreeToggle<CR>
-" nnoremap <C-e> :terminal<Enter>
+nnoremap <C-e> :terminal<Enter>
 
 " move method of cursor in insert mode
 inoremap <C-j> <Down>
@@ -134,4 +134,4 @@ nnoremap <Leader>o o<Esc>
 map <Leader>= gg=G<C-o><C-o>
 
 " defx
-nnoremap <Leader>n :Defx<CR>
+nnoremap <Leader>n :<C-u>Defx `expand('%:p:h')` -columns=icons:filename:type -search=`expand('%:p')`<CR>
