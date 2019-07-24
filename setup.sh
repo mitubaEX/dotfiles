@@ -33,7 +33,8 @@ ln -sf $(pwd)/com.amethyst.Amethyst.plist $HOME/Library/Preferences/com.amethyst
 
 # aquaskk
 mkdir $HOME/Library/Application Support/AquaSKK
-ln -sf $(pwd)/keymap.conf "$HOME/Library/Application Support/AquaSKK/keymap.conf"
+ln -sf $(pwd)/AquaSKK/keymap.conf "$HOME/Library/Application Support/AquaSKK/keymap.conf"
+ln -sf $(pwd)/AquaSKK/kana-rule.conf "$HOME/Library/Application Support/AquaSKK/kana-rule.conf"
 
 # oni
 mkdir $HOME/.config/oni
