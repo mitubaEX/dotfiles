@@ -14,7 +14,6 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
-  let g:ale_completion_enabled = 1
   let g:go_fmt_fail_silently = 1
   let g:ale_fix_on_save = 1
   " let g:neomake_javascript_enabled_makers = ['tslint', 'eslint', 'flow']
@@ -314,4 +313,10 @@ let g:defx_icons_directory_symlink_icon = ''
 let g:defx_icons_root_opened_tree_icon = ''
 let g:defx_icons_nested_opened_tree_icon = ''
 let g:defx_icons_nested_closed_tree_icon = ''
+'''
+
+[[plugins]]
+repo = 'skanehira/vsession'
+hook_source = '''
+let g:session_path = '~/.config/nvim/sessions'
 '''
