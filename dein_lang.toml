@@ -103,6 +103,7 @@ build = 'bash install.sh'
 
 [[plugins]]
 repo = 'takkii/totolot'
+rev = 'ff8d3a7'
 on_ft = ['ruby']
 
 [[plugins]]
