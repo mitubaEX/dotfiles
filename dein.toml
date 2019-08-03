@@ -323,3 +323,6 @@ let g:session_path = '~/.config/nvim/sessions'
 
 [[plugins]]
 repo = 'kassio/neoterm'
+
+[[plugins]]
+repo = 'fholgado/minibufexpl.vim'
