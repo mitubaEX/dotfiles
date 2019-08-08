@@ -14,24 +14,20 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
-  let g:go_fmt_fail_silently = 1
-  let g:ale_fix_on_save = 1
-  " let g:neomake_javascript_enabled_makers = ['tslint', 'eslint', 'flow']
+  " let g:go_fmt_fail_silently = 1
 
-  " let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-  function! ALEStatus()
-    " return ALEGetStatusLine()
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-		    \   '⚠ %d ⨉ %d',
-		    \   all_non_errors,
-		    \   all_errors
-		    \)
-  endfunction
+  " function! ALEStatus()
+  "   let l:counts = ale#statusline#Count(bufnr(''))
+		"
+  "   let l:all_errors = l:counts.error + l:counts.style_error
+  "   let l:all_non_errors = l:counts.total - l:all_errors
+		"
+  "   return l:counts.total == 0 ? 'OK' : printf(
+		"    \   '⚠ %d ⨉ %d',
+		"    \   all_non_errors,
+		"    \   all_errors
+		"    \)
+  " endfunction
 
   let g:ale_linters = {
   \   'javascript': ['eslint', 'prettier', 'flow'],
@@ -323,6 +319,3 @@ let g:session_path = '~/.config/nvim/sessions'
 
 [[plugins]]
 repo = 'kassio/neoterm'
-
-[[plugins]]
-repo = 'fholgado/minibufexpl.vim'
