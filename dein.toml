@@ -10,6 +10,10 @@ repo = 'tyru/caw.vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+depends = ['tpope/vim-rhubarb']
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
 repo = 'dense-analysis/ale'
