@@ -305,8 +305,8 @@ function git_information() {
 # =====================git alias============================== {{{
   alias g='git'
 
-  alias ga='git add'
-  alias gaa='git add --all'
+  alias ga='git add -p'
+  alias gaa='git add -p --all'
   alias gapa='git add --patch'
   alias gau='git add --update'
   alias gav='git add --verbose'
