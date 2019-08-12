@@ -16,6 +16,7 @@ ln -sf $(pwd)/.config/nvim/config/lsp.vimrc $HOME/.config/nvim/config/lsp.vimrc
 
 
 ln -sf $(pwd)/.zshrc $HOME/.zshrc
+ln -sf $(pwd)/.zshenv $HOME/.zshenv
 ln -sf $(pwd)/.zpreztorc $HOME/.zpreztorc
 ln -sf $(pwd)/tmux/.tmux.conf $HOME/.tmux.conf
 

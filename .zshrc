@@ -107,8 +107,6 @@ source $HOME/.env
 
 export NRFSDK15_ROOT=$HOME/nRF5_SDK_15.0.0_a53641a
 
-autoload -Uz compinit && compinit -i
-
 # alacritty
 export WINIT_HIDPI_FACTOR="1"
 
@@ -125,8 +123,6 @@ alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
 
 alias nasm='/usr/local/bin/nasm'
 
-source <(kubectl completion zsh)
-
 # Docker completions
 if [ -e ~/.zsh/completion ]; then
   fpath=(~/.zsh/completion $fpath)
@@ -136,19 +132,6 @@ printf "\e[4 q"
 
 # ls
 function chpwd() { rename_session && ls }
-
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{4}|%F{yellow}+"
-zstyle ':vcs_info:git:*' unstagedstr "%F{4}|%F{red}*"
-zstyle ':vcs_info:*' formats "%F{4} - [%F{green}%b%c%u%F{4}]"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-# git
-function git_information() {
-  echo  ${vcs_info_msg_0_}
-}
 
 # PROMPT='%F{blue}%2~${vcs_info_msg_0_} ${editor_info[keymap]} '
 # RPROMPT=''
@@ -373,8 +356,6 @@ function git_information() {
   alias gcd='git checkout develop'
   alias gcmsg='git commit -m'
   alias gco='git checkout'
-  alias gcount='git shortlog -sn'
-  compdef _git gcount
   alias gcp='git cherry-pick'
   alias gcpa='git cherry-pick --abort'
   alias gcpc='git cherry-pick --continue'
@@ -388,15 +369,9 @@ function git_information() {
   alias gdt='git diff-tree --no-commit-id --name-only -r'
   alias gdw='git diff --word-diff'
 
-  gdv() { git diff -w "$@" | view - }
-  compdef _git gdv=git-diff
-
   alias gf='git fetch'
   alias gfa='git fetch --all --prune'
   alias gfo='git fetch origin'
-
-  function gfg() { git ls-files | grep $@ }
-  compdef _grep gfg
 
   alias gg='git gui citool'
   alias gga='git gui citool --amend'
@@ -405,55 +380,6 @@ function git_information() {
     [[ "$#" != 1 ]] && local b="$(git_current_branch)"
     git push --force origin "${b:=$1}"
   }
-  ggfl() {
-  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  git push --force-with-lease origin "${b:=$1}"
-  }
-  compdef _git ggf=git-checkout
-
-  ggl() {
-    if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-      git pull origin "${*}"
-    else
-      [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-      git pull origin "${b:=$1}"
-    fi
-  }
-  compdef _git ggl=git-checkout
-
-  ggp() {
-    if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-      git push origin "${*}"
-    else
-      [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-      git push origin "${b:=$1}"
-    fi
-  }
-  compdef _git ggp=git-checkout
-
-  ggpnp() {
-    if [[ "$#" == 0 ]]; then
-      ggl && ggp
-    else
-      ggl "${*}" && ggp "${*}"
-    fi
-  }
-  compdef _git ggpnp=git-checkout
-
-  ggu() {
-    [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-    git pull --rebase origin "${b:=$1}"
-  }
-  compdef _git ggu=git-checkout
-
-  alias ggpur='ggu'
-  compdef _git ggpur=git-checkout
-
-  alias ggpull='git pull origin $(git_current_branch)'
-  compdef _git ggpull=git-checkout
-
-  alias ggpush='git push origin $(git_current_branch)'
-  compdef _git ggpush=git-checkout
 
   alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
   alias gpsup='git push --set-upstream origin $(git_current_branch)'
@@ -462,13 +388,6 @@ function git_information() {
 
   alias gignore='git update-index --assume-unchanged'
   alias gignored='git ls-files -v | grep "^[[:lower:]]"'
-  alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
-  compdef _git git-svn-dcommit-push=git
-
-  alias gk='\gitk --all --branches'
-  compdef _git gk='gitk'
-  alias gke='\gitk --all $(git log -g --pretty=%h)'
-  compdef _git gke='gitk'
 
   alias gl='git pull'
   alias glg='git log --stat'
@@ -483,8 +402,6 @@ function git_information() {
   alias glola="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
   alias glog='git log --oneline --decorate --graph'
   alias gloga='git log --oneline --decorate --graph --all'
-  alias glp="_git_log_prettily"
-  compdef _git glp=git-log
 
   alias gm='git merge'
   alias gmom='git merge origin/master'
@@ -495,8 +412,6 @@ function git_information() {
 
   alias gp='git push'
   alias gpd='git push --dry-run'
-  alias gpoat='git push origin --all && git push origin --tags'
-  compdef _git gpoat=git-push
   alias gpu='git push upstream'
   alias gpv='git push -v'
 
@@ -608,3 +523,8 @@ function gcopr() {
 function gplpr() {
   git pull upstream pull/$(git branch | grep \* | cut -d ' ' -f2)/head
 }
+
+# check performance
+# if (which zprof > /dev/null) ;then
+#   zprof | less
+# fi
