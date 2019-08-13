@@ -14,8 +14,12 @@ ln -sf $(pwd)/.config/nvim/config/keybinds.vimrc $HOME/.config/nvim/config/keybi
 ln -sf $(pwd)/.config/nvim/config/set.vimrc $HOME/.config/nvim/config/set.vimrc
 ln -sf $(pwd)/.config/nvim/config/lsp.vimrc $HOME/.config/nvim/config/lsp.vimrc
 
-
-ln -sf $(pwd)/.zshrc $HOME/.zshrc
+# zsh
+mkdir $HOME/.zsh.d
+ln -sf $(pwd)/.zsh.d/* $HOME/.zsh.d/.
+ln -sf $(pwd)/.zsh.d/.zshrc $HOME/.zsh.d/.zshrc
+ln -sf $(pwd)/.zsh.d/.zshenv $HOME/.zsh.d/.zshenv
+ln -sf $(pwd)/.zsh.d/.zprofile $HOME/.zsh.d/.zprofile
 ln -sf $(pwd)/.zshenv $HOME/.zshenv
 ln -sf $(pwd)/.zpreztorc $HOME/.zpreztorc
 ln -sf $(pwd)/tmux/.tmux.conf $HOME/.tmux.conf
