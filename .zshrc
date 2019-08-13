@@ -83,6 +83,7 @@ alias mkdir='(){if [ $# -gt 1 ] ; then mkdir $@ ; else mkdir $1;cd $1 ;fi}'
 
 # change ls to exa
 alias ls='exa'
+alias ll='exa -l'
 
 # lang
 export LC_ALL=en_US.UTF-8
