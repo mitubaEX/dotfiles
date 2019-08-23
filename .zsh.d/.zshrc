@@ -50,15 +50,8 @@ export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.cabal:
 stty stop undef
 stty start undef
 
-export NRFSDK12_ROOT=$HOME/Downloads/nRF5_SDK_12.3.0_d7731ad/nRF5_SDK_12.3.0_d7731ad
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/node_modules/.bin"
 source $HOME/.env
-
-export NRFSDK15_ROOT=$HOME/nRF5_SDK_15.0.0_a53641a
-
-# alacritty
-export WINIT_HIDPI_FACTOR="1"
 
 # Docker completions
 if [ -e ~/.zsh/completion ]; then
@@ -69,22 +62,6 @@ printf "\e[4 q"
 
 # ls
 function chpwd() { rename_session && ls }
-
-# PROMPT='%F{blue}%2~${vcs_info_msg_0_} ${editor_info[keymap]} '
-# RPROMPT=''
-
-# required pup command(https://github.com/ericchiang/pup)
-function niconew () {
-  rm $HOME/index.html
-  echo "<html><header/><body>" > $HOME/index.html
-  echo '<meta http-equiv="content-type" charset="utf-8">' >> $HOME/index.html
-  for i in `seq 1 10`
-  do
-    paste -d "\n" <(curl "https://www.nicovideo.jp/newarrival?page=$i" | pup 'a[href]' | grep watch | grep title | sed 's/watch\//https\:\/\/www.nicovideo.jp\/watch\//g') <(curl "https://www.nicovideo.jp/newarrival?page=$i" | pup 'img[src]' | grep smile)  >> $HOME/index.html
-  done
-  echo "</body></html>" >> $HOME/index.html
-  open $HOME/index.html
-}
 
 function gcopr() {
   git fetch upstream pull/$1/head:$1
