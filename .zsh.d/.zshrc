@@ -100,3 +100,17 @@ function gplpr() {
 #   zprof | less
 # fi
 
+
+## repo path
+export CTAX_PATH=~/freee-ctax
+export ALPHA_PATH=~/.ghq/src/github.com/mitubaEX/CFO-Alpha
+export MYNUMBER_PATH=~/.ghq/src/github.com/C-FO/freee-mynumber
+export PAYROLL_PATH=~/.ghq/src/github.com/C-FO/freee-payroll
+
+function inifre() {
+  xpanes -e -x "cd $CTAX_PATH && INTEGRATE_C_TAX_FORM_TOOL=1 LOGIN_EMAIL=test+a@c-fo.com RAILS_RELATIVE_URL_ROOT=/ctax bundle exec rails s -b 0.0.0.0 -p 3200" "cd $CTAX_PATH && RAILS_RELATIVE_URL_ROOT=/ctax yarn run serve"
+
+  xpanes -e -x "cd $ALPHA_PATH && docker-compose up -d && bundle exec rails s -b 0.0.0.0" "cd $ALPHA_PATH && npm run watch"
+
+  xpanes -e -x "cd $MYNUMBER_PATH && make rails-server"
+}
