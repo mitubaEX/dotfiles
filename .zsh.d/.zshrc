@@ -3,7 +3,7 @@
 . $ZDOTDIR/utils/fzf-config.zsh
 . $ZDOTDIR/utils/fzf-functions.zsh
 . $ZDOTDIR/utils/git-alias.zsh
-. $ZDOTDIR/utils/zplugins.zsh
+# . $ZDOTDIR/utils/zplugins.zsh
 
 # no check uppper case and lower case
 zstyle ':completion:*' matcher-list 'm:{}a-z}={}A-Z}'
@@ -76,7 +76,6 @@ function gplpr() {
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
-
 
 ## repo path
 export CTAX_PATH=~/freee-ctax
