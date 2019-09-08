@@ -17,8 +17,6 @@ export HISTSIZE=1000
 # 履歴ファイルに保存される履歴の件数
 export SAVEHIST=100000
 
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
 # remove duplication of history
 setopt hist_ignore_all_dups
 
