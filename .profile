@@ -31,3 +31,5 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 xset r rate 225 30
+
+export PATH="$HOME/.cargo/bin:$PATH"
