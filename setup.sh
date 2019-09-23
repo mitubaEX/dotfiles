@@ -13,6 +13,7 @@ ln -sf $(pwd)/.config/nvim/config/dein_script.vimrc $HOME/.config/nvim/config/de
 ln -sf $(pwd)/.config/nvim/config/keybinds.vimrc $HOME/.config/nvim/config/keybinds.vimrc
 ln -sf $(pwd)/.config/nvim/config/set.vimrc $HOME/.config/nvim/config/set.vimrc
 ln -sf $(pwd)/.config/nvim/config/lsp.vimrc $HOME/.config/nvim/config/lsp.vimrc
+ln -sf $(pwd)/.config/nvim/config/fzf_functions.vimrc $HOME/.config/nvim/config/fzf_functions.vimrc
 
 # zsh
 mkdir $HOME/.zsh.d
