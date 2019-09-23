@@ -125,9 +125,6 @@ repo = 'tpope/vim-surround'
 repo = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
-repo = 'maxbrunsfeld/vim-yankstack'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
 let g:quickrun_config = {
@@ -323,3 +320,6 @@ let g:session_path = '~/.config/nvim/sessions'
 
 [[plugins]]
 repo = 'kassio/neoterm'
+
+[[plugins]]
+repo = 'jalvesaq/vimcmdline'

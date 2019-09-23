@@ -2,10 +2,11 @@ nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 " reader ref:https://postd.cc/how-to-boost-your-vim-productivity/
+let maplocalleader = "\\"
 let mapleader = "\<Space>"
 nnoremap <Leader>w <Esc>:w<CR>
 nnoremap <Leader>o :CtrlP<CR>
-nnoremap <Leader>s :source .config/nvim/init.vim<CR>
+" nnoremap <Leader>s :source .config/nvim/init.vim<CR>
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
