@@ -65,9 +65,6 @@ au Syntax * RainbowParenthesesLoadBraces
 " }}}
 let g:latex_latexmk_options = '-pdf'
 
-hi! Visual ctermbg=236 guibg=#363d5b
-hi! Normal ctermbg=NONE guibg=NONE
-
 let g:node_host_prog = '$HOME/node_modules/.bin/neovim-node-host'
 
 " source each config
@@ -76,3 +73,4 @@ source $HOME/.config/nvim/config/set.vimrc
 source $HOME/.config/nvim/config/keybinds.vimrc
 source $HOME/.config/nvim/config/lsp.vimrc
 source $HOME/.config/nvim/config/fzf_functions.vimrc
+hi! Normal ctermbg=NONE guibg=NONE

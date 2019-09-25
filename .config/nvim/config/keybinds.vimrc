@@ -1,12 +1,11 @@
-nmap <Leader>c <Plug>(caw:hatpos:toggle)
-vmap <Leader>c <Plug>(caw:hatpos:toggle)
-
 " reader ref:https://postd.cc/how-to-boost-your-vim-productivity/
 let maplocalleader = "\\"
 let mapleader = "\<Space>"
+nmap <LocalLeader>c <Plug>(caw:hatpos:toggle)
+vmap <LocalLeader>c <Plug>(caw:hatpos:toggle)
+
 nnoremap <Leader>w <Esc>:w<CR>
 nnoremap <Leader>o :CtrlP<CR>
-" nnoremap <Leader>s :source .config/nvim/init.vim<CR>
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -17,7 +16,6 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 inoremap <C-s> <Nop>
-" nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <C-e> :terminal<Enter>
 
 " move method of cursor in insert mode
