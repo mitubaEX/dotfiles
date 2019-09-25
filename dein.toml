@@ -61,29 +61,30 @@ hook_add = '''
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   set noshowmode
-  let g:lightline = {
-        \'active': {
-        \  'left': [
-        \    ['mode', 'paste'],
-        \    [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-        \    ['ale'],
-        \  ],
-        \  'right': [
-        \    [ 'lineinfo' ],
-        \    [ 'percent' ],
-        \    [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
-        \ ],
-        \},
-        \ 'component': {
-        \   'charvaluehex': '0x%B'
-        \ },
-        \'component_function': {
-        \  'ale': 'ALEStatus',
-        \  'gitbranch': 'fugitive#head',
-        \  'filename': 'LightLineFilename'
-        \}
-        \ }
-
+  " let g:lightline = {
+  "      \'active': {
+  "      \  'left': [
+  "      \    ['mode', 'paste'],
+  "      \    [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+  "      \    ['ale'],
+  "      \  ],
+  "      \  'right': [
+  "      \    [ 'lineinfo' ],
+  "      \    [ 'percent' ],
+  "      \    [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
+  "      \ ],
+  "      \},
+  "      \ 'component': {
+  "      \   'charvaluehex': '0x%B'
+  "      \ },
+  "      \'component_function': {
+  "      \  'ale': 'ALEStatus',
+  "      \  'gitbranch': 'fugitive#head',
+  "      \  'filename': 'LightLineFilename'
+  "      \}
+  "      \ }
+  let g:rigel_lightline = 1
+  let g:lightline = { 'colorscheme': 'rigel' }
   function! LightLineFilename()
     return expand('%')
   endfunction
@@ -170,7 +171,6 @@ repo = 'rhysd/vim-grammarous'
 [[plugins]]
 repo = 'mhinz/vim-startify'
 hook_add = '''
-
 let g:startify_lists = [
 \ { 'type': 'files',     'header': ['   MRU']            },
   \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
@@ -323,3 +323,6 @@ repo = 'kassio/neoterm'
 
 [[plugins]]
 repo = 'jalvesaq/vimcmdline'
+
+[[plugins]]
+repo = 'Rigellute/rigel'
