@@ -35,6 +35,8 @@ bindkey -v '^F'   forward-char
 bindkey -v '^B'   backward-char
 bindkey -v '^K'   up-line-or-history
 bindkey -v '^J'   down-line-or-history
+bindkey -v '^P'   up-line-or-history
+bindkey -v '^N'   down-line-or-history
 
 # lang
 export LC_ALL=en_US.UTF-8

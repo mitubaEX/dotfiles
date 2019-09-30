@@ -137,22 +137,6 @@
   autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
   add-zsh-hook chpwd chpwd_recent_dirs
 
-  function move_cdr() {
-      name=$(cdr -l | fzf --height='30%' --layout='reverse')
-      if [[ ! -z ${TMUX} ]]
-      then
-          if [ ! -z ${name} ]
-          then
-            cdr $(echo $name | awk '{print $1}')
-            zle reset-prompt
-          else
-            zle reset-prompt
-          fi
-      fi
-  }
-  zle -N move_cdr
-  bindkey '^N' move_cdr
-
   # fshow - git commit browser
   fshow() {
     git log --graph --color=always \
