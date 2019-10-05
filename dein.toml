@@ -334,3 +334,9 @@ repo = 'jalvesaq/vimcmdline'
 
 [[plugins]]
 repo = 'Rigellute/rigel'
+
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+hook_source = '''
+let g:memolist_path = "$HOME/memo"
+'''
