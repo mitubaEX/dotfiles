@@ -89,6 +89,7 @@ ll isPInclude1(ll a){for(ll i = 2; i < int(sqrt(a)+1); i++) {if (a % i == 0) { r
 ll lcm(ll a,ll b){return a*b/gcd(a,b);}// 最大公倍数
 int factorial(int n){if(n > 1)return n * factorial(n - 1);else return 1;} // 階乗
 int factorialWithPlus(int n){if(n > 1)return n + factorialWithPlus(n - 1);else return 1;} // 階乗のplus版
+Vll primeFactorization(ll a){Vll vec;vec.push_back(1);for(ll i = 2; i*i <= a; i++){ if(a % i == 0) { while(a % i == 0){ a /= i; vec.push_back(i); } } }; if(a != 1){ vec.push_back(a); }; return vec;} // 素因数分解
 struct io{io(){cin.tie(0); ios::sync_with_stdio(0); cout<<fixed<<setprecision(20);};}io;// io 高速化
 
 signed main() {
