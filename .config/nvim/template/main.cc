@@ -49,6 +49,7 @@ using Pdd = P<double,double>;
 
 template<typename T> using V = vector< T >;
 using Vi = V<int>;
+using Vii = V<pair<int, int>>;
 using Vll = V<ll>;
 using Vs = V<string>;
 
@@ -82,8 +83,12 @@ template<class H,class... T> void resz(int n,H& a,T&... b){a.resize(n);resz(n,b.
 
 
 ll gcd(ll a,ll b){return b?gcd(b,a%b):a;}// 最大公約数
+Vll cd(ll a, ll b){Vll vec;ll z = gcd(a, b);for(ll j = 1; j <= z; j++){if(z % j == 0)vec.push_back(j);};return vec;} // 約数リストを取得
+ll isP(ll a){if (a == 1) {return 0;} for(ll i = 2; i < int(sqrt(a)+1); i++) {if (a % i == 0) { return 0; }}; return 1;} // 素数かどうか
+ll isPInclude1(ll a){for(ll i = 2; i < int(sqrt(a)+1); i++) {if (a % i == 0) { return 0; }}; return 1;} // 素数かどうか(1を含む)
 ll lcm(ll a,ll b){return a*b/gcd(a,b);}// 最大公倍数
 int factorial(int n){if(n > 1)return n * factorial(n - 1);else return 1;} // 階乗
+int factorialWithPlus(int n){if(n > 1)return n + factorialWithPlus(n - 1);else return 1;} // 階乗のplus版
 struct io{io(){cin.tie(0); ios::sync_with_stdio(0); cout<<fixed<<setprecision(20);};}io;// io 高速化
 
 signed main() {
