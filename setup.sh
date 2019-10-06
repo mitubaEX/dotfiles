@@ -73,3 +73,7 @@ ln -sf $(pwd)/.config/compton.conf $HOME/.config/compton.conf
 
 # .env
 ln -sf $(pwd)/.env $HOME/.env
+
+# template
+mkdir .config/nvim/template
+for file in ./.config/nvim/template/* ;do  ln -sf $(pwd)/$file $HOME/$file ;done
