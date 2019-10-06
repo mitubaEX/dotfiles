@@ -90,6 +90,7 @@ ll lcm(ll a,ll b){return a*b/gcd(a,b);}// 最大公倍数
 int factorial(int n){if(n > 1)return n * factorial(n - 1);else return 1;} // 階乗
 int factorialWithPlus(int n){if(n > 1)return n + factorialWithPlus(n - 1);else return 1;} // 階乗のplus版
 Vll primeFactorization(ll a){Vll vec;vec.push_back(1);for(ll i = 2; i*i <= a; i++){ if(a % i == 0) { while(a % i == 0){ a /= i; vec.push_back(i); } } }; if(a != 1){ vec.push_back(a); }; return vec;} // 素因数分解
+void uni(vector<long long> vec){ sort(all(vec)); vec.erase(unique(all(vec)), vec.end()); }
 struct io{io(){cin.tie(0); ios::sync_with_stdio(0); cout<<fixed<<setprecision(20);};}io;// io 高速化
 
 signed main() {
