@@ -64,5 +64,8 @@
   "breadcrumbs.enabled": true,
   "diffEditor.renderSideBySide": false,
   "go.gopath": "~/.ghq",
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  "workbench.colorTheme": "Solarized Dark",
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true
 }
