@@ -118,7 +118,7 @@ else
   brew install khd
   cp /usr/local/opt/chunkwm/share/chunkwm/examples/khdrc ~/.khdrc
 
-  brew install python3 fzf zsh neovim tree wget tmux caskroom/cask/iterm2 ag exa reattach-to-user-namespace caskroom/versions/java8 gradle go kotlin rust sbt scala caskroom/cask/google-chrome caskroom/cask/slack caskroom/cask/hyperswitch caskroom/cask/amethyst ripgrep ctags direnv
+  brew install python3 fzf zsh neovim tree wget tmux ag exa reattach-to-user-namespace go rust ripgrep ctags direnv
 
   # launchctl load
   brew services start chunkwm
@@ -157,7 +157,7 @@ cd ..
 rm -rf fonts
 
 # fonts
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 
 # tmux
@@ -174,9 +174,6 @@ export GOPATH=$HOME/.ghq
 
 # install gocode
 go get -u github.com/mdempsky/gocode
-
-# haskell
-stack setup
 
 # vim
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ./installer.sh
@@ -195,12 +192,6 @@ fi
 
 # ghq
 go get -u github.com/motemen/ghq
-
-# gopls
-go get -u golang.org/x/tools/cmd/gopls
-
-# gitin
-go get -d github.com/isacikgoz/gitin
 
 echo '[ghq]' >> $HOME/.gitconfig
 echo '    root = ~/.ghq/src' >> $HOME/.gitconfig
