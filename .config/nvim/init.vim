@@ -19,23 +19,6 @@ let g:neosnippet#enable_completed_snippet = 1
 
 let g:vim_markdown_folding_disabled = 1
 
-
-" easymotion {{{
-let mapleader = "\<Space>"
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Move to word
-map  <Leader>l <Plug>(easymotion-bd-w)
-nmap <Leader>l <Plug>(easymotion-overwin-w)
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-" }}}
-
 " rainbow_parentheses.vim {{{
 let g:rbpt_colorpairs = [
 	    \ ['brown',       'RoyalBlue3'],
