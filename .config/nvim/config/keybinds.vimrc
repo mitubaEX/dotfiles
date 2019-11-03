@@ -104,3 +104,5 @@ map <Leader>= gg=G<C-o><C-o>
 nnoremap <Leader>n :<C-u>Defx `expand('%:p:h')` -columns=icons:filename:type -search=`expand('%:p')`<CR>
 
 nmap <Leader>c :!echo "%:t" \| pbcopy<CR>
+
+nnoremap <Leader>- :CleverSplit<CR>

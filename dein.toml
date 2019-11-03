@@ -79,9 +79,7 @@ hook_add = '''
        \  'gitbranch': 'fugitive#head',
        \  'filename': 'LightLineFilename'
        \},
-       \ 'colorscheme': 'rigel',
        \ }
-  let g:rigel_lightline = 1
   function! LightLineFilename()
     return expand('%')
   endfunction
@@ -285,3 +283,6 @@ let g:defx_icons_nested_closed_tree_icon = ''
 
 [[plugins]]
 repo = 'jalvesaq/vimcmdline'
+
+[[plugins]]
+repo = 'rhysd/clever-split.vim'
