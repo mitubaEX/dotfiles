@@ -25,12 +25,13 @@ command! -nargs=* GGrepCurrentWordQuery call s:gGrepCurrentWordQuery()
 nmap <Leader>g :GGrepCurrentWordQuery<CR>
 
 " rg
+command! -bang -nargs=* Fg call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 function! s:rgCurrentWordQuery() abort
 	let cword = expand("<cword>")
-	execute "Rg " . cword
+	execute "Fg " . cword
 endfunction
 command! -nargs=* RgCurrentWordQuery call s:rgCurrentWordQuery()
-nmap <Leader>a :Rg<CR>
+nmap <Leader>a :Fg<CR>
 
 " 現在のウィンドウの半透明度を指定する。
 " set winblend=20
