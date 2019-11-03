@@ -41,11 +41,6 @@ function! s:bufferClose() abort
 endfunction
 command! -nargs=* BufferClose call s:bufferClose()
 
-" vertical split
-nnoremap <C-s> :split<Enter>
-" horizontal split
-" nnoremap <C-y> :vsplit<Enter>
-
 " escape
 inoremap <silent> jj <ESC>
 
@@ -81,18 +76,10 @@ nnoremap <silent> [vim-fugitive]c  :<C-u>Gcommit<CR>
 noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
-nmap <leader>s <Plug>yankstack_substitute_older_paste
-nmap <leader>S <Plug>yankstack_substitute_newer_paste
-
-" Codic
-nmap <Leader>C :Codic<Space>
 
 nnoremap <Leader>h za
 
 nnoremap <Esc><Esc> :noh<CR>
-
-" Tagbar
-nmap <C-p> :TagbarToggle<CR>
 
 " insert new line without entering insert mode
 nnoremap <Leader>o o<Esc>
