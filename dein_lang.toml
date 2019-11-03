@@ -1,18 +1,6 @@
 [[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_ft = ['scala']
-
-[[plugins]]
-repo = 'dart-lang/dart-vim-plugin'
-on_ft = ['dart']
-
-[[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript']
-
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = ['vue']
 
 [[plugins]]
 repo = 'fatih/vim-go'
@@ -22,54 +10,17 @@ on_ft = ['go']
 repo = 'justmao945/vim-clang'
 on_ft = ['c']
 
-#tex
-[[plugins]]
-repo = 'lervag/vimtex'
-on_ft = ['tex']
-
 [[plugins]]
 repo = 'zchee/deoplete-go'
 on_ft = ['go']
-
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = ['rust']
-
-[[plugins]]
-repo = 'sebastianmarkow/deoplete-rust'
-on_ft = ['rust']
-hook_add = '''
-let g:deoplete#sources#rust#racer_binary='/usr/local/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/usr/local/Cellar/rust/1.25.0/lib/rustlib/src/rust/src'
-'''
 
 [[plugins]]
 repo = 'Shougo/deoplete-clangx'
 on_ft = ['c']
 
 [[plugins]]
-repo = 'ElmCast/elm-vim'
-on_ft = ['elm']
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
-
-[[plugins]]
-repo = 'elixir-editors/vim-elixir'
-on_ft = ['ex', 'exs', 'eex', 'leex']
-
-[[plugins]]
-repo = 'JuliaEditorSupport/julia-vim'
-on_ft = ['jl']
-
-[[plugins]]
-repo = 'kristijanhusak/deoplete-phpactor'
-on_ft = ['php']
-
-[[plugins]]
-repo = 'udalov/kotlin-vim'
-on_ft = ['kt']
 
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
@@ -113,19 +64,6 @@ on_ft = ['ruby']
 [[plugins]]
 repo = 'thoughtbot/vim-rspec'
 on_ft = ['ruby']
-
-
-[[plugins]]
-repo = 'godlygeek/tabular'
-
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-depends = ['godlygeek/tabular']
-on_ft = ['markdown', 'md']
-
-[[plugins]]
-repo = 'iamcco/markdown-preview.vim'
-on_ft = ['markdown', 'md']
 
 [[plugins]]
 repo = 'chrisbra/csv.vim'
