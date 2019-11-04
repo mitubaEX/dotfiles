@@ -2,7 +2,6 @@
 repo     = 'Shougo/denite.nvim'
 on_cmd   = ['Denite', 'DeniteBufferDir', 'DeniteCursorWord']
 on_func  = ['denite#']
-depends  = ['dwm.vim', 'fruzzy']
 hook_add = ''' "{{{
   if has('nvim')
     let s:denite_cursorline = ''
@@ -70,7 +69,7 @@ hook_add = ''' "{{{
 
   "{{{
   " file
-  noremap zt :<C-u>Denite -expand buffer file/old<CR>
+  noremap zt :<C-u>Denite -expand buffer file/rec<CR>
   " gitlog
   noremap zl :<C-u>Denite gitlog<CR>
   noremap zL :<C-u>Denite gitlog:all<CR>
@@ -89,10 +88,6 @@ hook_add = ''' "{{{
   "}}}
 "}}} '''
 hook_post_source = ''' "{{{
-  function! s:dwm_new(context)
-    call DWM_New()
-    call denite#do_action(a:context, 'open', a:context['targets'])
-  endfunction
   " from doc
   function! s:candidate_file_rec(context) abort
     let path = a:context['targets'][0]['action__path']
@@ -144,7 +139,6 @@ hook_post_source = ''' "{{{
   endif
   call denite#custom#var('my_file_rec', 'command', file_rec_cmd)
   call denite#custom#var('file/rec', 'command', file_rec_cmd)
-  call denite#custom#action('buffer,directory,file,memo,openable', 'dwm_new', function('s:dwm_new'))
   call denite#custom#action('buffer,directory,file,openable', 'my_file_rec', function('s:candidate_file_rec'))
   call denite#custom#action('buffer,directory,file,openable', 'file/rec', function('s:candidate_file_rec'))
   call denite#custom#action('buffer,directory,file,openable', 'grep', function('s:candidate_grep'))
@@ -159,7 +153,6 @@ hook_post_source = ''' "{{{
         \ 'cursor_wrap': v:true,
         \ 'highlight_filter_background': 'DeniteFilter',
         \ 'highlight_matched_char': 'Underlined',
-        \ 'matchers': 'matcher/fruzzy',
         \ 'max_dynamic_update_candidates': 100000,
         \ 'prompt': '$ ',
         \ 'split': 'floating',
@@ -186,19 +179,19 @@ hook_post_source = ''' "{{{
 
 [plugins.ftplugin]
 denite = ''' "{{{
-  let b:dwm_disabled = 1
   let b:auto_cursorline_disabled = 1
   let b:cursorword = 0
   if exists('&winblend')
-    setlocal winblend=30
+    setlocal winblend=20
+  endif
+  if exists('&pumblend')
+    setlocal pumblend=30
   endif
   nnoremap <silent><buffer> <C-j> j
   nnoremap <silent><buffer> <C-k> k
   nnoremap <silent><buffer><expr> <C-a>   denite#do_map('do_action', 'file/rec')
   nnoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
   nnoremap <silent><buffer><expr> <C-g>   denite#do_map('do_action', 'grep')
-  nnoremap <silent><buffer><expr> <C-n>   denite#do_map('do_action', 'dwm_new')
-  nnoremap <silent><buffer><expr> <C-s>   denite#do_map('change_sorters', 'sorter/rank,sorter/word')
   nnoremap <silent><buffer><expr> <C-x>   denite#do_map('quick_move')
   nnoremap <silent><buffer><expr> <CR>    denite#do_map('do_action')
   nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select).'j'
@@ -209,11 +202,13 @@ denite = ''' "{{{
   nnoremap <silent><buffer><expr> q       denite#do_map('quit')
 "}}} '''
 denite-filter = ''' "{{{
-  let b:dwm_disabled = 1
   let b:auto_cursorline_disabled = 1
   let b:cursorword = 0
   if exists('&winblend')
-    setlocal winblend=30
+    setlocal winblend=20
+  endif
+  if exists('&pumblend')
+    setlocal pumblend=30
   endif
   inoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
   inoremap <silent><buffer><expr> <C-t>   denite#do_map('toggle_matchers', 'matcher/regexp')
@@ -252,15 +247,6 @@ depends   = ['vim-easygit']
 repo = 'neoclide/vim-easygit'
 
 [[plugins]]
-repo      = 'raghur/fruzzy'
-on_source = ['denite.nvim']
-hook_add  = ''' "{{{
-  let g:fruzzy#usenative = 1
-  let g:fruzzy#sortonempty = 0
-"}}} '''
-hook_post_update = 'call fruzzy#install()'
-
-[[plugins]]
 repo      = 'rafi/vim-denite-z'
 on_source = ['denite.nvim']
 
@@ -287,23 +273,6 @@ hook_add = ''' "{{{
         \ 'txt':      "\ue601",
         \ 'vue':      "\uf542",
         \ }
-"}}} '''
-
-[[plugins]]
-repo      = 'delphinus/dwm.vim'
-rev       = 'feature/disable'
-on_source = ['denite.nvim']
-on_map    = ['<Plug>DWM']
-hook_add  = ''' "{{{
-  function! s:dwm_reset_pane_width() abort
-    if !exists('*DWM_ResizeMasterPaneWidth')
-      return
-    endif
-    let half = &columns / 2
-    let min_width = get(g:, 'dwm_min_master_pane_width', 9999)
-    let g:dwm_master_pane_width = min([min_width, half])
-    call DWM_ResizeMasterPaneWidth()
-  endfunction
 "}}} '''
 
 [[plugins]]
