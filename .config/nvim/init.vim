@@ -50,11 +50,6 @@ let g:latex_latexmk_options = '-pdf'
 
 let g:node_host_prog = '$HOME/node_modules/.bin/neovim-node-host'
 
-" fold
-set foldmethod=indent
-set foldlevel=2
-set foldcolumn=3
-
 " source each config
 source $HOME/.config/nvim/config/dein_script.vimrc
 source $HOME/.config/nvim/config/set.vimrc
@@ -68,3 +63,8 @@ if has("autocmd")
     autocmd BufNewFile *.cc 0r ~/.config/nvim/template/main.cc
   augroup END
 endif
+
+" fold
+set foldmethod=indent
+set foldlevel=2
+set foldcolumn=3
