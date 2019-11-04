@@ -54,7 +54,7 @@ function! FloatingFZF()
   " 90% of the height
   let height = float2nr(&lines * 0.5)
   " 60% of the height
-  let width = float2nr(&columns * 0.6)
+  let width = float2nr(&columns)
   " horizontal position (centralized)
   let horizontal = float2nr((&columns - width) / 2)
   " vertical position (one line down of the top)
