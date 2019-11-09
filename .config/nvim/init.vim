@@ -63,8 +63,3 @@ if has("autocmd")
     autocmd BufNewFile *.cc 0r ~/.config/nvim/template/main.cc
   augroup END
 endif
-
-" fold
-set foldmethod=indent
-set foldlevel=2
-set foldcolumn=3
