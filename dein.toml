@@ -109,9 +109,6 @@ set shell=/bin/bash
 repo = 'rhysd/clever-f.vim'
 
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
 let g:quickrun_config = {
@@ -286,3 +283,6 @@ repo = 'rhysd/clever-split.vim'
 
 [[plugins]]
 repo = 'arcticicestudio/nord-vim'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'

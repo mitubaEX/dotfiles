@@ -2,12 +2,6 @@ autocmd BufWritePre * :%s/\s\+$//ge
 filetype indent plugin on
 
 language en_US.UTF-8
-" vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size=2
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#696c70 ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#444444 ctermbg=4
 
 au VimLeave * set guicursor=a:hor100
 
@@ -63,3 +57,7 @@ if has("autocmd")
     autocmd BufNewFile *.cc 0r ~/.config/nvim/template/main.cc
   augroup END
 endif
+
+" indentLine
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+autocmd VimEnter,Colorscheme * :IndentLinesToggle
