@@ -50,7 +50,7 @@ syntax enable
 
 " color
 " let g:seoul256_background = 234
-colorscheme iceberg
+colorscheme nord
 " set t_Co=256
 " let g:seoul256_srgb = 1
 

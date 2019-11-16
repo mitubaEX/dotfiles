@@ -283,3 +283,6 @@ repo = 'jalvesaq/vimcmdline'
 
 [[plugins]]
 repo = 'rhysd/clever-split.vim'
+
+[[plugins]]
+repo = 'arcticicestudio/nord-vim'
