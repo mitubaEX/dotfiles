@@ -286,3 +286,7 @@ repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+build = './install.sh'
