@@ -40,7 +40,7 @@ hook_add = '''
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
   \   'python': ['autopep8', 'isort'],
-  \   'javascript': ['eslint', 'prettier'],
+  \   'javascript': ['eslint'],
   \   'typescript': ['tslint', 'prettier'],
   \   'haskell': ['stylish-haskell']
   \}
