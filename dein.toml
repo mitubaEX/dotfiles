@@ -290,3 +290,6 @@ repo = 'Yggdroot/indentLine'
 [[plugins]]
 repo = 'tbodt/deoplete-tabnine'
 build = './install.sh'
+
+[[plugins]]
+repo = 'RRethy/vim-illuminate'
