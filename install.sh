@@ -235,3 +235,12 @@ chflags nohidden ~/Library
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
 # }}}
+
+# diff-highlight
+# https://udomomo.hatenablog.com/entry/2019/12/01/181404
+echo '[pager]' >> $HOME/.gitconfig
+echo '  log = diff-highlight | less' >> $HOME/.gitconfig
+echo '  show = diff-highlight | less' >> $HOME/.gitconfig
+echo '  diff = diff-highlight | less' >> $HOME/.gitconfig
+
+sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
