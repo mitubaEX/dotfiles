@@ -293,3 +293,27 @@ build = './install.sh'
 
 [[plugins]]
 repo = 'RRethy/vim-illuminate'
+
+[[plugins]]
+repo = 't9md/vim-quickhl'
+hook_add = '''
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+'''
+
+# +: expand visual line
+# _: reverse
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim'
+
+[[plugins]]
+repo = 'mg979/vim-xtabline'
+hook_add = '''
+let g:xtabline_settings = {}
+let g:xtabline_settings.tabline_modes = ['buffers']
+'''

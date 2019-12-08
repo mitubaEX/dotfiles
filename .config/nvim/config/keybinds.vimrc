@@ -77,8 +77,6 @@ noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
 
-nnoremap <Leader>h za
-
 nnoremap <Esc><Esc> :noh<CR>
 
 " insert new line without entering insert mode
@@ -90,6 +88,11 @@ map <Leader>= gg=G<C-o><C-o>
 " defx
 nnoremap <Leader>n :<C-u>Defx `expand('%:p:h')` -columns=icons:filename:type -search=`expand('%:p')`<CR>
 
+" pbcopy filename
 nmap <Leader>c :!echo "%:t" \| pbcopy<CR>
 
 nnoremap <Leader>- :CleverSplit<CR>
+
+" xtabline
+noremap <Leader>h :XTabPrevBuffer<CR>
+noremap <Leader>l :XTabNextBuffer<CR>
