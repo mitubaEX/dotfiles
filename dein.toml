@@ -317,3 +317,6 @@ hook_add = '''
 let g:xtabline_settings = {}
 let g:xtabline_settings.tabline_modes = ['buffers']
 '''
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
