@@ -61,3 +61,9 @@ endif
 " indentLine
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 autocmd VimEnter,Colorscheme * :IndentLinesToggle
+
+" dein install
+if dein#check_install()
+  call dein#install()
+endif
+
