@@ -76,5 +76,9 @@ ln -sf $(pwd)/.config/compton.conf $HOME/.config/compton.conf
 ln -sf $(pwd)/.env $HOME/.env
 
 # template
-mkdir .config/nvim/template
+mkdir $HOME/.config/nvim/template
 for file in ./.config/nvim/template/* ;do  ln -sf $(pwd)/$file $HOME/$file ;done
+
+# solargraph
+mkdir $HOME/.config/solargraph
+ln -sf $(pwd)/.config/solargraph/config.yml $HOME/.config/solargraph/config.yml
