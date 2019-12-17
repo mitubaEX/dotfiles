@@ -100,7 +100,8 @@
   read
   echo "\e[31mコメントは書いた？"
   read
-  \e[0mgit push'
+  echo "\e[39m"
+  git push'
   alias gpd='git push --dry-run'
   alias gpu='git push upstream'
   alias gpv='git push -v'
