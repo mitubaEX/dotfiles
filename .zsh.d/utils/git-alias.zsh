@@ -93,7 +93,14 @@
   alias gmum='git merge upstream/master'
   alias gma='git merge --abort'
 
-  alias gp='git push'
+  alias gp='
+  echo "\e[31m動作確認した？"
+  read
+  echo "\e[31m命名は大丈夫？"
+  read
+  echo "\e[31mコメントは書いた？"
+  read
+  \e[0mgit push'
   alias gpd='git push --dry-run'
   alias gpu='git push upstream'
   alias gpv='git push -v'
