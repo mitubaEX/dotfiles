@@ -98,6 +98,8 @@
   read
   echo "\e[31m命名は大丈夫？"
   read
+  echo "\e[31mこのコード本当に消しても大丈夫？"
+  read
   echo "\e[31mコメントは書いた？"
   read
   echo "\e[39m"
