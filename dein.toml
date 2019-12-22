@@ -336,3 +336,6 @@ hook_add = '''
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
 '''
+
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'

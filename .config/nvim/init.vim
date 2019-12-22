@@ -74,3 +74,9 @@ autocmd CmdwinEnter [:\/\?=] setlocal nonumber
 autocmd CmdwinEnter [:\/\?=] setlocal signcolumn=no
 autocmd CmdwinEnter : g/^qa\?!\?$/d
 autocmd CmdwinEnter : g/^wq\?a\?!\?$/d
+
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
+
+hi link EasyMotionTarget2First MatchParen
+hi link EasyMotionTarget2Second MatchParen

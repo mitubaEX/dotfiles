@@ -96,3 +96,15 @@ nnoremap <Leader>- :CleverSplit<CR>
 " xtabline
 noremap <Leader>h :XTabPrevBuffer<CR>
 noremap <Leader>l :XTabNextBuffer<CR>
+
+" easymotion {{{
+let mapleader = "\<Space>"
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Move to word
+map  <Leader>l <Plug>(easymotion-bd-w)
+nmap <Leader>l <Plug>(easymotion-overwin-w)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+" }}}
