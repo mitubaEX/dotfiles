@@ -67,3 +67,10 @@ if dein#check_install()
   call dein#install()
 endif
 
+" command window
+" 行数を非表示
+autocmd CmdwinEnter [:\/\?=] setlocal nonumber
+" signcolumn を非表示
+autocmd CmdwinEnter [:\/\?=] setlocal signcolumn=no
+autocmd CmdwinEnter : g/^qa\?!\?$/d
+autocmd CmdwinEnter : g/^wq\?a\?!\?$/d
