@@ -15,6 +15,7 @@ ln -sf $(pwd)/.config/nvim/config/keybinds.vimrc $HOME/.config/nvim/config/keybi
 ln -sf $(pwd)/.config/nvim/config/set.vimrc $HOME/.config/nvim/config/set.vimrc
 ln -sf $(pwd)/.config/nvim/config/lsp.vimrc $HOME/.config/nvim/config/lsp.vimrc
 ln -sf $(pwd)/.config/nvim/config/fzf_functions.vimrc $HOME/.config/nvim/config/fzf_functions.vimrc
+ln -sf $(pwd)/.config/nvim/config/coc.vimrc $HOME/.config/nvim/config/coc.vimrc
 
 # zsh
 mkdir $HOME/.zsh.d

@@ -11,14 +11,6 @@ repo = 'justmao945/vim-clang'
 on_ft = ['c']
 
 [[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = ['go']
-
-[[plugins]]
-repo = 'Shougo/deoplete-clangx'
-on_ft = ['c']
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
@@ -45,21 +37,6 @@ on_ft = 'css'
 hook_add = '''
 au BufRead,BufNewFile *.scss set filetype=scss.css
 '''
-
-# build できない場合は、$HOME/.config/nvim/repos/github.com/mhartington/nvim-typescriptのinstall.shをrunする
-[[plugins]]
-repo = 'mhartington/nvim-typescript'
-on_ft = ['tsx', 'typescript']
-build = 'bash install.sh'
-
-[[plugins]]
-repo = 'takkii/totolot'
-rev = 'ff8d3a7'
-on_ft = ['ruby']
-
-[[plugins]]
-repo = 'takkii/ruby-dictionary3'
-on_ft = ['ruby']
 
 [[plugins]]
 repo = 'thoughtbot/vim-rspec'

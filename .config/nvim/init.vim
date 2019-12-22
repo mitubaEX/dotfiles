@@ -50,6 +50,7 @@ source $HOME/.config/nvim/config/set.vimrc
 source $HOME/.config/nvim/config/keybinds.vimrc
 source $HOME/.config/nvim/config/lsp.vimrc
 source $HOME/.config/nvim/config/fzf_functions.vimrc
+source $HOME/.config/nvim/config/coc.vimrc
 hi! Normal ctermbg=NONE guibg=NONE
 
 if has("autocmd")
@@ -75,6 +76,7 @@ autocmd CmdwinEnter [:\/\?=] setlocal signcolumn=no
 autocmd CmdwinEnter : g/^qa\?!\?$/d
 autocmd CmdwinEnter : g/^wq\?a\?!\?$/d
 
+" easy motion color
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
