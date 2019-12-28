@@ -117,12 +117,14 @@ else
   # khd
   brew install khd
   cp /usr/local/opt/chunkwm/share/chunkwm/examples/khdrc ~/.khdrc
+  brew install skhd
 
   brew install python3 fzf zsh neovim tree wget tmux ag exa reattach-to-user-namespace go rust ripgrep ctags direnv
 
   # launchctl load
   brew services start chunkwm
   brew services start khd
+  brew services start skhd
 
   crontab ./mycron
 fi
