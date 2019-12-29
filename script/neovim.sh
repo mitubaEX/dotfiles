@@ -14,3 +14,4 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 mkdir -p $HOME/.config/nvim
 sh ./installer.sh ~/.config/nvim/. ; rm ./installer.sh
 
+exit 0

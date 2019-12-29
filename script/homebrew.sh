@@ -42,3 +42,4 @@ npm install -g neovim
 npm -g install typescript
 yarn add global javascript-typescript-langserver
 
+exit 0
