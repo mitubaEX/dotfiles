@@ -14,7 +14,6 @@ brew install khd
 cp /usr/local/opt/chunkwm/share/chunkwm/examples/khdrc ~/.khdrc
 brew install skhd
 
-brew install python3
 brew install fzf
 brew install zsh
 brew install neovim
