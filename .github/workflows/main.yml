@@ -9,5 +9,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@master
-    - name: Test setup scripts
+    - name: Test homebrew script
       run: bash -c 'chmod +x ./script/homebrew.sh && ./script/homebrew.sh'
+    - name: Test git script
+      run: bash -c 'chmod +x ./script/git.sh && ./script/git.sh'
+    - name: Test neovim script
+      run: bash -c 'chmod +x ./script/neovim.sh && ./script/neovim.sh'
+    - name: Test mac_config script
+      run: bash -c 'chmod +x ./script/mac_config.sh && ./script/mac_config.sh'

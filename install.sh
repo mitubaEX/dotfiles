@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euxo pipefail
 
 # for ubuntu
 if [ "$(uname)" = "Linux" ]; then
@@ -119,20 +118,6 @@ crontab ./mycron
 cd $HOME
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-export PYTHONPATH=python3:pip3
-pip3 install pynvim
-nvim -e -c "call dein#install()"
-nvim -e -c "UpdateRemotePlugins"
-
-# git
-git config --global core.editor 'nvr'
-git config --global user.name "mitubaEX"
-git config --global user.email "g1344955@cse.kyoto-su.ac.jp"
-
-# gitignore global
-ln -sf $(pwd)/.gitignore_global $HOME/.gitignore_global
-git config --global core.excludesfile $HOME/.gitignore_global
-
 # powerline fonts
 # clone
 cd $HOME
@@ -150,19 +135,8 @@ rm -rf fonts
 # ln -s -f .tmux/.tmux.conf
 # cp .tmux/.tmux.conf.local .
 
-# neovim-remote
-pip3 install neovim-remote
-
-mkdir $HOME/.ghq
-export GOPATH=$HOME/.ghq
-
 # install gocode
 go get -u github.com/mdempsky/gocode
-
-# vim
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ./installer.sh
-mkdir -p $HOME/.config/nvim
-sh ./installer.sh ~/.config/nvim/. ; rm ./installer.sh
 
 # arch linux
 if [ "$(uname)" = "Linux" ]; then
@@ -173,52 +147,5 @@ if [ "$(uname)" = "Linux" ]; then
   cd $HOME
 fi
 
-
-# ghq
-go get -u github.com/motemen/ghq
-
-echo '[ghq]' >> $HOME/.gitconfig
-echo '    root = ~/.ghq/src' >> $HOME/.gitconfig
-
 mkdir -p ~/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
-
-# mac config {{{
-## mute startup sound
-sudo nvram SystemAudioVolume=" "
-
-## not sleep
-sudo systemsetup -setcomputersleep Off > /dev/null
-
-## present only opened app on dock
-defaults write com.apple.dock static-only -bool true
-
-## remove all app of dock
-defaults write com.apple.dock persistent-apps -array
-
-## present dotfiles
-defaults write com.apple.finder AppleShowAllFiles -bool true
-
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
-## skip disk verification
-defaults write com.apple.frameworks.diskimages skip-verify -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
-
-# Show the ~/Library folder
-chflags nohidden ~/Library
-
-# Show the /Volumes folder
-sudo chflags nohidden /Volumes
-# }}}
-
-# diff-highlight
-# https://udomomo.hatenablog.com/entry/2019/12/01/181404
-echo '[pager]' >> $HOME/.gitconfig
-echo '  log = diff-highlight | less' >> $HOME/.gitconfig
-echo '  show = diff-highlight | less' >> $HOME/.gitconfig
-echo '  diff = diff-highlight | less' >> $HOME/.gitconfig
-
-sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
