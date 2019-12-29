@@ -37,7 +37,8 @@ brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 
 # node
-brew install node yarn
+brew install node
+brew install yarn
 npm install -g neovim
 npm -g install typescript
 yarn add global javascript-typescript-langserver
