@@ -38,6 +38,8 @@ brew cask install font-hack-nerd-font
 
 # node
 brew install node
+
+echo 'npm install'
 npm install -g neovim
 npm install -g typescript
 npm install -g javascript-typescript-langserver
