@@ -23,7 +23,6 @@ brew install tmux
 brew install ag
 brew install exa
 brew install reattach-to-user-namespace
-brew install go
 brew install rust
 brew install ripgrep
 brew install direnv
