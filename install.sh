@@ -122,7 +122,23 @@ else
   cp /usr/local/opt/chunkwm/share/chunkwm/examples/khdrc ~/.khdrc
   brew install skhd
 
-  brew install python3 fzf zsh neovim tree wget tmux ag exa reattach-to-user-namespace go rust ripgrep ctags direnv
+  brew unlink ctags
+  brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
+  brew install python3
+  brew install fzf
+  brew install zsh
+  brew install neovim
+  brew install tree
+  brew install wget
+  brew install tmux
+  brew install ag
+  brew install exa
+  brew install reattach-to-user-namespace
+  brew install go
+  brew install rust
+  brew install ripgrep
+  brew install direnv
 
   # launchctl load
   brew services start chunkwm
