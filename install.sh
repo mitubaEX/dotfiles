@@ -122,7 +122,6 @@ else
   cp /usr/local/opt/chunkwm/share/chunkwm/examples/khdrc ~/.khdrc
   brew install skhd
 
-  brew unlink ctags
   brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
   brew install python3
