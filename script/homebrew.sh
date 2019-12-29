@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 
 # homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -38,9 +38,8 @@ brew cask install font-hack-nerd-font
 
 # node
 brew install node
-brew install yarn
 npm install -g neovim
-npm -g install typescript
-yarn add global javascript-typescript-langserver
+npm install -g typescript
+npm install -g javascript-typescript-langserver
 
 exit 0
