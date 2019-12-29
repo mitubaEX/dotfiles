@@ -17,3 +17,5 @@ jobs:
       run: bash -c 'chmod +x ./script/neovim.sh && ./script/neovim.sh'
     - name: Test mac_config script
       run: bash -c 'chmod +x ./script/mac_config.sh && ./script/mac_config.sh'
+    - name: Test zsh script
+      run: bash -c 'chmod +x ./script/zsh.sh && ./script/zsh.sh'

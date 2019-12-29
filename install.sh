@@ -119,42 +119,7 @@ else
 
   chmod +x ./script/mac_config.sh
   sh ./script/mac_config.sh
+
+  chmod +x ./script/zsh.sh
+  sh ./script/zsh.sh
 fi
-
-crontab ./mycron
-
-# prezto
-cd $HOME
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-
-# powerline fonts
-# clone
-cd $HOME
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts
-
-# tmux
-# cd
-# git clone https://github.com/gpakosz/.tmux.git
-# ln -s -f .tmux/.tmux.conf
-# cp .tmux/.tmux.conf.local .
-
-# install gocode
-go get -u github.com/mdempsky/gocode
-
-# arch linux
-if [ "$(uname)" = "Linux" ]; then
-  git config --global credential.helper /usr/lib/git-core/git-credential-gnome-keyring
-  cd /usr/share/doc/git/contrib/credential/gnome-keyring
-  sudo make
-  git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
-  cd $HOME
-fi
-
-mkdir -p ~/.zsh/completion
-curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
