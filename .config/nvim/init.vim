@@ -84,3 +84,6 @@ hi link EasyMotionTarget2First MatchParen
 hi link EasyMotionTarget2Second MatchParen
 
 let test#strategy = "neovim"
+
+let g:floaterm_background = 'black'
+let g:floaterm_position = 'topleft'
