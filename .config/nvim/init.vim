@@ -82,3 +82,5 @@ hi link EasyMotionShade  Comment
 
 hi link EasyMotionTarget2First MatchParen
 hi link EasyMotionTarget2Second MatchParen
+
+let test#strategy = "neovim"

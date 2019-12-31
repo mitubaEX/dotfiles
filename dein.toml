@@ -337,3 +337,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
+
+[[plugins]]
+repo = 'janko/vim-test'

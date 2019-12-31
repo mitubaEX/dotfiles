@@ -93,10 +93,6 @@ nmap <Leader>c :!echo "%:t" \| pbcopy<CR>
 
 nnoremap <Leader>- :CleverSplit<CR>
 
-" xtabline
-noremap <Leader>h :XTabPrevBuffer<CR>
-noremap <Leader>l :XTabNextBuffer<CR>
-
 " easymotion {{{
 let mapleader = "\<Space>"
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -108,3 +104,5 @@ nmap <Leader>l <Plug>(easymotion-overwin-w)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 " }}}
+
+nmap <Leader>q :TestFile<CR>
