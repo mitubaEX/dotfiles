@@ -343,3 +343,12 @@ repo = 'janko/vim-test'
 
 [[plugins]]
 repo = 'voldikss/vim-floaterm'
+
+[[plugins]]
+repo = 'brooth/far.vim'
+hook_add = '''
+" Usage:
+" :Far <search_word> <replace word> **/*
+" :Fardo
+let g:far#source = 'rg'
+'''

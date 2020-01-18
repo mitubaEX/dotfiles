@@ -80,5 +80,3 @@ set virtualedit=block
 set foldmethod=marker
 set foldlevel=2
 set foldcolumn=1
-
-set relativenumber

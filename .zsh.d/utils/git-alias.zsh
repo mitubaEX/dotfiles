@@ -102,6 +102,10 @@
   read
   echo "\e[31mコメントは書いた？"
   read
+  echo "\e[31m基本情報負荷対応的に大丈夫？"
+  read
+  echo "\e[31mspec書いた方がいいやつ？"
+  read
   echo "\e[39m"
   git push'
   alias gpd='git push --dry-run'
