@@ -52,10 +52,10 @@
   ## ref: http://blog.chairoi.me/entry/2017/12/26/233926
   function create_session_with_ghq() {
       # rename session if in tmux
-      moveto=$(ghq root)/$(ghq list | fzf --height='30%' --layout='reverse')
+      local moveto=$(ghq root)/$(ghq list | fzf --height='30%' --layout='reverse')
       if [[ ! -z ${TMUX} ]]
       then
-          repo_name=`basename $moveto`
+          local repo_name=`basename $moveto`
           if [ $repo_name != `basename $(ghq root)` ]
           then
             tmux new-session -d -c $moveto -s $repo_name  2> /dev/null
@@ -72,7 +72,7 @@
 
   function switch_session_with_fzf() {
       # rename session if in tmux
-      moveto=$(tmux ls | cut -d ':' -f 1 | fzf --height='30%' --layout='reverse')
+      local moveto=$(tmux ls | cut -d ':' -f 1 | fzf --height='30%' --layout='reverse')
       if [[ ! -z ${TMUX} ]]
       then
           zle reset-prompt
@@ -86,10 +86,10 @@
   # deprecated
   function create_session_with_dir() {
       # rename session if in tmux
-      moveto=$(pwd)/$(find . -type d | fzf --height='30%' --layout='reverse')
+      local moveto=$(pwd)/$(find . -type d | fzf --height='30%' --layout='reverse')
       if [[ ! -z ${TMUX} ]]
       then
-          dir_name=`basename $moveto`
+          local dir_name=`basename $moveto`
           if [ $dir_name != `basename $(pwd)` ]
           then
             tmux new-session -d -c $moveto -s $dir_name  2> /dev/null
@@ -102,7 +102,7 @@
   }
 
   function remove_session() {
-      session_name=$(tmux display-message -p '#S')
+      local session_name=$(tmux display-message -p '#S')
       if [[ ! -z ${TMUX} ]]
       then
           if [ ! -z ${session_name} ]
@@ -118,10 +118,10 @@
   bindkey '^X' remove_session
 
   function rename_session() {
-    dir=$(pwd)
+    local dir=$(pwd)
     # remove ghq dir
     if [[ $dir != *".ghq"* ]]; then
-      name=$(basename $dir)
+      local name=$(basename $dir)
       if [[ ! -z ${TMUX} ]]
       then
         if [ ! -z ${name} ]
