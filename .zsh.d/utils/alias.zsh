@@ -3,8 +3,8 @@ alias tmux='tmux -u'
 # alias
 alias e='exit'
 alias rm='rm -rf'
+alias v='vim'
 alias vi='nvim'
-alias vim='nvim'
 
 # docker
 alias dockerrm='docker rm -f $(docker ps -qa)'
