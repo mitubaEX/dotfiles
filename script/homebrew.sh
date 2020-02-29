@@ -4,10 +4,9 @@ set -ex
 # homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# chunkwm
-brew tap crisidev/homebrew-chunkwm
-brew tap koekeishiya/formulae
-brew install --HEAD chunkwm
+# yabai
+brew services start yabai
+sudo yabai --install-sa
 
 # khd
 brew install khd
@@ -28,7 +27,7 @@ brew install ripgrep
 brew install direnv
 
 # launchctl load
-brew services start chunkwm
+brew services start yabai
 brew services start khd
 brew services start skhd
 
