@@ -9,9 +9,7 @@ brew install koekeishiya/formulae/yabai
 sudo yabai --install-sa
 
 # khd
-brew install khd
-cp /usr/local/opt/chunkwm/share/chunkwm/examples/khdrc ~/.khdrc
-brew install skhd
+brew install koekeishiya/formulae/skhd
 
 brew install fzf
 brew install zsh
@@ -28,7 +26,6 @@ brew install direnv
 
 # launchctl load
 brew services start yabai
-brew services start khd
 brew services start skhd
 
 # fonts
