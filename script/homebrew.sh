@@ -5,7 +5,7 @@ set -ex
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # yabai
-brew services start yabai
+brew install koekeishiya/formulae/yabai
 sudo yabai --install-sa
 
 # khd
