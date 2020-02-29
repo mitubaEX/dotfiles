@@ -1,15 +1,15 @@
 # reload config
-cmd + ctrl - r : khd -e "reload"
+cmd + ctrl - r : skhd -e "reload"
 
 # open terminal, blazingly fast compared to iTerm/Hyper
 cmd - return : open -na /Applications/Alacritty.app
 shift + cmd - q : chunkc tiling::window --close
 
 # focus window
-cmd - h : chunkc tiling::window --focus west
-cmd - j : chunkc tiling::window --focus south
-cmd - k : chunkc tiling::window --focus north
-cmd - l : chunkc tiling::window --focus east
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
 
 # cmd - j : chunkc tiling::window --focus prev
 # cmd - k : chunkc tiling::window --focus next
@@ -145,14 +145,15 @@ shift + alt - t : chunkc set window_float_next 1
 # cmd - 9 : khd -p "shift + alt - 9"
 
 # create desktop and follow focus
-shift + cmd - n : chunkc tiling::desktop --create;\
-                  ids=$(chunkc tiling::query --desktops-for-monitor $(chunkc tiling::query --monitor-for-desktop $(chunkc tiling::query --desktop id)));\
-                  chunkc tiling::desktop --focus $(echo ${ids##* })
+shift + cmd - n : yabai -m space --create;\
+                  id="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')";\
+                  yabai -m window --space $id;\
+                  yabai -m space --focus $id
 
 shift + cmd - d : chunkc tiling::desktop --annihilate;
 
-ctrl + cmd - h : chunkc tiling::desktop --focus $(expr $(chunkc tiling::query --desktop id) - 1)
-ctrl + cmd - l : chunkc tiling::desktop --focus $(expr $(chunkc tiling::query --desktop id) + 1)
+ctrl + cmd - h : yabai -m space --focus prev
+ctrl + cmd - l : yabai -m space --focus next
 cmd - 1 : i=1; chunkc tiling::desktop --focus $(( $(chunkc tiling::query --desktop id) == $i ? $(chunkc get _last_active_desktop) : $i ))
 cmd - 2 : i=2; chunkc tiling::desktop --focus $(( $(chunkc tiling::query --desktop id) == $i ? $(chunkc get _last_active_desktop) : $i ))
 cmd - 3 : i=3; chunkc tiling::desktop --focus $(( $(chunkc tiling::query --desktop id) == $i ? $(chunkc get _last_active_desktop) : $i ))

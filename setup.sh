@@ -70,6 +70,9 @@ ln -sf $(pwd)/bin/conky-i3bar $HOME/bin/conky-i3bar
 ln -sf $(pwd)/.chunkwmrc $HOME/.chunkwmrc
 ln -sf $(pwd)/.khdrc $HOME/.skhdrc
 
+# yabai
+ln -sf $(pwd)/.yabairc $HOME/.yabairc
+
 # compton
 ln -sf $(pwd)/.config/compton.conf $HOME/.config/compton.conf
 
