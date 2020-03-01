@@ -53,17 +53,11 @@
   function create_session_with_ghq() {
       # rename session if in tmux
       local moveto=$(ghq root)/$(ghq list | fzf --height='30%' --layout='reverse')
-      if [[ ! -z ${TMUX} ]]
+      local repo_name=`basename $moveto`
+      if [ $repo_name != `basename $(ghq root)` ]
       then
-          local repo_name=`basename $moveto`
-          if [ $repo_name != `basename $(ghq root)` ]
-          then
-            tmux new-session -d -c $moveto -s $repo_name  2> /dev/null
-            zle reset-prompt
-            tmux switch-client -t $repo_name 2> /dev/null
-          else
-            zle reset-prompt
-          fi
+        tmux new-session -d -c $moveto -s $repo_name
+        tmux switch-client -t $repo_name
       fi
   }
 
@@ -103,15 +97,10 @@
 
   function remove_session() {
       local session_name=$(tmux display-message -p '#S')
-      if [[ ! -z ${TMUX} ]]
+      if [ ! -z ${session_name} ]
       then
-          if [ ! -z ${session_name} ]
-          then
-            tmux switch-client -n
-            tmux kill-session -t $session_name 2> /dev/null
-          else
-            zle reset-prompt
-          fi
+        tmux switch-client -n
+        tmux kill-session -t $session_name
       fi
   }
   zle -N remove_session
