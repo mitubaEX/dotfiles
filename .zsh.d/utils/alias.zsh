@@ -14,7 +14,7 @@ alias atmkdir='for i in A B C D ; do mkdir "$i"; touch "$i"/main.py ;done '
 alias mkdir='(){if [ $# -gt 1 ] ; then mkdir $@ ; else mkdir $1;cd $1 ;fi}'
 
 # change ls to exa
-alias ls='exa'
+alias ls='exa --icons'
 alias ll='exa -l'
 
 alias g++="g++ -std=c++11"

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # bar settings
-yabai -m config status_bar                   off
+yabai -m config status_bar                   on
 yabai -m config status_bar_text_font         "Helvetica Neue:Bold:12.0"
 yabai -m config status_bar_icon_font         "FontAwesome:Regular:12.0"
 yabai -m config status_bar_background_color  0xff202020
@@ -23,7 +23,7 @@ yabai -m config window_border                on
 yabai -m config window_border_placement      inset
 yabai -m config window_border_width          4
 yabai -m config window_border_radius         -1.0
-yabai -m config active_window_border_topmost off
+yabai -m config active_window_border_topmost on
 yabai -m config active_window_border_color   0xff775759
 yabai -m config normal_window_border_color   0xff505050
 yabai -m config insert_window_border_color   0xffd75f5f
@@ -37,7 +37,7 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  40
+yabai -m config top_padding                  10
 yabai -m config bottom_padding               10
 yabai -m config left_padding                 10
 yabai -m config right_padding                10
