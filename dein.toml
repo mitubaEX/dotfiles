@@ -184,13 +184,6 @@ build = 'make -f make_mac.mak'
 repo = 'sheerun/vim-polyglot'
 
 [[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
 autocmd FileType defx call s:defx_my_settings()

@@ -14,8 +14,8 @@ if dein#load_state('~/.config/nvim')
     call dein#add('~/.config/nvim/repos/github.com/Shougo/dein.vim')
 
     " Add or remove your plugins here:
-    call dein#add('Shougo/neosnippet.vim')
-    call dein#add('Shougo/neosnippet-snippets')
+    " call dein#add('Shougo/neosnippet.vim')
+    " call dein#add('Shougo/neosnippet-snippets')
     call dein#load_toml('~/dein.toml', {'lazy': 0})
     call dein#load_toml('~/dein_lang.toml', {'lazy': 1})
     " call dein#load_toml('~/dein_lazy.toml', {'lazy': 1})
