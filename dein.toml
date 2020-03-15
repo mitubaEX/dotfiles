@@ -160,9 +160,6 @@ let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, '~/.zshrc' ]
 '''
 
 [[plugins]]
-repo = 'kien/rainbow_parentheses.vim'
-
-[[plugins]]
 repo = 'kana/vim-smartinput'
 hook_add = '''
 '''
@@ -175,10 +172,6 @@ repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
-
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make -f make_mac.mak'
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
