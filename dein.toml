@@ -338,3 +338,9 @@ hook_add = '''
 " :Fardo
 let g:far#source = 'rg'
 '''
+
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+hook_add = '''
+let g:memolist_path = "$HOME/.memo"
+'''
