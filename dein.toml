@@ -35,7 +35,8 @@ hook_add = '''
   \   'jsx': ['stylelint', 'eslint', 'prettier'],
   \   'tsx': ['tslint', 'prettier'],
   \   'hs': ['hlint'],
-  \   'tex': ['alex']
+  \   'tex': ['alex'],
+  \   'rb': ['rubocop']
   \}
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
@@ -344,3 +345,6 @@ repo = 'glidenote/memolist.vim'
 hook_add = '''
 let g:memolist_path = "$HOME/.memo"
 '''
+
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
