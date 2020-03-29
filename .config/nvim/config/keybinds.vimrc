@@ -86,7 +86,7 @@ nnoremap <Leader>o o<Esc>
 map <Leader>= gg=G<C-o><C-o>
 
 " defx
-nnoremap <Leader>n :<C-u>Defx `expand('%:p:h')` -columns=icons:filename:type -search=`expand('%:p')`<CR>
+nnoremap <Leader>n :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
 
 " pbcopy filename
 nmap <Leader>c :!echo "%:t" \| pbcopy<CR>

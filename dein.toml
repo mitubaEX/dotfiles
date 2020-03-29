@@ -248,6 +248,9 @@ endfunction
 '''
 
 [[plugins]]
+repo = 'kristijanhusak/defx-git'
+
+[[plugins]]
 repo = 'kristijanhusak/defx-icons'
 hook_source = '''
 " defx
@@ -363,4 +366,11 @@ let g:multi_cursor_next_key            = '<C-m>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+'''
+
+[[plugins]]
+repo = 'yuttie/comfortable-motion.vim'
+hook_add = '''
+let g:comfortable_motion_friction = 200
+let g:comfortable_motion_air_drag = 4.0
 '''
