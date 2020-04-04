@@ -102,11 +102,11 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=test --exclude=spec --exclude=vendor'
 '''
 
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_add = '''
-set shell=/bin/bash
-'''
+# [[plugins]]
+# repo = 'airblade/vim-gitgutter'
+# hook_add = '''
+# set shell=/bin/bash
+# '''
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
@@ -359,7 +359,6 @@ let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-m>'
-let g:multi_cursor_select_all_word_key = '<C-a>'
 let g:multi_cursor_start_key           = 'g<C-n>'
 let g:multi_cursor_select_all_key      = 'g<A-n>'
 let g:multi_cursor_next_key            = '<C-m>'
@@ -376,4 +375,4 @@ let g:comfortable_motion_air_drag = 4.0
 '''
 
 [[plugins]]
-repo = 'AndrewRadev/splitjoin.vim'
+repo = 'mhinz/vim-signify'
