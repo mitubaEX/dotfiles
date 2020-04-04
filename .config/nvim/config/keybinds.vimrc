@@ -108,5 +108,5 @@ let g:EasyMotion_smartcase = 1
 nmap <Leader>q :TestFile<CR>
 
 """ Example configuration
-let g:floaterm_keymap_new    = '<Leader>e'
-let g:floaterm_keymap_toggle = '<Leader>e'
+let g:floaterm_keymap_new    = '<Leader>0'
+let g:floaterm_keymap_toggle = '<Leader>0'
