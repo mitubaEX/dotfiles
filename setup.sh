@@ -86,3 +86,6 @@ for file in ./.config/nvim/template/* ;do  ln -sf $(pwd)/$file $HOME/$file ;done
 # solargraph
 mkdir $HOME/.config/solargraph
 ln -sf $(pwd)/.config/solargraph/config.yml $HOME/.config/solargraph/config.yml
+
+# coc
+ln -sf $(pwd)/.config/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
