@@ -2,11 +2,7 @@
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact"
+    "ruby"
   ],
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
