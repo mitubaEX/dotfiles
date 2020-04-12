@@ -1,4 +1,4 @@
-mkdir $HOME/.config
+mkdir -p $HOME/.config
 
 # dein
 ln -sf $(pwd)/dein.toml $HOME/dein.toml
@@ -7,9 +7,9 @@ ln -sf $(pwd)/dein_lazy.toml $HOME/dein_lazy.toml
 ln -sf $(pwd)/dein_denite.toml $HOME/dein_denite.toml
 
 # nvim
-mkdir $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim
 ln -sf $(pwd)/.config/nvim/init.vim $HOME/.config/nvim/init.vim
-mkdir $HOME/.config/nvim/config
+mkdir -p $HOME/.config/nvim/config
 ln -sf $(pwd)/.config/nvim/config/dein_script.vimrc $HOME/.config/nvim/config/dein_script.vimrc
 ln -sf $(pwd)/.config/nvim/config/keybinds.vimrc $HOME/.config/nvim/config/keybinds.vimrc
 ln -sf $(pwd)/.config/nvim/config/set.vimrc $HOME/.config/nvim/config/set.vimrc
@@ -18,7 +18,7 @@ ln -sf $(pwd)/.config/nvim/config/fzf_functions.vimrc $HOME/.config/nvim/config/
 ln -sf $(pwd)/.config/nvim/config/coc.vimrc $HOME/.config/nvim/config/coc.vimrc
 
 # zsh
-mkdir $HOME/.zsh.d
+mkdir -p $HOME/.zsh.d
 ln -sf $(pwd)/.zsh.d/* $HOME/.zsh.d/.
 ln -sf $(pwd)/.zsh.d/.zshrc $HOME/.zsh.d/.zshrc
 ln -sf $(pwd)/.zsh.d/.zshenv $HOME/.zsh.d/.zshenv
@@ -27,10 +27,10 @@ ln -sf $(pwd)/.zshenv $HOME/.zshenv
 ln -sf $(pwd)/.zpreztorc $HOME/.zsh.d/.zpreztorc
 ln -sf $(pwd)/tmux/.tmux.conf $HOME/.tmux.conf
 
-mkdir $HOME/.config/alacritty
+mkdir -p $HOME/.config/alacritty
 ln -sf $(pwd)/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
-mkdir $HOME/.config/i3
+mkdir -p $HOME/.config/i3
 ln -sf $(pwd)/.config/i3/config $HOME/.config/i3/config
 
 ln -sf $(pwd)/.xintrc $HOME/.xintrc
@@ -40,12 +40,12 @@ ln -sf $(pwd)/.xprofile $HOME/.xprofile
 ln -sf $(pwd)/com.amethyst.Amethyst.plist $HOME/Library/Preferences/com.amethyst.Amethyst.plist
 
 # aquaskk
-mkdir $HOME/Library/Application Support/AquaSKK
+mkdir -p $HOME/Library/Application Support/AquaSKK
 ln -sf $(pwd)/AquaSKK/keymap.conf "$HOME/Library/Application Support/AquaSKK/keymap.conf"
 ln -sf $(pwd)/AquaSKK/kana-rule.conf "$HOME/Library/Application Support/AquaSKK/kana-rule.conf"
 
 # oni
-mkdir $HOME/.config/oni
+mkdir -p $HOME/.config/oni
 ln -sf $(pwd)/.config/oni/config.js $HOME/.config/oni/config.js
 
 ln -sf $(pwd)/.ideavimrc $HOME/.ideavimrc
@@ -62,7 +62,7 @@ else
 fi
 
 # conky
-mkdir $HOME/bin
+mkdir -p $HOME/bin
 ln -sf $(pwd)/.conkyrc $HOME/.conkyrc
 ln -sf $(pwd)/bin/conky-i3bar $HOME/bin/conky-i3bar
 
@@ -80,11 +80,11 @@ ln -sf $(pwd)/.config/compton.conf $HOME/.config/compton.conf
 ln -sf $(pwd)/.env $HOME/.env
 
 # template
-mkdir $HOME/.config/nvim/template
+mkdir -p $HOME/.config/nvim/template
 for file in ./.config/nvim/template/* ;do  ln -sf $(pwd)/$file $HOME/$file ;done
 
 # solargraph
-mkdir $HOME/.config/solargraph
+mkdir -p $HOME/.config/solargraph
 ln -sf $(pwd)/.config/solargraph/config.yml $HOME/.config/solargraph/config.yml
 
 # coc
