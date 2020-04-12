@@ -96,4 +96,4 @@ function inifre() {
   xpanes -e -x "cd $TAX_OPERATION_PATH && ./bin/rails s -p 3005" "cd $TAX_OPERATION_PATH && bin/webpack-dev-server"
 }
 
-export RAILS_MAX_THREADS=1
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
