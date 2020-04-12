@@ -73,6 +73,9 @@ printf "\e[4 q"
 # ls
 function chpwd() { rename_session && ls }
 
+# anyenv initを起動時にやりたくなかったので、
+# 一旦この対応、goなども追加する場合はregex conditionを
+# どこかに変数または関数化したら良さそう
 function preexec() {
   if [[ $1 =~ 'bundle|yarn|npm' ]]
   then
