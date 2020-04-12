@@ -51,7 +51,9 @@ stty stop undef
 stty start undef
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/node_modules/.bin"
-source $HOME/.env
+
+# 全体で共有したい情報はこれを使う
+# source $HOME/.env
 
 # Docker completions
 if [ -e ~/.zsh/completion ]; then
