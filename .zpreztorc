@@ -28,18 +28,15 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
-  'terminal' \
   'editor' \
   'history' \
   'directory' \
   'spectrum' \
   'utility' \
-  'completion' \
   'prompt' \
   'completion' \
   'syntax-highlighting' \
-  'autosuggestions' \
-  'git'
+  'autosuggestions'
 
 #
 # Autosuggestions
@@ -63,8 +60,8 @@ zstyle ':prezto:module:autosuggestions:color' found 'fg=245'
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
-zstyle ':prezto:module:editor:info:keymap:primary' format '>'
-zstyle ':prezto:module:editor:info:keymap:alternate' format '<'
+# zstyle ':prezto:module:editor:info:keymap:primary' format '>'
+# zstyle ':prezto:module:editor:info:keymap:alternate' format '<'
 
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -74,9 +71,9 @@ zstyle ':prezto:module:editor:info:keymap:alternate' format '<'
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-zstyle ':prezto:module:git:status:ignore' submodules 'all'
-zstyle ':prezto:module:git:log:context' format ''
-zstyle ':prezto:module:git:alias' skip 'yes'
+# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+# zstyle ':prezto:module:git:log:context' format ''
+# zstyle ':prezto:module:git:alias' skip 'yes'
 
 #
 # GNU Utility
@@ -103,7 +100,7 @@ zstyle ':prezto:module:git:alias' skip 'yes'
 #
 
 # Set the keyword used by `mand` to open man pages in Dash.app
-zstyle ':prezto:module:osx:man' dash-keyword 'manpages'
+# zstyle ':prezto:module:osx:man' dash-keyword 'manpages'
 
 #
 # Pacman
@@ -125,8 +122,6 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:prompt' theme 'minimal'
 zstyle ':prezto:module:prompt' theme 'powerlevel10k'
-zstyle ':prezto:module:prompt' pwd-length 'long'
-zstyle ':prezto:module:prompt' show-return-val 'no'
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
@@ -135,7 +130,7 @@ zstyle ':prezto:module:prompt' pwd-length 'long'
 
 # Set the prompt to display the return code along with an indicator for non-zero
 # return codes. This is not supported by all prompts.
-# zstyle ':prezto:module:prompt' show-return-val 'yes'
+zstyle ':prezto:module:prompt' show-return-val 'no'
 
 #
 # Ruby
@@ -236,63 +231,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 # behavior.
 # zstyle ':prezto:module:utility' safe-ops 'yes'
 #
-POWERLEVEL9K_HIDE_BRANCH_ICON=true
+# POWERLEVEL9K_HIDE_BRANCH_ICON=true
 
-# sepalate
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='%F{008}\uf460%F{008}'
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%F{008}\uf460%F{008}'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='%F{008}\uf104%F{008}'
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir_writable dir vcs vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
-
-POWERLEVEL9K_MODE=nerdfont-complete
-POWERLEVEL9K_STATUS_ERROR_BACKGROUND="clear"
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND="001"
-POWERLEVEL9K_STATUS_OK_BACKGROUND="clear"
-POWERLEVEL9K_STATUS_BACKGROUND="clear"
-
-# # vi
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='clear'
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='clear'
-POWERLEVEL9K_VI_INSERT_MODE_STRING="In"
-POWERLEVEL9K_VI_COMMAND_MODE_STRING="No"
-
-# context
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='238'
-
-# dir
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_DELIMITER=..
-POWERLEVEL9K_DIR_BACKGROUND='237'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="clear"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="012"
-POWERLEVEL9K_DIR_FOREGROUND='010'
-POWERLEVEL9K_DIR_HOME_BACKGROUND="clear"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="012"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="clear"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="012"
-POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{008}/%F{cyan}"
-
-# icon
-POWERLEVEL9K_OS_ICON_BACKGROUND="clear"
-POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-
-# # time
-# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S | %y/%m/%d}"
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
-POWERLEVEL9K_TIME_BACKGROUND="249"
-
-# writable
-POWERLEVEL9K_DIR_WRITABLE_BACKGROUND="white"
-POWERLEVEL9K_DIR_WRITABLE_FOREGROUND="black"
-
-# git
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='clear'
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND='green'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='clear'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='yellow'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='clear'
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='green'
-
