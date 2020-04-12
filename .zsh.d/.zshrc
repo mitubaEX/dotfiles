@@ -77,7 +77,7 @@ function chpwd() { rename_session && ls }
 # 一旦この対応、goなども追加する場合はregex conditionを
 # どこかに変数または関数化したら良さそう
 function preexec() {
-  if [[ $1 =~ 'bundle|yarn|npm' ]]
+  if [[ $1 =~ 'bundle|rails|rspec|yarn|npm' ]]
   then
     eval "$(anyenv init - --no-rehash)"
   fi
