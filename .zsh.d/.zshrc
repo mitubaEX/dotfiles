@@ -1,3 +1,11 @@
+# zshの起動時のprofile表示用の設定
+# zprofの呼び出しをファイルの下に置くと
+# profileをゲットできる
+# zmodload zsh/zprof
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
+# fi
+
 . $ZDOTDIR/utils/alias.zsh
 . $ZDOTDIR/utils/env-tools.zsh
 . $ZDOTDIR/utils/fzf-config.zsh
