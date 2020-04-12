@@ -71,7 +71,7 @@ fi
 printf "\e[4 q"
 
 # ls
-function chpwd() { rename_session && ls }
+function chpwd() { rename_session && ls && eval "$(anyenv init -)" && eval "$(nodenv init -)" && eval "$(rbenv init -)" }
 
 function gcopr() {
   git fetch upstream pull/$1/head:$1
