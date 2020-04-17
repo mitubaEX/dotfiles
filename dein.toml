@@ -345,7 +345,3 @@ let g:comfortable_motion_air_drag = 4.0
 
 [[plugins]]
 repo = 'mhinz/vim-signify'
-
-# ex: <Leader>[ surround visual word
-[[plugins]]
-repo = 'doums/coBra'

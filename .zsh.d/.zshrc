@@ -97,3 +97,5 @@ if [ -f './crefre.sh' ]; then
 fi
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
