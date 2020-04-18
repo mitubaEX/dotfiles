@@ -85,3 +85,10 @@ set virtualedit=block
 set foldmethod=marker
 set foldlevel=2
 set foldcolumn=1
+
+" inifinite undo
+set undofile
+if !isdirectory(expand("$HOME/.vim/undodir"))
+  call mkdir(expand("$HOME/.vim/undodir", "p"))
+endif
+set undodir=$HOME/.vim/undodir
