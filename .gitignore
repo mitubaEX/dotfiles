@@ -1,2 +1,3 @@
 .env
 crefre.sh
+.config/nvim/template/template_spec.rb

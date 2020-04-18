@@ -30,6 +30,8 @@ hi! Normal ctermbg=NONE guibg=NONE
 if has("autocmd")
   augroup templates
     autocmd BufNewFile *.cc 0r ~/.config/nvim/template/main.cc
+
+    autocmd BufNewFile *_spec.rb 0r ~/.config/nvim/template/template_spec.rb
   augroup END
 endif
 
