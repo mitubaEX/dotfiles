@@ -16,6 +16,7 @@ ln -sf $(pwd)/.config/nvim/config/set.vimrc $HOME/.config/nvim/config/set.vimrc
 ln -sf $(pwd)/.config/nvim/config/lsp.vimrc $HOME/.config/nvim/config/lsp.vimrc
 ln -sf $(pwd)/.config/nvim/config/fzf_functions.vimrc $HOME/.config/nvim/config/fzf_functions.vimrc
 ln -sf $(pwd)/.config/nvim/config/coc.vimrc $HOME/.config/nvim/config/coc.vimrc
+ln -sf $(pwd)/.config/nvim/config/util_script.vimrc $HOME/.config/nvim/config/util_script.vimrc
 
 # zsh
 mkdir -p $HOME/.zsh.d
