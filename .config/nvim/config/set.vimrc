@@ -1,7 +1,7 @@
 set hidden
 set wildmenu
 set showcmd
-set wildmode=list,full
+set wildmode=list:longest,full
 set wildignorecase
 set shell=$SHELL
 set title " set terminal title
