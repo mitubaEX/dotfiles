@@ -11,10 +11,6 @@ let g:NERDTreeQuitOnOpen=1
 " neosnippet
 let g:neosnippet#enable_completed_snippet = 1
 
-let g:vim_markdown_folding_disabled = 1
-
-let g:latex_latexmk_options = '-pdf'
-
 let g:node_host_prog = '$HOME/node_modules/.bin/neovim-node-host'
 
 " source each config

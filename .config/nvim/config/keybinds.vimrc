@@ -15,8 +15,6 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
-inoremap <C-s> <Nop>
-nnoremap <C-e> :terminal<Enter>
 
 " move method of cursor in insert mode
 inoremap <C-j> <Down>
@@ -96,6 +94,10 @@ nnoremap <Leader>- :CleverSplit<CR>
 " easymotion {{{
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+map  <Leader><Leader> <Plug>(easymotion-bd-w)
+nmap <Leader><Leader> <Plug>(easymotion-overwin-w)
 " }}}
 
 nmap <Leader>q :TestFile<CR>
