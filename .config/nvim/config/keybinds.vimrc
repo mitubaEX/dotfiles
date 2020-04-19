@@ -100,7 +100,9 @@ map  <Leader><Leader> <Plug>(easymotion-bd-w)
 nmap <Leader><Leader> <Plug>(easymotion-overwin-w)
 " }}}
 
+" vim-test
 nmap <Leader>q :TestFile<CR>
+nmap <Leader>Q :TestNearest<CR>
 
 """ Example configuration
 let g:floaterm_keymap_new    = '<Leader>0'
