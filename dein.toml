@@ -345,6 +345,3 @@ repo = 'mhinz/vim-signify'
 
 [[plugins]]
 repo = 'tpope/vim-unimpaired'
-
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'

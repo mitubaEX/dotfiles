@@ -43,7 +43,8 @@ command! -nargs=* BufferClose call s:bufferClose()
 inoremap <silent> jj <ESC>
 
 " move previous buffer
-" nnoremap <C-n> :b #<Enter>
+nnoremap <C-n> :b #<Enter>
+tnoremap <silent> <ESC> <C-\><C-n>
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
