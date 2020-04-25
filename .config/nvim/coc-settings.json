@@ -8,5 +8,7 @@
   "tsserver.trace.server": "verbose",
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•"
+  "diagnostic.infoSign": "•",
+  "solargraph.hover": true,
+  "solargraph.diagnostics": true
 }
