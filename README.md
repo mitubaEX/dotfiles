@@ -6,10 +6,22 @@
 sh install.sh
 ```
 
+or
+
+```
+make install
+```
+
 ## place my dotfiles in each dir
 
 ```
 sh setup.sh
+```
+
+or
+
+```
+make setup
 ```
 
 ## for Ubuntu
