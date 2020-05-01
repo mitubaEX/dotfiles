@@ -369,3 +369,9 @@ xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 xmap <silent> ie <Plug>CamelCaseMotion_ie
 '''
+
+# first word select: cx {motion}
+# second word select: cx {motion}
+# exchange
+[[plugins]]
+repo = 'tommcdo/vim-exchange'
