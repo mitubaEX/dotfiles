@@ -375,3 +375,9 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 # exchange
 [[plugins]]
 repo = 'tommcdo/vim-exchange'
+
+[[plugins]]
+repo = 'matze/vim-move'
+hook_add = '''
+let g:move_key_modifier = 'C'
+'''

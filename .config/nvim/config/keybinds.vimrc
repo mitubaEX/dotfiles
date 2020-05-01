@@ -23,10 +23,6 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 nnoremap <tab> gt
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
 nnoremap <C-q> <Esc>:BufferClose<Enter>
 
 " bd or q command
