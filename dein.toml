@@ -392,3 +392,6 @@ repo = 'itchyny/vim-cursorword'
 
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
+
+[[plugins]]
+repo = 'sonph/onehalf'
