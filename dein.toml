@@ -277,9 +277,6 @@ repo = 'arcticicestudio/nord-vim'
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
-repo = 'RRethy/vim-illuminate'
-
-[[plugins]]
 repo = 't9md/vim-quickhl'
 hook_add = '''
 nmap <Space>m <Plug>(quickhl-manual-this)
@@ -389,3 +386,6 @@ repo = 'tpope/vim-speeddating'
 
 [[plugins]]
 repo = 'MattesGroeger/vim-bookmarks'
+
+[[plugins]]
+repo = 'itchyny/vim-cursorword'
