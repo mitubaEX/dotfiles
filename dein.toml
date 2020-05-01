@@ -141,11 +141,16 @@ depends = ['kana/vim-operator-user']
 hook_add = '''
 " operator mappings
 map <silent>sa <Plug>(operator-surround-append)
-map <silent>sd <Plug>(operator-surround-delete)
-map <silent>sr <Plug>(operator-surround-replace)
+" map <silent>sd <Plug>(operator-surround-delete)
+" map <silent>sr <Plug>(operator-surround-replace)
 
 " saiw(: aaa -> (aaa)
 '''
+
+# replace: cs(]
+# delete: ds(
+[[plugins]]
+repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'mhinz/vim-startify'
