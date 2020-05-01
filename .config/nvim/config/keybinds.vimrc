@@ -64,6 +64,12 @@ nnoremap <silent> [vim-fugitive]a  :<C-u>Gwrite<CR>
 
 " commit
 nnoremap <silent> [vim-fugitive]c  :<C-u>Gcommit<CR>
+
+" browse
+nnoremap <silent> [vim-fugitive]w  :<C-u>Gbrowse<CR>
+
+""" Gina
+nnoremap <C-g>g  :<C-u>Gina grep<CR>
 " >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
 
 noremap <Leader>p "0p
