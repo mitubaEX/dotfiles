@@ -395,3 +395,7 @@ repo = 'machakann/vim-highlightedyank'
 
 [[plugins]]
 repo = 'sonph/onehalf'
+rtp = 'vim/'
+
+[[plugins]]
+repo = 'edkolev/tmuxline.vim'
