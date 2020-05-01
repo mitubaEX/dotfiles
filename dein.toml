@@ -376,8 +376,13 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 [[plugins]]
 repo = 'tommcdo/vim-exchange'
 
+# <C-j> move current line to one up line
+# visual mode is same
 [[plugins]]
 repo = 'matze/vim-move'
 hook_add = '''
 let g:move_key_modifier = 'C'
 '''
+
+[[plugins]]
+repo = 'tpope/vim-speeddating'
