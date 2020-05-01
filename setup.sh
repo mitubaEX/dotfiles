@@ -27,6 +27,7 @@ ln -sf $(pwd)/.zsh.d/.zprofile $HOME/.zsh.d/.zprofile
 ln -sf $(pwd)/.zshenv $HOME/.zshenv
 ln -sf $(pwd)/.zpreztorc $HOME/.zsh.d/.zpreztorc
 ln -sf $(pwd)/tmux/.tmux.conf $HOME/.tmux.conf
+ln -sf $(pwd)/tmux/tmuxline.conf $HOME/.tmuxline.conf
 
 mkdir -p $HOME/.config/alacritty
 ln -sf $(pwd)/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
