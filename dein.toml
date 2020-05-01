@@ -389,3 +389,6 @@ repo = 'MattesGroeger/vim-bookmarks'
 
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
+
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
