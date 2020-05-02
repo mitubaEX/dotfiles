@@ -32,7 +32,7 @@ if has("autocmd")
 endif
 
 " indentLine
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_faster = 1
 autocmd VimEnter,Colorscheme * :IndentLinesToggle
 
 " dein install

@@ -51,10 +51,10 @@ nnoremap [vim-fugitive] <Nop>
 nmap <C-g> [vim-fugitive]
 
 " status
-nnoremap <silent> [vim-fugitive]s  :<C-u>Gstatus<CR>
+" nnoremap <silent> [vim-fugitive]s  :<C-u>Gstatus<CR>
 
 " diff
-nnoremap <silent> [vim-fugitive]d  :<C-u>Gdiff<CR>
+" nnoremap <silent> [vim-fugitive]d  :<C-u>Gdiff<CR>
 
 " blame
 nnoremap <silent> [vim-fugitive]b  :<C-u>Gblame<CR>
@@ -63,13 +63,23 @@ nnoremap <silent> [vim-fugitive]b  :<C-u>Gblame<CR>
 nnoremap <silent> [vim-fugitive]a  :<C-u>Gwrite<CR>
 
 " commit
-nnoremap <silent> [vim-fugitive]c  :<C-u>Gcommit<CR>
+" nnoremap <silent> [vim-fugitive]c  :<C-u>Gcommit<CR>
 
 " browse
 nnoremap <silent> [vim-fugitive]w  :<C-u>Gbrowse<CR>
 
 """ Gina
+" grep
 nnoremap <C-g>g  :<C-u>Gina grep<CR>
+
+" diff
+nnoremap <C-g>d  :<C-u>Gina diff<CR>
+
+" commit
+nnoremap <C-g>c  :<C-u>Gina commit -v<CR>
+
+" status
+nnoremap <C-g>s  :<C-u>Gina status<CR>
 " >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
 
 noremap <Leader>p "0p
