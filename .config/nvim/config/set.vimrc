@@ -50,21 +50,20 @@ syntax enable
 
 " color
 " let g:seoul256_background = 234
-colorscheme hybrid
-
-" silent! colorscheme onehalfdark
-"
-" if exists('+termguicolors')
-"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"   set termguicolors
-" endif
-
 set background=dark
+" colorscheme hybrid
 
-" highlight Comment cterm=italic
-" highlight Normal guibg=NONE ctermbg=NONE
-" highlight NormalFloat guibg=NONE ctermbg=NONE
+silent! colorscheme onehalfdark
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+highlight Comment cterm=italic
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NormalFloat guibg=NONE ctermbg=NONE
 
 " set t_Co=256
 " let g:seoul256_srgb = 1
