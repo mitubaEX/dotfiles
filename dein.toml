@@ -58,34 +58,35 @@ hook_add = '''
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-  set noshowmode
-  let g:lightline = {
-       \'active': {
-       \  'left': [
-       \    ['mode', 'paste'],
-       \    [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-       \    ['ale'],
-       \  ],
-       \  'right': [
-       \    [ 'lineinfo' ],
-       \    [ 'percent' ],
-       \    [ 'cocstatus', 'currentfunction', 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
-       \ ],
-       \},
-       \ 'component': {
-       \   'charvaluehex': '0x%B'
-       \ },
-       \'component_function': {
-       \  'ale': 'ALEStatus',
-       \  'gitbranch': 'fugitive#head',
-       \  'filename': 'LightLineFilename',
-       \  'cocstatus': 'coc#status',
-       \  'currentfunction': 'CocCurrentFunction'
-       \},
-       \ }
-  function! LightLineFilename()
-    return expand('%')
-  endfunction
+set noshowmode
+let g:lightline = {
+     \'active': {
+     \  'left': [
+     \    ['mode', 'paste'],
+     \    [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+     \    ['ale'],
+     \  ],
+     \  'right': [
+     \    [ 'lineinfo' ],
+     \    [ 'percent' ],
+     \    [ 'cocstatus', 'currentfunction', 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
+     \ ],
+     \},
+     \ 'component': {
+     \   'charvaluehex': '0x%B'
+     \ },
+     \'component_function': {
+     \   'ale': 'ALEStatus',
+     \   'gitbranch': 'fugitive#head',
+     \   'filename': 'LightLineFilename',
+     \   'cocstatus': 'coc#status',
+     \   'currentfunction': 'CocCurrentFunction',
+     \},
+     \ }
+
+function! LightLineFilename()
+  return expand('%')
+endfunction
 '''
 
 [[plugins]]
@@ -404,3 +405,8 @@ rtp = 'vim/'
 
 [[plugins]]
 repo = 'edkolev/tmuxline.vim'
+
+# open result as buffer
+# USAGE: :Bufferize <command>
+[[plugins]]
+repo = 'AndrewRadev/bufferize.vim'
