@@ -410,3 +410,9 @@ repo = 'edkolev/tmuxline.vim'
 # USAGE: :Bufferize <command>
 [[plugins]]
 repo = 'AndrewRadev/bufferize.vim'
+
+[[plugins]]
+repo = 'tpope/vim-characterize'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
