@@ -411,6 +411,7 @@ repo = 'edkolev/tmuxline.vim'
 [[plugins]]
 repo = 'AndrewRadev/bufferize.vim'
 
+# ga: show current string code
 [[plugins]]
 repo = 'tpope/vim-characterize'
 

@@ -39,7 +39,7 @@ command! -nargs=* BufferClose call s:bufferClose()
 inoremap <silent> jj <ESC>
 
 " move previous buffer
-nnoremap <C-m> :b #<Enter>
+nnoremap <Leader>n :b #<Enter>
 tnoremap <silent> <ESC> <C-\><C-n>
 
 " deoplete tab-complete
@@ -95,7 +95,7 @@ nnoremap <Leader>o o<Esc>
 map <Leader>= gg=G<C-o><C-o>
 
 " defx
-nnoremap <Leader>n :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
+nnoremap <Leader>d :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
 
 " pbcopy filename
 nmap <Leader>c :!echo "%:t" \| pbcopy<CR>
