@@ -3,6 +3,13 @@ repo = 'Shougo/dein.vim'
 hook_post_update = 'UpdateRemotePlugins'
 
 [[plugins]]
+repo = 'vim-jp/vital.vim'
+hook_add = '''
+set runtimepath+=~/.config/nvim/repos/github.com/vim-jp/vital.vim
+'''
+merged = 0
+
+[[plugins]]
 repo = 'tyru/caw.vim'
 
 [[plugins]]
@@ -417,3 +424,10 @@ repo = 'tpope/vim-characterize'
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
+
+# test plugin
+[[plugins]]
+repo = 'thinca/vim-themis'
+
+[[plugins]]
+repo = 'mitubaEX/float_timer'

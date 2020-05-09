@@ -9,6 +9,5 @@
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
-  "solargraph.hover": true,
   "solargraph.diagnostics": true
 }
