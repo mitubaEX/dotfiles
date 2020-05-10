@@ -437,8 +437,9 @@ repo = 'mitubaEX/float_timer'
 repo = 'tpope/vim-repeat'
 
 # highlight uniq word for f, F
-[[plugins]]
-repo = 'unblevable/quick-scope'
+# NOTE: When open large file, slow.
+# [[plugins]]
+# repo = 'unblevable/quick-scope'
 
 # j, k accelerated
 [[plugins]]
@@ -447,3 +448,7 @@ hook_add = '''
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 '''
+
+# [[, ]]: move function block
+[[plugins]]
+repo = 'arp242/jumpy.vim'
