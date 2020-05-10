@@ -98,7 +98,10 @@ map <Leader>= gg=G<C-o><C-o>
 nnoremap <Leader>d :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
 
 " pbcopy filename
+"" only filename
 nmap <Leader>c :!echo "%:t" \| pbcopy<CR>
+"" relative path
+nmap <Leader>C :!echo "%" \| pbcopy<CR>
 
 nnoremap <Leader>- :CleverSplit<CR>
 
