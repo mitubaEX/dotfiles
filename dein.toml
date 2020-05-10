@@ -425,12 +425,25 @@ repo = 'tpope/vim-characterize'
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 
-# test plugin
+# test plugins
 [[plugins]]
 repo = 'thinca/vim-themis'
 
 [[plugins]]
 repo = 'mitubaEX/float_timer'
 
-[[plugin]]
+# repeat surround.vim
+[[plugins]]
 repo = 'tpope/vim-repeat'
+
+# highlight uniq word for f, F
+[[plugins]]
+repo = 'unblevable/quick-scope'
+
+# j, k accelerated
+[[plugins]]
+repo = 'rhysd/accelerated-jk'
+hook_add = '''
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
+'''
