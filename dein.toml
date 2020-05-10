@@ -467,3 +467,6 @@ map <expr> y operator#stay_cursor#wrapper("y")
 
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
+
+[[plugins]]
+repo = 'liuchengxu/vim-which-key'
