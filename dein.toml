@@ -468,8 +468,17 @@ map <expr> y operator#stay_cursor#wrapper("y")
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
 
+# keybinds of <Leader>*
+# :WhichKey '<Space>'
 [[plugins]]
 repo = 'liuchengxu/vim-which-key'
 
+# :RengBang
+# 0, 0, 0 -> 0, 1, 2
 [[plugins]]
 repo = 'deris/vim-rengbang'
+
+# require: cargo install silicon
+# Silicon <path>
+[[plugins]]
+repo = 'segeljakt/vim-silicon'
