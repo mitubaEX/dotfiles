@@ -452,3 +452,15 @@ nmap k <Plug>(accelerated_jk_gk)
 # [[, ]]: move function block
 [[plugins]]
 repo = 'arp242/jumpy.vim'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+# yank string in visual mode
+# Do not move cursor
+[[plugins]]
+repo = 'osyo-manga/vim-operator-stay-cursor'
+depends = ['kana/vim-operator-user']
+hook_add = '''
+map <expr> y operator#stay_cursor#wrapper("y")
+'''
