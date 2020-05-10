@@ -118,3 +118,6 @@ nmap <Leader>Q :TestNearest<CR>
 """ Example configuration
 let g:floaterm_keymap_new    = '<Leader>0'
 let g:floaterm_keymap_toggle = '<Leader>0'
+
+" float_timer
+nnoremap <Leader>f :FloatTimer 25<CR>

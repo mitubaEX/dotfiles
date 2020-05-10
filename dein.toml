@@ -431,3 +431,6 @@ repo = 'thinca/vim-themis'
 
 [[plugins]]
 repo = 'mitubaEX/float_timer'
+
+[[plugin]]
+repo = 'tpope/vim-repeat'
