@@ -464,3 +464,6 @@ depends = ['kana/vim-operator-user']
 hook_add = '''
 map <expr> y operator#stay_cursor#wrapper("y")
 '''
+
+[[plugins]]
+repo = 'sainnhe/gruvbox-material'
