@@ -80,6 +80,15 @@ nnoremap <C-g>c  :<C-u>Gina commit -v<CR>
 
 " status
 nnoremap <C-g>s  :<C-u>Gina status<CR>
+
+
+" log
+function! s:gLogCurrentFile() abort
+	let cfile = expand('%')
+	execute "Gina log " . cfile
+endfunction
+command! -nargs=* GLogCurrentFile call s:gLogCurrentFile()
+nnoremap <C-g>l  :<C-u>GLogCurrentFile<CR>
 " >>>>>>>>>>>>>>>>git>>>>>>>>>>>>>>>>>>>>
 
 noremap <Leader>p "0p
