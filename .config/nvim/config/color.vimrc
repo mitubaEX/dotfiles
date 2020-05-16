@@ -10,10 +10,9 @@ set background=dark
 " colorscheme gruvbox-material
 " }}}
 "
-" colorscheme hybrid
-
-" onehalfdark {{{
-silent! colorscheme onehalfdark
+colorscheme hybrid
+" colorscheme purpura
+" silent! colorscheme onehalfdark
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -24,7 +23,6 @@ endif
 highlight Comment cterm=italic
 highlight Normal guibg=NONE ctermbg=NONE
 highlight NormalFloat guibg=NONE ctermbg=NONE
-" }}}
 
 " set t_Co=256
 " let g:seoul256_srgb = 1

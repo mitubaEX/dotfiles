@@ -482,3 +482,6 @@ repo = 'deris/vim-rengbang'
 # Silicon <path>
 [[plugins]]
 repo = 'segeljakt/vim-silicon'
+
+[[plugins]]
+repo = 'yassinebridi/vim-purpura'
