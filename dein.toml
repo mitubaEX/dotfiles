@@ -485,3 +485,6 @@ repo = 'segeljakt/vim-silicon'
 
 [[plugins]]
 repo = 'yassinebridi/vim-purpura'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'

@@ -10,9 +10,9 @@ set background=dark
 " colorscheme gruvbox-material
 " }}}
 "
-colorscheme hybrid
+" colorscheme hybrid
 " colorscheme purpura
-" silent! colorscheme onehalfdark
+silent! colorscheme onehalfdark
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
