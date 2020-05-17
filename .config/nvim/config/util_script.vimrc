@@ -17,7 +17,7 @@ nmap <Leader>x :ToggleRspecFile<CR>
 " execute command.
 function! s:openCurrentBlameFile() abort
   let current_absolute_path = expand('%:p')
-  if current_absolute_path =~ 'fugitive'
+  if current_absolute_path =~ 'fugitive' || (exists('g:loaded_openbrowser') && g:loaded_openbrowser)
     let current_filehash = expand('%:t')
     let splited_filepath = split(expand('%:r'), '/')
     let owner_name = splited_filepath[-5]

@@ -43,7 +43,8 @@ hook_add = '''
   \   'tsx': ['tslint', 'prettier'],
   \   'hs': ['hlint'],
   \   'tex': ['alex'],
-  \   'rb': ['rubocop']
+  \   'rb': ['rubocop'],
+  \   'vim': ['vint'],
   \}
   let g:ale_linter_aliases = {'jsx': 'css'}
   let g:ale_fixers = {
@@ -483,8 +484,10 @@ repo = 'deris/vim-rengbang'
 [[plugins]]
 repo = 'segeljakt/vim-silicon'
 
+# colorscheme
 [[plugins]]
 repo = 'yassinebridi/vim-purpura'
 
+# ex: :OpenBrowser <url>
 [[plugins]]
 repo = 'tyru/open-browser.vim'

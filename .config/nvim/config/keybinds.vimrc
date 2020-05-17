@@ -133,3 +133,6 @@ let g:floaterm_keymap_toggle = '<Leader>0'
 
 " float_timer
 nnoremap <Leader>f :FloatTimer 25<CR>
+
+" reload config file
+nnoremap <Leader>R :so ~/.config/nvim/init.vim<CR>
