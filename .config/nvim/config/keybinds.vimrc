@@ -136,3 +136,11 @@ nnoremap <Leader>f :FloatTimer 25<CR>
 
 " reload config file
 nnoremap <Leader>R :so ~/.config/nvim/init.vim<CR>
+
+" columnskip
+nmap <Leader>j <Plug>(columnskip:nonblank:next)
+omap <Leader>j <Plug>(columnskip:nonblank:next)
+xmap <Leader>j <Plug>(columnskip:nonblank:next)
+nmap <Leader>k <Plug>(columnskip:nonblank:prev)
+omap <Leader>k <Plug>(columnskip:nonblank:prev)
+xmap <Leader>k <Plug>(columnskip:nonblank:prev)

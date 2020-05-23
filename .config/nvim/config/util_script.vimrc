@@ -4,9 +4,9 @@ function! s:toggleRspecFile() abort
   let basename = @%
   let filename = expand('%:t')
   if current_dir =~ 'spec'
-    execute "e " . substitute(substitute(basename, filename, '', 'g'), 'spec', 'app', "g") . substitute(filename, '_spec.rb', '', 'g') . '.rb'
+    execute 'e ' . substitute(substitute(basename, filename, '', 'g'), 'spec', 'app', 'g') . substitute(filename, '_spec.rb', '', 'g') . '.rb'
   else
-    execute "e " . substitute(substitute(basename, filename, '', 'g'), 'app', 'spec', "g") . substitute(filename, '.rb', '', 'g') . '_spec.rb'
+    execute 'e ' . substitute(substitute(basename, filename, '', 'g'), 'app', 'spec', 'g') . substitute(filename, '.rb', '', 'g') . '_spec.rb'
   endif
 endfunction
 command! -nargs=* ToggleRspecFile call s:toggleRspecFile()

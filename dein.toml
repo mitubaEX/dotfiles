@@ -491,3 +491,7 @@ repo = 'yassinebridi/vim-purpura'
 # ex: :OpenBrowser <url>
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+
+# https://tyru.hatenablog.com/entry/2020/04/26/110000
+[[plugins]]
+repo = 'tyru/columnskip.vim'
