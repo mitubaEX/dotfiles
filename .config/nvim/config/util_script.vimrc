@@ -26,7 +26,9 @@ function! s:openCurrentBlameFile() abort
     let joined_path = join([owner_name, repo_name, 'commit', current_filehash], '/')
     let open_url = 'https://github.com/' . joined_path
 
-    execute 'OpenBrowser ' . open_url
+    if exists('g:loaded_openbrowser') && g:loaded_openbrowser
+      execute 'OpenBrowser ' . open_url
+    endif
   endif
 endfunction
 command! -nargs=* OpenCurrentBlameFile call s:openCurrentBlameFile()
