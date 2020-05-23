@@ -8,4 +8,4 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 # eval "$(nodenv init -)"
-# eval "$(rbenv init -)"
+eval "$(rbenv init -)"
