@@ -124,3 +124,6 @@ function create_vim_plugin() {
 if [[ -f $HOME/.config/deno_completions.zsh ]];then
   source $HOME/.config/deno_completions.zsh
 fi
+
+# deno
+export PATH="$HOME/.deno/bin:$PATH"
