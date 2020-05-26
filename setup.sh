@@ -94,4 +94,4 @@ ln -sf $(pwd)/.config/solargraph/config.yml $HOME/.config/solargraph/config.yml
 ln -sf $(pwd)/.config/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
 
 # crefre
-ln -sf $(pwd)/crefre.sh $HOME/crefre.sh
+ln -sf $(pwd)/crefre.zsh $HOME/crefre.zsh

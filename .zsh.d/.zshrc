@@ -92,8 +92,8 @@ function gplpr() {
   git pull upstream pull/$(git branch | grep \* | cut -d ' ' -f2)/head
 }
 
-if [ -f './crefre.sh' ]; then
-  source ./crefre.sh
+if [ -f './crefre.zsh' ]; then
+  . ./crefre.zsh
 fi
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
