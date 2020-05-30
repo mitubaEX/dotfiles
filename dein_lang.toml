@@ -11,3 +11,10 @@ let g:csv_hiGroup = 'Visual'
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown']
+
+# :A alternate
+# :R related
+# :Rails console
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby']
