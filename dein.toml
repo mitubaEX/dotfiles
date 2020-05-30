@@ -43,7 +43,7 @@ hook_add = '''
   \   'tsx': ['tslint', 'prettier'],
   \   'hs': ['hlint'],
   \   'tex': ['alex'],
-  \   'rb': ['rubocop'],
+  \   'ruby': ['standardrb', 'rubocop'],
   \   'vim': ['vint'],
   \}
   let g:ale_linter_aliases = {'jsx': 'css'}

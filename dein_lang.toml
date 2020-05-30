@@ -18,3 +18,14 @@ on_ft = ['markdown']
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = ['ruby']
+hook_add = '''
+let g:rubycomplete_rails = 1
+'''
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = ['ruby']
+hook_add = '''
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+'''
