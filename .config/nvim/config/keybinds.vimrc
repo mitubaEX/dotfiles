@@ -128,11 +128,11 @@ nmap <Leader>q :TestFile<CR>
 nmap <Leader>Q :TestNearest<CR>
 
 """ Example configuration
-let g:floaterm_keymap_new    = '<Leader>0'
-let g:floaterm_keymap_toggle = '<Leader>0'
+let g:floaterm_keymap_new    = '<Leader>f'
+let g:floaterm_keymap_toggle = '<Leader>f'
 
 " float_timer
-nnoremap <Leader>f :FloatTimer 25<CR>
+" nnoremap <Leader>f :FloatTimer 25<CR>
 
 " reload config file
 nnoremap <Leader>R :so ~/.config/nvim/init.vim<CR>

@@ -119,11 +119,3 @@ function create_vim_plugin() {
     mv $filename "$dirname/$1.$extension"
   done
 }
-
-# source deno_completions
-if [[ -f $HOME/.config/deno_completions.zsh ]];then
-  source $HOME/.config/deno_completions.zsh
-fi
-
-# deno
-export PATH="$HOME/.deno/bin:$PATH"
