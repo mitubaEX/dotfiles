@@ -432,6 +432,9 @@ repo = 'thinca/vim-themis'
 
 [[plugins]]
 repo = 'mitubaEX/float_timer'
+hook_add = '''
+let g:disable_float_timer_window = 1
+'''
 
 # repeat surround.vim
 [[plugins]]
