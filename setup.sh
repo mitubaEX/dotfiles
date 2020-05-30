@@ -95,3 +95,7 @@ ln -sf $(pwd)/.config/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.jso
 
 # crefre
 ln -sf $(pwd)/crefre.zsh $HOME/crefre.zsh
+
+# ultisnips
+mkdir -p $HOME/.config/nvim/UltiSnips
+ln -sf $(pwd)/.config/nvim/UltiSnips/rspec.snippets $HOME/.config/nvim/UltiSnips/rspec.snippets
