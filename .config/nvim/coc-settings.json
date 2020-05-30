@@ -9,5 +9,10 @@
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "solargraph.completion": true,
+  "solargraph.symbols": true,
+  "solargraph.definitions": true,
+  "solargraph.rename": true,
+  "solargraph.references": true
 }
