@@ -498,3 +498,6 @@ repo = 'tyru/open-browser.vim'
 # https://tyru.hatenablog.com/entry/2020/04/26/110000
 [[plugins]]
 repo = 'tyru/columnskip.vim'
+
+[[plugins]]
+repo = 'dstein64/vim-smile'
