@@ -98,7 +98,21 @@ endfunction
 '''
 
 [[plugins]]
-repo = 'cohama/lexima.vim'
+repo = 'kana/vim-smartinput'
+hook_add = '''
+call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
+call smartinput#define_rule({
+            \   'at'    : '(\%#)',
+            \   'char'  : '<Space>',
+            \   'input' : '<Space><Space><Left>',
+            \   })
+
+call smartinput#define_rule({
+            \   'at'    : '( \%# )',
+            \   'char'  : '<BS>',
+            \   'input' : '<Del><BS>',
+            \   })
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
