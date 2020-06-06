@@ -14,5 +14,12 @@
   "solargraph.symbols": true,
   "solargraph.definitions": true,
   "solargraph.rename": true,
-  "solargraph.references": true
+  "solargraph.references": true,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    }
+  }
 }

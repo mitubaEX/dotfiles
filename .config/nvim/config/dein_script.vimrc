@@ -22,8 +22,8 @@ if dein#load_state('~/.config/nvim')
     " call dein#load_toml('~/dein_lazy.toml', {'lazy': 1})
     call dein#load_toml('~/dein_denite.toml', {'lazy': 1})
     if !has('nvim')
-	call dein#add('roxma/nvim-yarp')
-	call dein#add('roxma/vim-hug-neovim-rpc')
+      call dein#add('roxma/nvim-yarp')
+      call dein#add('roxma/vim-hug-neovim-rpc')
     endif
 
     " You can specify revision/branch/tag.
