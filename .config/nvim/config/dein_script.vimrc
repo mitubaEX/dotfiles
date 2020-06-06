@@ -18,6 +18,7 @@ if dein#load_state('~/.config/nvim')
     " call dein#add('Shougo/neosnippet-snippets')
     call dein#load_toml('~/dein.toml', {'lazy': 0})
     call dein#load_toml('~/dein_lang.toml', {'lazy': 1})
+    " conflict coc.nvim
     " call dein#load_toml('~/dein_lazy.toml', {'lazy': 1})
     call dein#load_toml('~/dein_denite.toml', {'lazy': 1})
     if !has('nvim')

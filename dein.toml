@@ -98,23 +98,6 @@ endfunction
 '''
 
 [[plugins]]
-repo = 'kana/vim-smartinput'
-hook_add = '''
-call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
-call smartinput#define_rule({
-            \   'at'    : '(\%#)',
-            \   'char'  : '<Space>',
-            \   'input' : '<Space><Space><Left>',
-            \   })
-
-call smartinput#define_rule({
-            \   'at'    : '( \%# )',
-            \   'char'  : '<BS>',
-            \   'input' : '<Del><BS>',
-            \   })
-'''
-
-[[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
 " ref: https://postd.cc/vim3/
@@ -515,3 +498,6 @@ repo = 'tyru/columnskip.vim'
 
 [[plugins]]
 repo = 'dstein64/vim-smile'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'

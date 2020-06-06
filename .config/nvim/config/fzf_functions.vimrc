@@ -18,8 +18,8 @@ command! -bang -nargs=* GGrep
 
 " git grep
 function! s:gGrepCurrentWordQuery() abort
-	let cword = expand("<cword>")
-	execute "GGrep " . cword
+	let cword = expand('<cword>')
+	execute 'Gina grep ' . cword
 endfunction
 command! -nargs=* GGrepCurrentWordQuery call s:gGrepCurrentWordQuery()
 nmap <Leader>g :GGrepCurrentWordQuery<CR>
