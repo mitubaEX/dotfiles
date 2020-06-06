@@ -72,6 +72,8 @@ ln -sf $(pwd)/bin/conky-i3bar $HOME/bin/conky-i3bar
 # chunkwm
 ln -sf $(pwd)/.chunkwmrc $HOME/.chunkwmrc
 ln -sf $(pwd)/.khdrc $HOME/.skhdrc
+# mkdir -p $HOME/skhd
+# cp $(pwd)/.khdrc $HOME/skhd/skhdrc
 
 # yabai
 ln -sf $(pwd)/.yabairc $HOME/.yabairc
