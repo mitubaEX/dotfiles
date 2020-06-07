@@ -3,9 +3,9 @@
   # CTRL-R - Paste the selected command from history into the command line
   fzf-history-widget() {
     local selected num
-    setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-    selected=( $(fc -rl 1 |
-      FZF_DEFAULT_OPTS="--layout=reverse --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
+    setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
+    selected=( $(fc -rl 1 | perl -ne 'print if !$seen{(/^\s*[0-9]+\s+(.*)/, $1)}++' |
+      FZF_DEFAULT_OPTS="--layout='reverse' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
     local ret=$?
     if [ -n "$selected" ]; then
       num=$selected[1]
@@ -16,15 +16,6 @@
     zle reset-prompt
     return $ret
   }
-  __fzfcmd() {
-    __fzf_use_tmux__ &&
-      echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
-  }
-
-  __fzf_use_tmux__() {
-    [ -n "$TMUX_PANE" ] && [ "${FZF_TMUX:-0}" != 0 ] && [ ${LINES:-40} -gt 15 ]
-  }
-
   zle     -N   fzf-history-widget
   bindkey '^R' fzf-history-widget
 
@@ -143,9 +134,6 @@
   # Aliases
   # (sorted alphabetically)
   #
-
-  # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
   # ref: https://dev.classmethod.jp/tool/fzf-original-app-for-git-add/
   function ggaa() {

@@ -1,20 +1,5 @@
 " fzf
 nmap <Leader>t :Files<CR>
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
-command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-" ctags
-function! s:tagsCurrentWordQuery() abort
-	let cword = expand("<cword>")
-	execute "Tags " . cword
-endfunction
-command! -nargs=* TagsCurrentWordQuery call s:tagsCurrentWordQuery()
-
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 
 " git grep
 function! s:gGrepCurrentWordQuery() abort
@@ -38,9 +23,11 @@ set winblend=20
 "
 " ポップアップメニューの半透明度を指定する
 set pumblend=30
+
 " ref: https://kassioborges.dev/2019/04/10/neovim-fzf-with-a-floating-window.html
 " Reverse the layout to make the FZF list top-down
-let $FZF_DEFAULT_OPTS='--layout=reverse'
+let $FZF_DEFAULT_OPTS="--layout=reverse"
+" let $FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 " Using the custom window creation function
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }

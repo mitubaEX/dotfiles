@@ -17,6 +17,9 @@ if [ "$(uname)" = "Linux" ]; then
   # rg
   cargo install ripgrep
 
+  # fd
+  cargo install fd-find
+
   # polybar
   cd $HOME
   git clone https://github.com/jaagr/polybar.git
