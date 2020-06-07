@@ -1,5 +1,6 @@
 " fzf
-nmap <Leader>t :Files<CR>
+nmap <Leader>t :GFiles<CR>
+nmap <Leader>T :Files<CR>
 
 " git grep
 function! s:gGrepCurrentWordQuery() abort
@@ -8,15 +9,6 @@ function! s:gGrepCurrentWordQuery() abort
 endfunction
 command! -nargs=* GGrepCurrentWordQuery call s:gGrepCurrentWordQuery()
 nmap <Leader>g :GGrepCurrentWordQuery<CR>
-
-" rg
-command! -bang -nargs=* Fg call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-function! s:rgCurrentWordQuery() abort
-	let cword = expand("<cword>")
-	execute "Fg " . cword
-endfunction
-command! -nargs=* RgCurrentWordQuery call s:rgCurrentWordQuery()
-nmap <Leader>a :Fg<CR>
 
 " 現在のウィンドウの半透明度を指定する。
 set winblend=20
@@ -55,3 +47,6 @@ function! FloatingFZF()
   call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
   au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
+
+" disable preview window
+let g:fzf_preview_window = ''
