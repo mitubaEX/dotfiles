@@ -1,6 +1,6 @@
 # unset aws env
 function unsetaws() {
-  env | grep -E 'aws|AWS' | awk -F '=' '{print $1}' | while read env ; do unset $env ;done
+  env | grep -E 'aws_secret_access_key|aws_access_key_id|AWS_ACCESS_KEY_ID|AWS_SECRET_ACCESS_KEY' | awk -F '=' '{print $1}' | while read env ; do unset $env ;done
 }
 
 # create_vim_plugin
