@@ -26,4 +26,3 @@ alias runghc='stack runghc --'
 alias nv="nvr --servername $NVIM_LISTEN_ADDRESS"
 
 alias nasm='/usr/local/bin/nasm'
-
