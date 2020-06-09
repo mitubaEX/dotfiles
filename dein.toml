@@ -318,7 +318,7 @@ build = '''
 repo = 'Lokaltog/vim-easymotion'
 
 [[plugins]]
-repo = 'janko/vim-test'
+repo = 'vim-test/vim-test'
 
 [[plugins]]
 repo = 'voldikss/vim-floaterm'
