@@ -144,3 +144,6 @@ xmap <Leader>j <Plug>(columnskip:nonblank:next)
 nmap <Leader>k <Plug>(columnskip:nonblank:prev)
 omap <Leader>k <Plug>(columnskip:nonblank:prev)
 xmap <Leader>k <Plug>(columnskip:nonblank:prev)
+
+" previous jump
+nnoremap <C-p> <C-i>
