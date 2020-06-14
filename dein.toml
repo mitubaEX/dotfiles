@@ -3,22 +3,25 @@ repo = 'Shougo/dein.vim'
 hook_post_update = 'UpdateRemotePlugins'
 
 [[plugins]]
-repo = 'vim-jp/vital.vim'
-hook_add = '''
-set runtimepath+=~/.config/nvim/repos/github.com/vim-jp/vital.vim
-'''
-merged = 0
-
-[[plugins]]
 repo = 'tyru/caw.vim'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-depends = ['tpope/vim-rhubarb']
+repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo = 'tpope/vim-rhubarb'
+repo = 'HerringtonDarkholme/yats.vim'
 
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+build = '''
+  git checkout release
+'''
+
+# ale {{{
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
@@ -62,7 +65,9 @@ hook_add = '''
   " エラーと警告がなくなっても開いたままにする
   " let g:ale_keep_list_window_open = 1
 '''
+# }}}
 
+# lightline {{{
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
@@ -96,7 +101,9 @@ function! LightLineFilename()
   return expand('%')
 endfunction
 '''
+# }}}
 
+# fzf {{{
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
@@ -107,16 +114,9 @@ nmap ; :Buffers<CR>
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=test --exclude=spec --exclude=vendor'
 '''
+# }}}
 
-# [[plugins]]
-# repo = 'airblade/vim-gitgutter'
-# hook_add = '''
-# set shell=/bin/bash
-# '''
-
-[[plugins]]
-repo = 'rhysd/clever-f.vim'
-
+# quickrun {{{
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
@@ -137,57 +137,9 @@ let g:quickrun_config = {
 \   },
 \}
 '''
+# }}}
 
-[[plugins]]
-repo = 'kana/vim-operator-user'
-
-[[plugins]]
-repo = 'rhysd/vim-operator-surround'
-depends = ['kana/vim-operator-user']
-hook_add = '''
-" operator mappings
-map <silent>sa <Plug>(operator-surround-append)
-" map <silent>sd <Plug>(operator-surround-delete)
-" map <silent>sr <Plug>(operator-surround-replace)
-
-" saiw(: aaa -> (aaa)
-'''
-
-# replace: cs(]
-# delete: ds(
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'mhinz/vim-startify'
-hook_add = '''
-let g:startify_lists = [
-\ { 'type': 'files',     'header': ['   MRU']            },
-  \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-  \ { 'type': 'sessions',  'header': ['   Sessions']       },
-  \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-  \ { 'type': 'commands',  'header': ['   Commands']       },
-  \ ]
-let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, '~/.zshrc' ]
-'''
-
-[[plugins]]
-repo = 'kana/vim-smartinput'
-hook_add = '''
-'''
-
-[[plugins]]
-repo = 'honza/vim-snippets'
-
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-
-[[plugins]]
-repo = 'HerringtonDarkholme/yats.vim'
-
-[[plugins]]
-repo = 'sheerun/vim-polyglot'
-
+# defx {{{
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
@@ -277,85 +229,103 @@ let g:defx_icons_root_opened_tree_icon = ''
 let g:defx_icons_nested_opened_tree_icon = ''
 let g:defx_icons_nested_closed_tree_icon = ''
 '''
+# }}}
+
+# colorscheme {{{
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
-repo = 'rhysd/clever-split.vim'
+repo = 'yassinebridi/vim-purpura'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'sonph/onehalf'
+rtp = 'vim/'
+
+[[plugins]]
+repo = 'sainnhe/gruvbox-material'
 
 [[plugins]]
 repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
-repo = 'Yggdroot/indentLine'
+repo = 'ayu-theme/ayu-vim'
+# }}}
+
+# for vim script {{{
+[[plugins]]
+repo = 'thinca/vim-themis'
 
 [[plugins]]
-repo = 't9md/vim-quickhl'
+repo = 'vim-jp/vital.vim'
 hook_add = '''
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
-nmap <Space>M <Plug>(quickhl-manual-reset)
-xmap <Space>M <Plug>(quickhl-manual-reset)
+set runtimepath+=~/.config/nvim/repos/github.com/vim-jp/vital.vim
 '''
+merged = 0
+# }}}
 
-# +: expand visual line
-# _: reverse
+# git {{{
 [[plugins]]
-repo = 'terryma/vim-expand-region'
+repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
-repo = 'AndrewRadev/linediff.vim'
+repo = 'tpope/vim-fugitive'
+depends = ['tpope/vim-rhubarb']
 
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
 
+# }}}
+
+# improve key stroke {{{
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-build = '''
-  git checkout release
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+depends = ['kana/vim-operator-user']
+hook_add = '''
+" operator mappings
+map <silent>sa <Plug>(operator-surround-append)
+" map <silent>sd <Plug>(operator-surround-delete)
+" map <silent>sr <Plug>(operator-surround-replace)
+
+" saiw(: aaa -> (aaa)
 '''
+
+# replace: cs(]
+# delete: ds(
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# repeat surround.vim
+[[plugins]]
+repo = 'tpope/vim-repeat'
 
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 
+# https://tyru.hatenablog.com/entry/2020/04/26/110000
 [[plugins]]
-repo = 'vim-test/vim-test'
+repo = 'tyru/columnskip.vim'
 
+# [[, ]]: move function block
 [[plugins]]
-repo = 'voldikss/vim-floaterm'
+repo = 'mitubaEX/jumpy.vim'
 
+# j, k accelerated
 [[plugins]]
-repo = 'brooth/far.vim'
+repo = 'rhysd/accelerated-jk'
 hook_add = '''
-" Usage:
-" :Far <search_word> <replace word> **/*
-" :Fardo
-let g:far#source = 'rg'
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
 '''
-
-[[plugins]]
-repo = 'glidenote/memolist.vim'
-hook_add = '''
-let g:memolist_path = "$HOME/.memo"
-'''
-
-[[plugins]]
-repo = 'ayu-theme/ayu-vim'
-
-[[plugins]]
-repo = 'yuttie/comfortable-motion.vim'
-hook_add = '''
-let g:comfortable_motion_friction = 200
-let g:comfortable_motion_air_drag = 4.0
-'''
-
-[[plugins]]
-repo = 'mhinz/vim-signify'
-
-[[plugins]]
-repo = 'tpope/vim-unimpaired'
-
-[[plugins]]
-repo = 'mg979/vim-visual-multi'
 
 # camel caseの単語ごとに移動できる
 [[plugins]]
@@ -377,6 +347,112 @@ xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 xmap <silent> ie <Plug>CamelCaseMotion_ie
 '''
+# }}}
+
+# auto pair for paren {{{
+[[plugins]]
+repo = 'cohama/lexima.vim'
+# }}}
+
+# util command {{{
+[[plugins]]
+repo = 'rhysd/clever-split.vim'
+
+[[plugins]]
+repo = 'brooth/far.vim'
+hook_add = '''
+" Usage:
+" :Far <search_word> <replace word> **/*
+" :Fardo
+let g:far#source = 'rg'
+'''
+
+# keybinds of <Leader>*
+# :WhichKey '<Space>'
+[[plugins]]
+repo = 'liuchengxu/vim-which-key'
+
+# :RengBang
+# 0, 0, 0 -> 0, 1, 2
+[[plugins]]
+repo = 'deris/vim-rengbang'
+
+# require: cargo install silicon
+# Silicon <path>
+[[plugins]]
+repo = 'segeljakt/vim-silicon'
+
+# ex: :OpenBrowser <url>
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+hook_add = '''
+let g:memolist_path = "$HOME/.memo"
+'''
+
+[[plugins]]
+repo = 'voldikss/vim-floaterm'
+
+[[plugins]]
+repo = 'vim-test/vim-test'
+
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim'
+
+# open result as buffer
+# USAGE: :Bufferize <command>
+[[plugins]]
+repo = 'AndrewRadev/bufferize.vim'
+# }}}
+
+# vim extension {{{
+[[plugins]]
+repo = 't9md/vim-quickhl'
+hook_add = '''
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+'''
+
+[[plugins]]
+repo = 'mhinz/vim-signify'
+
+[[plugins]]
+repo = 'mhinz/vim-startify'
+hook_add = '''
+let g:startify_lists = [
+\ { 'type': 'files',     'header': ['   MRU']            },
+  \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+  \ { 'type': 'sessions',  'header': ['   Sessions']       },
+  \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+  \ { 'type': 'commands',  'header': ['   Commands']       },
+  \ ]
+let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, '~/.zshrc' ]
+'''
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+# +: expand visual line
+# _: reverse
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
+[[plugins]]
+repo = 'yuttie/comfortable-motion.vim'
+hook_add = '''
+let g:comfortable_motion_friction = 200
+let g:comfortable_motion_air_drag = 4.0
+'''
+
+[[plugins]]
+repo = 'tpope/vim-unimpaired'
+
+[[plugins]]
+repo = 'mg979/vim-visual-multi'
 
 # first word select: cx {motion}
 # second word select: cx {motion}
@@ -405,54 +481,17 @@ repo = 'itchyny/vim-cursorword'
 repo = 'machakann/vim-highlightedyank'
 
 [[plugins]]
-repo = 'sonph/onehalf'
-rtp = 'vim/'
-
-[[plugins]]
 repo = 'edkolev/tmuxline.vim'
-
-# open result as buffer
-# USAGE: :Bufferize <command>
-[[plugins]]
-repo = 'AndrewRadev/bufferize.vim'
 
 # ga: show current string code
 [[plugins]]
 repo = 'tpope/vim-characterize'
-
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
-
-# test plugins
-[[plugins]]
-repo = 'thinca/vim-themis'
-
-[[plugins]]
-repo = 'mitubaEX/float_timer'
-hook_add = '''
-let g:disable_float_timer_window = 1
-'''
-
-# repeat surround.vim
-[[plugins]]
-repo = 'tpope/vim-repeat'
 
 # highlight uniq word for f, F
 # NOTE: When open large file, slow.
 # [[plugins]]
 # repo = 'unblevable/quick-scope'
 
-# j, k accelerated
-[[plugins]]
-repo = 'rhysd/accelerated-jk'
-hook_add = '''
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
-'''
-
-# [[, ]]: move function block
-[[plugins]]
-repo = 'mitubaEX/jumpy.vim'
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
@@ -465,39 +504,15 @@ depends = ['kana/vim-operator-user']
 hook_add = '''
 map <expr> y operator#stay_cursor#wrapper("y")
 '''
+# }}}
 
-[[plugins]]
-repo = 'sainnhe/gruvbox-material'
-
-# keybinds of <Leader>*
-# :WhichKey '<Space>'
-[[plugins]]
-repo = 'liuchengxu/vim-which-key'
-
-# :RengBang
-# 0, 0, 0 -> 0, 1, 2
-[[plugins]]
-repo = 'deris/vim-rengbang'
-
-# require: cargo install silicon
-# Silicon <path>
-[[plugins]]
-repo = 'segeljakt/vim-silicon'
-
-# colorscheme
-[[plugins]]
-repo = 'yassinebridi/vim-purpura'
-
-# ex: :OpenBrowser <url>
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-
-# https://tyru.hatenablog.com/entry/2020/04/26/110000
-[[plugins]]
-repo = 'tyru/columnskip.vim'
-
+# other (ex: hobby) {{{
 [[plugins]]
 repo = 'dstein64/vim-smile'
 
 [[plugins]]
-repo = 'cohama/lexima.vim'
+repo = 'mitubaEX/float_timer'
+hook_add = '''
+let g:disable_float_timer_window = 1
+'''
+# }}}
