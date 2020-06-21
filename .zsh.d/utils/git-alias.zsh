@@ -111,6 +111,7 @@
   alias gpd='git push --dry-run'
   alias gpu='git push upstream'
   alias gpv='git push -v'
+  alias gpoh="git push origin $(git branch | grep -E '^\*' | cut -b 3-)"
 
   alias gr='git remote'
   alias gra='git remote add'
