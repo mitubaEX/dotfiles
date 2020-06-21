@@ -19,3 +19,5 @@ jobs:
       run: bash -c 'chmod +x ./script/mac_config.sh && ./script/mac_config.sh'
     - name: Test zsh script
       run: bash -c 'chmod +x ./script/zsh.sh && ./script/zsh.sh'
+    - name: Test update script
+      run: bash -c 'chmod +x ./update.sh && ./update.sh'
