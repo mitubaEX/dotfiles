@@ -11,7 +11,7 @@ function! s:toggleRspecFile() abort
 endfunction
 command! -nargs=* ToggleRspecFile call s:toggleRspecFile()
 " vim-rspec
-nmap <Leader>x :A<CR>
+nmap <Leader>x :ToggleRspecFile<CR>
 
 " Require fugitive and .
 " When open blame buffer of fugitive,

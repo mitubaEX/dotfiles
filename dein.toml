@@ -405,6 +405,13 @@ repo = 'AndrewRadev/linediff.vim'
 # USAGE: :Bufferize <command>
 [[plugins]]
 repo = 'AndrewRadev/bufferize.vim'
+
+#
+[[plugins]]
+repo = 'vuciv/vim-bujo'
+hook_add = '''
+let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
+'''
 # }}}
 
 # vim extension {{{
