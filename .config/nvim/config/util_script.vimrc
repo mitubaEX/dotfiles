@@ -24,7 +24,10 @@ function! s:openCurrentBlameFile() abort
     let owner_name = splited_filepath[-5]
     let repo_name = splited_filepath[-4]
 
-    let joined_path = join([owner_name, repo_name, 'commit', current_filehash], '/')
+    " get git remote path (origin or upstream)
+    let git_remote_path = substitute(system("git remote -v | grep $(git remote | tail -1) | awk '{print $2}' | uniq | cut -d '/' -f 4,5 | sed 's/.git//g'"), '\n', '', 'g')
+    let joined_path = join([git_remote_path, 'commit', current_filehash], '/')
+
     let open_url = 'https://github.com/' . joined_path
 
     if exists('g:loaded_openbrowser') && g:loaded_openbrowser
