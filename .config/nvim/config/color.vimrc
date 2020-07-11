@@ -27,6 +27,13 @@ highlight NormalFloat guibg=NONE ctermbg=NONE
 " set t_Co=256
 " let g:seoul256_srgb = 1
 
+" embark {{{
+" colorscheme embark
+" let g:lightline = {
+"      \ 'colorscheme': 'embark',
+"      \ }
+" }}}
+
 " ayu {{{
 " set termguicolors     " enable true colors support
 " let ayucolor="light"  " for light version of theme

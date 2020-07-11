@@ -253,6 +253,9 @@ repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
 repo = 'ayu-theme/ayu-vim'
+
+[[plugins]]
+repo = 'skbolton/embark'
 # }}}
 
 # for vim script {{{
