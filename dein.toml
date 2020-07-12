@@ -256,6 +256,9 @@ repo = 'ayu-theme/ayu-vim'
 
 [[plugins]]
 repo = 'skbolton/embark'
+
+[[plugins]]
+repo = 'chuling/pure-material.vim'
 # }}}
 
 # for vim script {{{

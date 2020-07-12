@@ -41,3 +41,15 @@ highlight NormalFloat guibg=NONE ctermbg=NONE
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
 " }}}
+
+" {{{
+" best vertsplit char
+" set fillchars+=vert:│
+"
+" colorscheme pure_material
+"
+" let g:airline_theme = 'pure_material'
+" let g:lightline = {
+"  \ 'colorscheme': 'pure_material',
+"  \ }
+" }}}
