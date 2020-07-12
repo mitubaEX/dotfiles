@@ -42,10 +42,8 @@ context "${1:context}" do
 end
 endsnippet
 
-snippet desc "controller_context"
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
-
-describe ${1:controller} do
+snippet cont "context"
+context "${1:context}" do
   $0
 end
 endsnippet
@@ -57,6 +55,12 @@ end
 endsnippet
 
 snippet des "Describe"
+describe "${1:subject}" do
+  $0
+end
+endsnippet
+
+snippet desc "Describe"
 describe "${1:subject}" do
   $0
 end
