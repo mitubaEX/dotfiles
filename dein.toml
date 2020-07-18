@@ -70,9 +70,14 @@ hook_add = '''
 # lightline {{{
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+depends = ['lambdalisue/wifi.vim', 'lambdalisue/battery.vim']
 hook_add = '''
 set noshowmode
 let g:lightline = {
+     \ 'tabline': {
+     \   'left': [['cwd'], ['tabs']],
+     \   'right': [['close'], ['gitbranch', 'wifi', 'battery']],
+     \ },
      \'active': {
      \  'left': [
      \    ['mode', 'paste'],
@@ -89,6 +94,9 @@ let g:lightline = {
      \   'charvaluehex': '0x%B'
      \ },
      \'component_function': {
+     \   'cwd': 'getcwd',
+     \   'wifi': 'wifi#component',
+     \   'battery': 'battery#component',
      \   'ale': 'ALEStatus',
      \   'gitbranch': 'fugitive#head',
      \   'filename': 'LightLineFilename',
@@ -513,6 +521,12 @@ depends = ['kana/vim-operator-user']
 hook_add = '''
 map <expr> y operator#stay_cursor#wrapper("y")
 '''
+
+[[plugins]]
+repo = 'lambdalisue/wifi.vim'
+
+[[plugins]]
+repo = 'lambdalisue/battery.vim'
 # }}}
 
 # other (ex: hobby) {{{

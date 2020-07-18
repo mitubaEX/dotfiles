@@ -77,3 +77,6 @@ if !isdirectory(expand("$HOME/.vim/undodir"))
   call mkdir(expand("$HOME/.vim/undodir", "p"))
 endif
 set undodir=$HOME/.vim/undodir
+
+" tablineを表示する
+set showtabline=2
