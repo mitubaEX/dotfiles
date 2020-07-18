@@ -8,10 +8,14 @@ let g:csv_highlight_column = 'y'
 let g:csv_hiGroup = 'Visual'
 '''
 
+# markdown preview
 [[plugins]]
-repo = 'iamcco/markdown-preview.nvim'
-on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-build = 'sh -c "cd app & yarn install"'
+repo = 'previm/previm'
+depends = 'tyru/open-browser.vim'
+on_ft = ['markdown']
+hook_add = '''
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+'''
 
 # :A alternate
 # :R related
