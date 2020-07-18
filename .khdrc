@@ -2,7 +2,7 @@
 # cmd + ctrl - r : skhd -e "reload"
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-# cmd - return : open -a iTerm .
+cmd - return : open -a iTerm .
 
 ctrl + cmd - f : yabai -m window --toggle float
 

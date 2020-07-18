@@ -256,9 +256,6 @@ repo = 'ayu-theme/ayu-vim'
 
 [[plugins]]
 repo = 'skbolton/embark'
-
-[[plugins]]
-repo = 'chuling/pure-material.vim'
 # }}}
 
 # for vim script {{{
@@ -504,7 +501,6 @@ repo = 'tpope/vim-characterize'
 # NOTE: When open large file, slow.
 # [[plugins]]
 # repo = 'unblevable/quick-scope'
-
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
