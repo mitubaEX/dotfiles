@@ -93,3 +93,12 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" Highlights Error
+"hi! CocErrorSign  guifg=#d1666a
+highlight QuickFixLine cterm=bold ctermfg=none ctermbg=none guifg=none
+highlight CocErrorVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#fb4934
+highlight CocWarningVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#fabd2f
+highlight CocInfoVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#83a598
+highlight CocHintVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#8ec07c
+highlight CocHighlightText  cterm=bold ctermfg=none ctermbg=none guifg=none guibg=#3c3836
