@@ -74,6 +74,8 @@ depends = ['lambdalisue/wifi.vim', 'lambdalisue/battery.vim']
 hook_add = '''
 set noshowmode
 let g:lightline = {
+     \ 'separator': { 'left': '', 'right': '' },
+     \ 'subseparator': { 'left': '', 'right': '' },
      \ 'tabline': {
      \   'left': [['cwd'], ['tabs']],
      \   'right': [['close'], ['gitbranch', 'wifi', 'battery']],
