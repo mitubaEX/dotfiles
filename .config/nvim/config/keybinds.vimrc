@@ -127,7 +127,7 @@ nmap <Leader><Leader> <Plug>(easymotion-overwin-w)
 nmap <Leader>q :TestFile<CR>
 nmap <Leader>Q :TestNearest<CR>
 
-""" Example configuration
+""" floaterm
 let g:floaterm_keymap_new    = '<Leader>f'
 let g:floaterm_keymap_toggle = '<Leader>f'
 
