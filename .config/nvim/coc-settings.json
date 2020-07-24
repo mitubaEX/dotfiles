@@ -2,10 +2,13 @@
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "coc.preferences.formatOnSaveFiletypes": [
-    "ruby"
+    "ruby",
+    "html"
   ],
+
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
+
   "diagnostic.enable": true,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": true,
@@ -15,6 +18,9 @@
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
   "codeLens.enable": true,
+
+  "html.filetypes": ["html", "handlebars", "htmldjango"],
+  "html.autoClosingTags": true,
 
   "solargraph.diagnostics": true,
   "solargraph.completion": true,
