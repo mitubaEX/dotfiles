@@ -545,6 +545,18 @@ repo = 'lambdalisue/battery.vim'
 
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
+
+# add new text object
+[[plugins]]
+repo = 'wellle/targets.vim'
+
+[[plugins]]
+repo = 'mbbill/undotree'
+hook_add = '''
+let g:undotree_HighlightChangedWithSign = 0
+let g:undotree_WindowLayout             = 4
+let g:undotree_SetFocusWhenToggle       = 1
+'''
 # }}}
 
 # other (ex: hobby) {{{

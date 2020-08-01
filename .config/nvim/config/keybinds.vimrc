@@ -147,3 +147,6 @@ xmap <Leader>k <Plug>(columnskip:nonblank:prev)
 
 " previous jump
 nnoremap <C-p> <C-i>
+
+" undotree
+nnoremap <Leader>u :UndotreeToggle<CR>
