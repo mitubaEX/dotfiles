@@ -6,21 +6,9 @@
     "html"
   ],
 
-  "tsserver.log": "verbose",
-  "tsserver.trace.server": "verbose",
-
-  "diagnostic.enable": true,
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.virtualText": true,
-  "diagnostic.virtualTextPrefix": " ",
-  "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
-  "codeLens.enable": true,
-
-  "html.filetypes": ["html", "handlebars", "htmldjango"],
-  "html.autoClosingTags": true,
 
   "solargraph.diagnostics": true,
   "solargraph.completion": true,

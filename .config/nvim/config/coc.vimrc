@@ -102,3 +102,6 @@ highlight CocWarningVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#fab
 highlight CocInfoVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#83a598
 highlight CocHintVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#8ec07c
 highlight CocHighlightText  cterm=bold ctermfg=none ctermbg=none guifg=none guibg=#3c3836
+
+" coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile

@@ -276,6 +276,9 @@ repo = 'ayu-theme/ayu-vim'
 
 [[plugins]]
 repo = 'skbolton/embark'
+
+[[plugins]]
+repo = 'bluz71/vim-moonfly-colors'
 # }}}
 
 # for vim script {{{

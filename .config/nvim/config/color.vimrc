@@ -7,17 +7,20 @@ set background=dark
 
 " colorscheme hybrid
 " colorscheme purpura
-silent! colorscheme onehalfdark
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-highlight Comment cterm=italic
-highlight Normal guibg=NONE ctermbg=NONE
-highlight NormalFloat guibg=NONE ctermbg=NONE
+" onehalfdark(my favorite) {{{
+" silent! colorscheme onehalfdark
+"
+" if exists('+termguicolors')
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"   set termguicolors
+" endif
+"
+" highlight Comment cterm=italic
+" highlight Normal guibg=NONE ctermbg=NONE
+" highlight NormalFloat guibg=NONE ctermbg=NONE
+" }}}
 
 " set t_Co=256
 " let g:seoul256_srgb = 1
@@ -37,19 +40,6 @@ highlight NormalFloat guibg=NONE ctermbg=NONE
 " colorscheme ayu
 " }}}
 
-" {{{
-" best vertsplit char
-" set fillchars+=vert:│
-"
-" colorscheme pure_material
-"
-" let g:airline_theme = 'pure_material'
-" let g:lightline = {
-"  \ 'colorscheme': 'pure_material',
-"  \ }
-" }}}
-
-
 " gruvbox-material {{{
 " if has('termguicolors')
 " 	set termguicolors
@@ -64,4 +54,9 @@ highlight NormalFloat guibg=NONE ctermbg=NONE
 " let g:gruvbox_material_current_word = 'bold'
 " let g:gruvbox_material_palette = 'original'
 " colorscheme gruvbox-material
+" }}}
+
+" vim-moonfly-colors {{{
+colorscheme moonfly
+let g:moonflyTerminalColors = 0
 " }}}
