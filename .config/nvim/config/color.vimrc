@@ -57,6 +57,10 @@ set background=dark
 " }}}
 
 " vim-moonfly-colors {{{
-colorscheme moonfly
-let g:moonflyTerminalColors = 0
+" colorscheme moonfly
+" let g:moonflyTerminalColors = 0
+" }}}
+
+" onedark {{{
+colorscheme onedark
 " }}}

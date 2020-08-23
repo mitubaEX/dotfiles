@@ -75,26 +75,27 @@ hook_add = '''
 set noshowmode
 let g:lightline = {
      \ 'separator': { 'left': '', 'right': '' },
+     \ 'colorscheme': 'onedark',
      \ 'subseparator': { 'left': '', 'right': '' },
      \ 'tabline': {
-     \   'left': [['cwd'], ['tabs']],
+     \   'left': [['tabs']],
      \   'right': [['close'], ['gitbranch', 'wifi', 'battery']],
      \ },
-     \'active': {
-     \  'left': [
-     \    ['mode', 'paste'],
-     \    [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+     \ 'active': {
+     \   'left': [
+     \     ['mode', 'paste'],
+     \     [ 'gitbranch', 'readonly' ],
+     \   ],
+     \   'right': [
+     \     [ 'lineinfo' ],
+     \     [ 'percent' ],
+     \     [ 'cocstatus', 'currentfunction', 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
      \  ],
-     \  'right': [
-     \    [ 'lineinfo' ],
-     \    [ 'percent' ],
-     \    [ 'cocstatus', 'currentfunction', 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
-     \ ],
-     \},
+     \ },
      \ 'component': {
      \   'charvaluehex': '0x%B'
      \ },
-     \'component_function': {
+     \ 'component_function': {
      \   'cwd': 'getcwd',
      \   'wifi': 'wifi#component',
      \   'battery': 'battery#component',
@@ -104,7 +105,7 @@ let g:lightline = {
      \   'cocstatus': 'coc#status',
      \   'currentfunction': 'CocCurrentFunction',
      \   'method': 'NearestMethodOrFunction'
-     \},
+     \ },
      \ }
 
 function! LightLineFilename()
@@ -279,6 +280,9 @@ repo = 'skbolton/embark'
 
 [[plugins]]
 repo = 'bluz71/vim-moonfly-colors'
+
+[[plugins]]
+repo = 'joshdick/onedark.vim'
 # }}}
 
 # for vim script {{{
