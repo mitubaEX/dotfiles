@@ -129,8 +129,8 @@ nmap <Leader>q :TestFile<CR>
 nmap <Leader>Q :TestNearest<CR>
 
 """ floaterm
-let g:floaterm_keymap_new    = '<Leader>f'
-let g:floaterm_keymap_toggle = '<Leader>f'
+let g:floaterm_keymap_new    = '<Leader>['
+let g:floaterm_keymap_toggle = '<Leader>['
 
 " float_timer
 " nnoremap <Leader>f :FloatTimer 25<CR>
