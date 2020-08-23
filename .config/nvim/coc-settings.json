@@ -6,6 +6,8 @@
     "html"
   ],
 
+  "eslint.autoFixOnSave": true,
+
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
@@ -23,5 +25,8 @@
       "filetypes": ["terraform"],
       "initializationOptions": {}
     }
+  },
+  "yaml.schemas": {
+      "kubernetes": "/*.yaml"
   }
 }
