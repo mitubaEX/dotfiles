@@ -7,6 +7,12 @@
   ],
 
   "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
 
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
@@ -18,6 +24,9 @@
   "solargraph.definitions": true,
   "solargraph.rename": true,
   "solargraph.references": true,
+
+  "tsserver.enableJavascript": true,
+  "typescript.referencesCodeLens.enable": false,
 
   "languageserver": {
     "terraform": {
