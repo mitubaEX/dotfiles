@@ -1,94 +1,184 @@
 {
-  "vim.visualstar": true,
-  "vetur.format.defaultFormatter.html": "prettier",
-  "prettier.eslintIntegration": true,
+  // wrap
+  "editor.wordWrap": "on",
+
+  //ミニマップをfalse
+  "editor.minimap.enabled": false,
+
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": false,
+  "editor.insertSpaces": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.tabCloseButton": "off",
+
+  // vim
+  "vim.visualstar": true,
   "vim.easymotion": true,
+  "vim.surround": true, //surroundを有効にする
   "vim.sneak": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
-  "editor.insertSpaces": true,
-  "workbench.editor.tabSizing": "shrink",
-  "workbench.editor.tabCloseButton": "off",
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.duration": 350,
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
     }
   ],
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "leader",
-        "w"
-      ],
+      "before": ["j"],
       "commands": [
-        "workbench.action.files.save"
+        {
+          "command": "accelerated.cursorDown"
+        }
       ]
     },
     {
-      "before": [
-        "leader",
-        "o"
-      ],
-      "after": [
-        "o",
-        "<Esc>"
+      "before": ["k"],
+      "commands": [
+        {
+          "command": "accelerated.cursorUp"
+        }
       ]
     },
     {
-      "before": [
-        "leader",
-        "t"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
+      "before": ["leader", "w"],
+      "commands": ["workbench.action.files.save"]
     },
     {
-      "before": [
-        "<Esc>",
-        "<Esc>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["leader", "o"],
+      "after": ["o", "<Esc>"]
     },
     {
-      "before": [
-        "leader",
-        "a"
-      ],
-      "commands": [
-        "workbench.action.findInFiles"
-      ],
-      "when": [
-        "!searchInputBoxFocus"
-      ]
+      "before": ["leader", "t"],
+      "commands": ["workbench.action.quickOpen"]
     },
     {
-      "before": [
-        ";"
-      ],
+      "before": ["<Esc>", "<Esc>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["leader", "a"],
+      "commands": ["workbench.action.findInFiles"],
+      "when": ["!searchInputBoxFocus"]
+    },
+    {
+      "before": [";"],
+      "commands": ["extension.openRecentFiles"]
+    },
+
+    // goto definition and implementation
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"],
+      "when": ["editorFocus"]
+    },
+
+    // 候補のフォーカスの移動
+    {
+      "before": ["ctrl+n"],
+      "commands": ["selectNextSuggestion"],
+      "when": ["editorTextFocus"]
+    },
+    {
+      "before": ["ctrl+p"],
+      "commands": ["selectPrevSuggestion"],
+      "when": ["editorTextFocus"]
+    },
+
+    // 動作が不安定なので修正
+    {
+      "before": ["u"],
       "commands": [
-        "extension.openRecentFiles"
+        {
+          "command": "undo"
+        }
       ]
+    }, //デフォルトだと戻りすぎるので修正
+    {
+      "before": ["<C-r>"],
+      "commands": [
+        {
+          "command": "redo"
+        }
+      ]
+    }, //デフォルトだと戻りすぎるので修正
+    {
+      "before": ["<C-o>"],
+      "commands": [
+        {
+          "command": "workbench.action.navigateBack"
+        }
+      ]
+    }, //デフォルトだと上手く動作しないので修正
+    {
+      "before": ["<C-i>"],
+      "commands": [
+        {
+          "command": "workbench.action.navigateForward"
+        }
+      ]
+    }, //デフォルトだと上手く動作しないので修正
+    {
+      "before": ["x"],
+      "commands": [
+        {
+          "command": "deleteRight"
+        }
+      ]
+    }, //xで削除してもレジスタを占領しない
+    {
+      "before": ["n"],
+      "after": ["n", "z", "z"]
+    }, //検索結果を画面中央に
+    {
+      "before": ["N"],
+      "after": ["N", "z", "z"]
+    }, //検索結果を画面中央に
+    {
+      "before": ["*"],
+      "after": ["*", "z", "z"]
+    }, //検索結果を画面中央に
+    {
+      "before": ["#"],
+      "after": ["#", "z", "z"]
+    }, //検索結果を画面中央に
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    }, //インデント調整(repeat可能)
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }, //インデント調整(repeat可能)
+    {
+      "before": ["<Leader>", ":"],
+      "commands": [
+        {
+          "command": "workbench.action.showCommands"
+        }
+      ]
+    }, //コマンドパレット
+    {
+      "before": ["<leader>", "m"],
+      "commands": ["bookmarks.toggle"]
+    },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["bookmarks.list"]
     }
   ],
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
   },
+
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
@@ -101,7 +191,10 @@
   "diffEditor.renderSideBySide": false,
   "go.gopath": "~/.ghq",
   "workbench.editor.showTabs": false,
-  "workbench.colorTheme": "Solarized Dark",
+  "workbench.colorTheme": "Gruvbox Material Dark",
   "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.iconTheme": "vscode-icons"
 }

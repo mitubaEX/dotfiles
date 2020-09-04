@@ -1,12 +1,76 @@
 // Place your key bindings in this file to override the defaults
 [
+  // サジェスチョン操作
   {
     "key": "ctrl+j",
-    "command": "workbench.action.terminal.focus"
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   },
   {
     "key": "ctrl+k",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+
+  //コマンドパレットの移動
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen "
+  },
+
+  // サイドバーからの移動
+  {
+    "key": "space l",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "explorerViewletVisible && explorerViewletFocus && !editorFocus && !inQuickOpen && !panelFocus"
+  },
+
+  //explorer表示
+  {
+    "key": "ctrl+w d",
+    "command": "workbench.view.explorer"
+  },
+
+  //エクスプローラー間移動
+  {
+    "key": "ctrl+j",
+    "command": "list.focusDown",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "list.focusUp",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  //リネーム
+  {
+    "key": "ctrl+r",
+    "command": "renameFile",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    // "args": { "text": "'${file}'" }
+  },
+  //削除
+  {
+    "key": "ctrl+d",
+    "command": "deleteFile",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  //新規フォルダ作成
+  {
+    "key": "ctrl+N",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  //新規ファイル作成
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
   }
 ]
