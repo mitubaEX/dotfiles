@@ -16,36 +16,73 @@
   "workbench.editor.tabCloseButton": "off",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["leader", "w"],
-      "commands": ["workbench.action.files.save"]
+      "before": [
+        "leader",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
     },
     {
-      "before": ["leader", "o"],
-      "after": ["o", "<Esc>"]
+      "before": [
+        "leader",
+        "o"
+      ],
+      "after": [
+        "o",
+        "<Esc>"
+      ]
     },
     {
-      "before": ["leader", "t"],
-      "commands": ["workbench.action.quickOpen"]
+      "before": [
+        "leader",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
     },
     {
-      "before": ["<Esc>", "<Esc>"],
-      "commands": [":nohl"]
+      "before": [
+        "<Esc>",
+        "<Esc>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
     {
-      "before": ["leader", "a"],
-      "commands": ["workbench.action.findInFiles"],
-      "when": ["!searchInputBoxFocus"]
+      "before": [
+        "leader",
+        "a"
+      ],
+      "commands": [
+        "workbench.action.findInFiles"
+      ],
+      "when": [
+        "!searchInputBoxFocus"
+      ]
     },
     {
-      "before": [";"],
-      "commands": ["extension.openRecentFiles"]
+      "before": [
+        ";"
+      ],
+      "commands": [
+        "extension.openRecentFiles"
+      ]
     }
   ],
   "vim.handleKeys": {
@@ -58,7 +95,6 @@
   "prettier.singleQuote": true,
   "prettier.arrowParens": "always",
   "prettier.trailingComma": "es5",
-
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.fontSize": 11,
   "breadcrumbs.enabled": true,

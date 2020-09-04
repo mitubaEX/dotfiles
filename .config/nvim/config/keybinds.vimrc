@@ -23,8 +23,8 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 nnoremap <tab> gt
-" nnoremap <C-q> <Esc>:BufferClose<Enter>
-nnoremap <C-q> <Esc><C-w>q
+nnoremap <C-q> <Esc>:BufferClose<Enter>
+" nnoremap <C-q> <Esc><C-w>q
 
 " bd or q command
 function! s:bufferClose() abort

@@ -1,6 +1,6 @@
 " fzf
-nmap <Leader>t :GFiles<CR>
-nmap <Leader>T :Files<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>T :GFiles<CR>
 
 " git grep
 function! s:gGrepCurrentWordQuery() abort

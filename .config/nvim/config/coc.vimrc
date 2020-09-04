@@ -12,6 +12,7 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-tsserver',
   \ 'coc-yaml',
+  \ 'coc-deno'
   \ ]
 
 " coc config

@@ -90,3 +90,6 @@ fi
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# Add Visual Studio Code (code)
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
