@@ -24,19 +24,6 @@
     "when": "inQuickOpen "
   },
 
-  // サイドバーからの移動
-  {
-    "key": "space l",
-    "command": "workbench.action.focusFirstEditorGroup",
-    "when": "explorerViewletVisible && explorerViewletFocus && !editorFocus && !inQuickOpen && !panelFocus"
-  },
-
-  //explorer表示
-  {
-    "key": "ctrl+w d",
-    "command": "workbench.view.explorer"
-  },
-
   //エクスプローラー間移動
   {
     "key": "ctrl+j",

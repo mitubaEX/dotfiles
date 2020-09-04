@@ -172,6 +172,24 @@
     {
       "before": ["<leader>", "b"],
       "commands": ["bookmarks.list"]
+    },
+
+    // rpsec
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["extension.runFileOnRspec"],
+      "when": ["editorLangId == 'ruby'"]
+    },
+    {
+      "before": ["<leader>", "Q"],
+      "commands": ["extension.runLineOnRspec"],
+      "when": ["editorLangId == 'ruby'"]
+    },
+
+    // explorer表示
+    {
+      "before": ["ctrl+w", "d"],
+      "commands": ["workbench.view.explorer"]
     }
   ],
   "vim.handleKeys": {
@@ -196,5 +214,7 @@
   "files.trimTrailingWhitespace": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.iconTheme": "vscode-icons",
+
+  "vscode-run-rspec-file.custom-command": "bin/rspec"
 }
