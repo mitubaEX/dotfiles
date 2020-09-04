@@ -125,4 +125,7 @@ else
 
   chmod +x ./script/zsh.sh
   sh ./script/zsh.sh
+
+  chmod +x ./script/vscode.sh
+  sh ./script/vscode.sh
 fi
