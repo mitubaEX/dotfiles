@@ -1,9 +1,9 @@
 {
-  //fontsizeを小さく
+  //fontsize
   "editor.fontSize": 13,
   "terminal.integrated.fontSize": 13,
 
-  // wrap
+  // 1行長くならないように
   "editor.wordWrap": "on",
 
   //ミニマップをfalse
@@ -13,8 +13,25 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": false,
   "editor.insertSpaces": true,
+  "editor.suggestSelection": "first",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+
+  // workbench
+  // tabs
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.showTabs": false,
+  // color
+  "workbench.colorTheme": "Nord",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#8FBCBB",
+    "statusBar.noFolderBackground": "#8FBCBB",
+    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.foreground": "#434C5E"
+  },
+  "workbench.iconTheme": "vscode-icons",
 
   // vim
   // vim plugins
@@ -31,10 +48,10 @@
 
   // common config
   "vim.visualstar": true,
-  "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
+  "vim.incsearch": true,
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.duration": 500,
   "vim.leader": "<space>",
@@ -68,30 +85,30 @@
 
     // easy motion
     {
-      "before": ["leader", "leader"],
-      "after": ["leader", "leader", "leader", "j"]
+      "before": ["<leader>", "<leader>"],
+      "after": ["<leader>", "<leader>", "<leader>", "j"]
     },
 
     // common keybinds
     {
-      "before": ["leader", "w"],
+      "before": ["<leader>", "w"],
       "commands": ["workbench.action.files.save"]
     },
     {
-      "before": ["leader", "o"],
+      "before": ["<leader>", "o"],
       "after": ["o", "<Esc>"]
     },
     {
-      "before": ["leader", "t"],
+      "before": ["<leader>", "t"],
       "commands": ["workbench.action.quickOpen"]
     },
     {
-      "before": ["leader", "a"],
+      "before": ["<leader>", "a"],
       "commands": ["workbench.action.findInFiles"],
       "when": ["!searchInputBoxFocus"]
     },
     {
-      "before": ["leader", ";"],
+      "before": ["<leader>", ";"],
       "commands": ["extension.openRecentFiles"]
     },
 
@@ -235,7 +252,7 @@
 
     // explorer表示
     {
-      "before": ["ctrl+w", "d"],
+      "before": ["<leader>", "d"],
       "commands": ["workbench.view.explorer"]
     }
   ],
@@ -249,6 +266,16 @@
     {
       "before": ["<"],
       "commands": ["editor.action.outdentLines"]
+    },
+
+    // paste "0 register
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "0", "p"]
+    },
+    {
+      "before": ["<leader>", "P"],
+      "after": ["\"", "0", "P"]
     }
   ],
   // status bar for vim
@@ -267,28 +294,19 @@
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/local/bin/nvim",
 
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
+  // prettier
   "prettier.singleQuote": true,
   "prettier.arrowParens": "always",
   "prettier.trailingComma": "es5",
+
   "terminal.integrated.copyOnSelection": true,
   "breadcrumbs.enabled": true,
   "diffEditor.renderSideBySide": false,
   "go.gopath": "~/.ghq",
-  "workbench.editor.showTabs": false,
-  "workbench.colorTheme": "Nord",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.iconTheme": "vscode-icons",
 
-  "vscode-run-rspec-file.custom-command": "bin/rspec",
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#B48EAD",
-    "statusBar.noFolderBackground": "#B48EAD",
-    "statusBar.debuggingBackground": "#B48EAD"
-  }
+  // rspec
+  "vscode-run-rspec-file.custom-command": "bin/rspec"
 }
