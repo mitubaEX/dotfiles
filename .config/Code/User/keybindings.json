@@ -59,5 +59,22 @@
     "key": "ctrl+n",
     "command": "explorer.newFile",
     "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+
+  // Partial Diff
+  {
+    "key": "ctrl+1",
+    "command": "extension.partialDiff.markSection1",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "extension.partialDiff.markSection2AndTakeDiff",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+3",
+    "command": "extension.partialDiff.diffSelectionWithClipboard",
+    "when": "editorTextFocus"
   }
 ]

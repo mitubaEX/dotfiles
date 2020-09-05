@@ -1,4 +1,8 @@
 {
+  //fontsizeを小さく
+  "editor.fontSize": 13,
+  "terminal.integrated.fontSize": 13,
+
   // wrap
   "editor.wordWrap": "on",
 
@@ -13,24 +17,38 @@
   "workbench.editor.tabCloseButton": "off",
 
   // vim
-  "vim.visualstar": true,
+  // vim plugins
   "vim.easymotion": true,
+  "vim.easymotionMarkerForegroundColorTwoChar": "#ff0000",
+  "vim.easymotionMarkerForegroundColorOneChar": "#ff0000",
+  // ys: add
+  // cs: change
+  // ds: delete
   "vim.surround": true, //surroundを有効にする
   "vim.sneak": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.replaceWithRegister": true,
+
+  // common config
+  "vim.visualstar": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.highlightedyank.enable": true,
-  "vim.highlightedyank.duration": 350,
+  "vim.highlightedyank.duration": 500,
+  "vim.leader": "<space>",
+
+  // insert keybinds
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
       "after": ["<Esc>"]
     }
   ],
-  "vim.leader": "<space>",
+  // normal keybinds
   "vim.normalModeKeyBindingsNonRecursive": [
+    // accelerated jk
     {
       "before": ["j"],
       "commands": [
@@ -47,6 +65,14 @@
         }
       ]
     },
+
+    // easy motion
+    {
+      "before": ["leader", "leader"],
+      "after": ["leader", "leader", "leader", "j"]
+    },
+
+    // common keybinds
     {
       "before": ["leader", "w"],
       "commands": ["workbench.action.files.save"]
@@ -60,16 +86,12 @@
       "commands": ["workbench.action.quickOpen"]
     },
     {
-      "before": ["<Esc>", "<Esc>"],
-      "commands": [":nohl"]
-    },
-    {
       "before": ["leader", "a"],
       "commands": ["workbench.action.findInFiles"],
       "when": ["!searchInputBoxFocus"]
     },
     {
-      "before": [";"],
+      "before": ["leader", ";"],
       "commands": ["extension.openRecentFiles"]
     },
 
@@ -165,13 +187,22 @@
         }
       ]
     }, //コマンドパレット
+
+    // bookmarks
     {
       "before": ["<leader>", "m"],
       "commands": ["bookmarks.toggle"]
     },
     {
-      "before": ["<leader>", "b"],
+      "before": ["<leader>", "M"],
       "commands": ["bookmarks.list"]
+    },
+
+    // copy file path
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["copyRelativeFilePath"],
+      "when": ["editorFocus"]
     },
 
     // rpsec
@@ -186,16 +217,55 @@
       "when": ["editorLangId == 'ruby'"]
     },
 
+    // clever-split
+    {
+      "before": ["<leader>", "-"],
+      "commands": [":vsplit"]
+    },
+
+    // paste "0 register
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "0", "p"]
+    },
+    {
+      "before": ["<leader>", "P"],
+      "after": ["\"", "0", "P"]
+    },
+
     // explorer表示
     {
       "before": ["ctrl+w", "d"],
       "commands": ["workbench.view.explorer"]
     }
   ],
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  },
+
+  // visual keybinds
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  // status bar for vim
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  "vim.statusBarColors.insert": "#BF616A",
+  "vim.statusBarColors.visual": "#B48EAD",
+  "vim.statusBarColors.visualline": "#B48EAD",
+  "vim.statusBarColors.visualblock": "#A3BE8C",
+  "vim.statusBarColors.replace": "#D08770",
+  "vim.statusBarColors.commandlineinprogress": "#007ACC",
+  "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  "vim.statusBarColors.easymotionmode": "#007ACC",
+  "vim.statusBarColors.easymotioninputmode": "#007ACC",
+  "vim.statusBarColors.surroundinputmode": "#007ACC",
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "/usr/local/bin/nvim",
 
   "editor.codeActionsOnSave": {
     "source.fixAll": true
@@ -204,17 +274,21 @@
   "prettier.arrowParens": "always",
   "prettier.trailingComma": "es5",
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.fontSize": 11,
   "breadcrumbs.enabled": true,
   "diffEditor.renderSideBySide": false,
   "go.gopath": "~/.ghq",
   "workbench.editor.showTabs": false,
-  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.colorTheme": "Nord",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.iconTheme": "vscode-icons",
 
-  "vscode-run-rspec-file.custom-command": "bin/rspec"
+  "vscode-run-rspec-file.custom-command": "bin/rspec",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#B48EAD",
+    "statusBar.noFolderBackground": "#B48EAD",
+    "statusBar.debuggingBackground": "#B48EAD"
+  }
 }
