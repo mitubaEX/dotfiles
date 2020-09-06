@@ -76,5 +76,9 @@
     "key": "ctrl+3",
     "command": "extension.partialDiff.diffSelectionWithClipboard",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+escape",
+    "command": "workbench.action.lastEditorInGroup"
   }
 ]

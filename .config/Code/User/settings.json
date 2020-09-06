@@ -17,6 +17,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
+  "editor.tabCompletion": "on",
 
   // workbench
   // tabs
