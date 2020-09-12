@@ -49,3 +49,19 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 repo = 'honza/vim-snippets'
 on_event = ['InsertEnter']
 on_ft = ['ruby']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']

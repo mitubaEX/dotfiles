@@ -283,6 +283,9 @@ repo = 'bluz71/vim-moonfly-colors'
 
 [[plugins]]
 repo = 'joshdick/onedark.vim'
+
+[[plugins]]
+repo = 'rhysd/vim-color-spring-night'
 # }}}
 
 # for vim script {{{

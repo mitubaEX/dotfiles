@@ -62,5 +62,9 @@ set background=dark
 " }}}
 
 " onedark {{{
-colorscheme onedark
+" colorscheme onedark
+" }}}
+
+" spring-night {{{
+colorscheme spring-night
 " }}}
