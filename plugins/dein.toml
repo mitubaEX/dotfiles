@@ -458,6 +458,11 @@ let g:memolist_path = "$HOME/.memo"
 
 [[plugins]]
 repo = 'voldikss/vim-floaterm'
+hook_add = '''
+let g:floaterm_gitcommit='floaterm'
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=1
+'''
 
 [[plugins]]
 repo = 'vim-test/vim-test'
