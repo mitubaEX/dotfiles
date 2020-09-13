@@ -151,3 +151,7 @@ nnoremap <C-p> <C-i>
 
 " undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
+
+" fzf
+nmap <Leader>t :call fzf#run(fzf#wrap({'source': 'rg --files --hidden --glob "!.git/*"'}))<CR>
+nmap <Leader>T :GFiles<CR>

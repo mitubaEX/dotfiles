@@ -1,7 +1,4 @@
 " fzf
-nmap <Leader>t :call fzf#run(fzf#wrap({'source': 'rg --files --hidden --glob "!.git/*"'}))<CR>
-nmap <Leader>T :GFiles<CR>
-
 " git grep
 function! s:gGrepCurrentWordQuery() abort
 	let cword = expand('<cword>')

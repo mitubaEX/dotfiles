@@ -14,14 +14,19 @@ let g:neosnippet#enable_completed_snippet = 1
 let g:node_host_prog = '$HOME/node_modules/.bin/neovim-node-host'
 
 " source each config
+" common config
 source $HOME/.config/nvim/config/dein_script.vimrc
 source $HOME/.config/nvim/config/set.vimrc
 source $HOME/.config/nvim/config/keybinds.vimrc
+
+" plugins
 source $HOME/.config/nvim/config/lsp.vimrc
 source $HOME/.config/nvim/config/fzf_functions.vimrc
 source $HOME/.config/nvim/config/coc.vimrc
-source $HOME/.config/nvim/config/util_script.vimrc
 source $HOME/.config/nvim/config/color.vimrc
+
+source $HOME/.config/nvim/config/util_script.vimrc
+
 hi! Normal ctermbg=NONE guibg=NONE
 
 if has("autocmd")
