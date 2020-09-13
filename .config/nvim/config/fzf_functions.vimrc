@@ -1,5 +1,5 @@
 " fzf
-nmap <Leader>t :Files<CR>
+nmap <Leader>t :call fzf#run(fzf#wrap({'source': 'rg --files --hidden --glob "!.git/*"'}))<CR>
 nmap <Leader>T :GFiles<CR>
 
 " git grep
@@ -19,7 +19,6 @@ set pumblend=30
 " ref: https://kassioborges.dev/2019/04/10/neovim-fzf-with-a-floating-window.html
 " Reverse the layout to make the FZF list top-down
 let $FZF_DEFAULT_OPTS="--layout=reverse"
-" let $FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 " Using the custom window creation function
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }

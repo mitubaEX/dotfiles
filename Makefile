@@ -7,6 +7,9 @@ setup:
 update:
 	sh ./update.sh
 
+reset:
+	sh ./reset.sh
+
 deno_completion:
 	deno completions zsh > $HOME/.config/deno_completions.zsh
 

@@ -332,6 +332,7 @@ map <silent>sa <Plug>(operator-surround-append)
 " saiw(: aaa -> (aaa)
 '''
 
+# add: ysiw(
 # replace: cs(]
 # delete: ds(
 [[plugins]]
