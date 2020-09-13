@@ -402,6 +402,13 @@ highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 " Cool prompt
 let g:sneak#prompt = '🔎 '
 '''
+
+[[plugins]]
+repo = 'AndrewRadev/tagalong.vim'
+hook_add = '''
+let g:tagalong_filetypes = ['html', 'xml', 'jsx', 'eruby', 'ejs', 'eco', 'php', 'htmldjango', 'javascriptreact', 'typescriptreact', 'javascript']
+let g:tagalong_verbose = 1
+'''
 # }}}
 
 # auto pair for paren {{{
