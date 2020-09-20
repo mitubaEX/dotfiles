@@ -276,9 +276,6 @@ repo = 'arcticicestudio/nord-vim'
 repo = 'ayu-theme/ayu-vim'
 
 [[plugins]]
-repo = 'skbolton/embark'
-
-[[plugins]]
 repo = 'bluz71/vim-moonfly-colors'
 
 [[plugins]]
@@ -286,6 +283,9 @@ repo = 'joshdick/onedark.vim'
 
 [[plugins]]
 repo = 'rhysd/vim-color-spring-night'
+
+[[plugins]]
+repo = 'embark-theme/vim'
 # }}}
 
 # for vim script {{{

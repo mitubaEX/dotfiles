@@ -66,5 +66,9 @@ set background=dark
 " }}}
 
 " spring-night {{{
-colorscheme spring-night
+" colorscheme spring-night
+" }}}
+
+" embark {{{
+colorscheme embark
 " }}}
