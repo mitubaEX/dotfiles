@@ -309,5 +309,9 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
   // rspec
-  "vscode-run-rspec-file.custom-command": "bin/rspec"
+  "vscode-run-rspec-file.custom-command": "bin/rspec",
+
+  // vscode-background
+  "backgroundCover.imagePath": "/Users/nakamura-jun/Pictures/7xxljw3avev41.png",
+  "backgroundCover.opacity": 0.5
 }
