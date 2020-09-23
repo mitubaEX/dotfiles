@@ -105,7 +105,10 @@ nnoremap <Leader>o o<Esc>
 map <Leader>= gg=G<C-o><C-o>
 
 " defx
-nnoremap <Leader>d :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
+" nnoremap <Leader>d :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
+
+" fern
+nnoremap <Leader>d :Fern . -reveal=% -drawer -toggle<CR>
 
 " pbcopy filename
 "" only filename
