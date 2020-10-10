@@ -10,7 +10,7 @@
   "editor.minimap.enabled": false,
 
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.formatOnType": false,
   "editor.insertSpaces": true,
   "editor.suggestSelection": "first",
@@ -295,11 +295,6 @@
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/local/bin/nvim",
 
-  // prettier
-  "prettier.singleQuote": true,
-  "prettier.arrowParens": "always",
-  "prettier.trailingComma": "es5",
-
   "terminal.integrated.copyOnSelection": true,
   "breadcrumbs.enabled": true,
   "diffEditor.renderSideBySide": false,
@@ -313,5 +308,8 @@
 
   // vscode-background
   "backgroundCover.imagePath": "/Users/nakamura-jun/Pictures/7xxljw3avev41.png",
-  "backgroundCover.opacity": 0.5
+  "backgroundCover.opacity": 0.5,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
