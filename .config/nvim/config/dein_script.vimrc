@@ -15,6 +15,10 @@ if dein#load_state('~/.config/nvim')
 
     " Add or remove your plugins here:
     call dein#load_toml('~/plugins/dein.toml', {'lazy': 0})
+    call dein#load_toml('~/plugins/dein_lightline.toml', {'lazy': 0})
+    call dein#load_toml('~/plugins/dein_color.toml', {'lazy': 0})
+    " call dein#load_toml('~/plugins/dein_ale.toml', {'lazy': 0})
+    " call dein#load_toml('~/plugins/dein_defx.toml', {'lazy': 0})
     call dein#load_toml('~/plugins/dein_lang.toml', {'lazy': 1})
     call dein#load_toml('~/plugins/dein_denite.toml', {'lazy': 1})
 

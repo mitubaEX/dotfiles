@@ -1,0 +1,44 @@
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+depends = ['lambdalisue/wifi.vim', 'lambdalisue/battery.vim']
+hook_add = '''
+set noshowmode
+let g:lightline = {
+     \ 'separator': { 'left': '', 'right': '' },
+     \ 'colorscheme': 'onedark',
+     \ 'subseparator': { 'left': '', 'right': '' },
+     \ 'tabline': {
+     \   'left': [['tabs']],
+     \   'right': [['close'], ['gitbranch', 'wifi', 'battery']],
+     \ },
+     \ 'active': {
+     \   'left': [
+     \     ['mode', 'paste'],
+     \     [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+     \   ],
+     \   'right': [
+     \     [ 'lineinfo' ],
+     \     [ 'percent' ],
+     \     [ 'cocstatus', 'currentfunction', 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
+     \  ],
+     \ },
+     \ 'component': {
+     \   'charvaluehex': '0x%B'
+     \ },
+     \ 'component_function': {
+     \   'cwd': 'getcwd',
+     \   'wifi': 'wifi#component',
+     \   'battery': 'battery#component',
+     \   'ale': 'ALEStatus',
+     \   'gitbranch': 'fugitive#head',
+     \   'filename': 'LightLineFilename',
+     \   'cocstatus': 'coc#status',
+     \   'currentfunction': 'CocCurrentFunction',
+     \   'method': 'NearestMethodOrFunction'
+     \ },
+     \ }
+
+function! LightLineFilename()
+  return expand('%')
+endfunction
+'''

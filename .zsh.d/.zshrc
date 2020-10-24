@@ -93,3 +93,7 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 # Add Visual Studio Code (code)
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+
+export LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
+
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
