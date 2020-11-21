@@ -155,7 +155,7 @@ nnoremap <C-p> <C-i>
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " fzf
-nmap <Leader>t :call fzf#run(fzf#wrap({'source': 'rg --files --hidden --glob "!.git/*"'}))<CR>
+nmap <Leader>t :call fzf#run(fzf#wrap('files', {'source': 'rg --files --hidden --glob "!.git/*"'}))<CR>
 nmap <Leader>T :GFiles<CR>
 
 " any junmp
