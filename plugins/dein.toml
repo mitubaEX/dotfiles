@@ -241,6 +241,13 @@ let g:floaterm_autoclose=1
 
 [[plugins]]
 repo = 'vim-test/vim-test'
+hook_add = '''
+let test#ruby#rspec#options = {
+  \ 'nearest': '--backtrace',
+  \ 'file':    '--format documentation',
+  \ 'suite':   '--tag ~slow',
+\}
+'''
 
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim'

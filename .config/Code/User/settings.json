@@ -27,9 +27,9 @@
   // color
   "workbench.colorTheme": "Nord",
   "workbench.colorCustomizations": {
-    "statusBar.background": "#8FBCBB",
-    "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.background": "#B48EAD",
+    "statusBar.noFolderBackground": "#B48EAD",
+    "statusBar.debuggingBackground": "#B48EAD",
     "statusBar.foreground": "#434C5E"
   },
   "workbench.iconTheme": "vscode-icons",
@@ -310,6 +310,12 @@
   "backgroundCover.imagePath": "/Users/nakamura-jun/Pictures/7xxljw3avev41.png",
   "backgroundCover.opacity": 0.5,
   "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
+  },
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
