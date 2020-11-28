@@ -39,5 +39,6 @@ echo 'npm install'
 npm install -g neovim
 npm install -g typescript
 npm install -g javascript-typescript-langserver
+npm install -g gitmoji-cli
 
 exit 0

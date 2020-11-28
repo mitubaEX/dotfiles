@@ -117,10 +117,10 @@ else
   chmod +x ./script/homebrew.sh
   sh ./script/homebrew.sh
 
-  chmod +x ./script/homebrew.sh
+  chmod +x ./script/git.sh
   sh ./script/git.sh
 
-  chmod +x ./script/homebrew.sh
+  chmod +x ./script/neovim.sh
   sh ./script/neovim.sh
 
   chmod +x ./script/mac_config.sh
