@@ -32,6 +32,46 @@ nmap ; :Buffers<CR>
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=test --exclude=spec --exclude=vendor'
 '''
+
+[[plugins]]
+repo = 'yuki-ycino/fzf-preview.vim'
+rev = 'release'
+hook_add = '''
+" Commands used for fzf preview.
+" The file name selected by fzf becomes {}
+" let g:fzf_preview_command = 'cat'                               " Not installed bat
+let g:fzf_preview_command = 'bat --color=always --plain {-1}' " Installed bat
+
+" g:fzf_binary_preview_command is executed if this command succeeds, and g:fzf_preview_command is executed if it fails
+let g:fzf_preview_if_binary_command = '[[ "$(file --mime {})" =~ binary ]]'
+
+" Commands used for binary file
+let g:fzf_binary_preview_command = 'echo "{} is a binary file"'
+
+" Commands used to get the file list from project
+let g:fzf_preview_filelist_command = 'git ls-files --exclude-standard'               " Not Installed ripgrep
+" let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"' " Installed ripgrep
+
+" Commands used to get the file list from git reposiroty
+let g:fzf_preview_git_files_command = 'git ls-files --exclude-standard'
+
+" Commands used to get the file list from current directory
+let g:fzf_preview_directory_files_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
+
+" Commands used to get the git status file list
+let g:fzf_preview_git_status_command = "git status --short --untracked-files=all | awk '{if (substr($0,2,1) !~ / /) print $2}'"
+
+" Commands used for git status preview.
+let g:fzf_preview_git_status_preview_command =  "[[ $(git diff --cached -- {-1}) != \"\" ]] && git diff --cached --color=always -- {-1} || " .
+\ "[[ $(git diff -- {-1}) != \"\" ]] && git diff --color=always -- {-1} || " .
+\ g:fzf_preview_command
+
+" Commands used for project grep
+let g:fzf_preview_grep_cmd = 'rg --line-number --no-heading --color=never'
+
+" MRU and MRW cache directory
+let g:fzf_preview_cache_directory = expand('~/.cache/vim/fzf_preview')
+'''
 # }}}
 
 # quickrun {{{
