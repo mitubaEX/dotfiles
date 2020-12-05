@@ -29,3 +29,6 @@ alias nasm='/usr/local/bin/nasm'
 
 # k8s
 alias k='kubectl'
+
+# ref: https://qiita.com/yusabana/items/b5cc2a706be8c031043e
+alias less='less -qR'

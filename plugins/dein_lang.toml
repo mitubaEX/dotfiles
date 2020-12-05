@@ -65,3 +65,7 @@ on_ft = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 [[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+
+[[plugins]]
+repo = 'mtdl9/vim-log-highlighting'
+on_ft = ['log']
