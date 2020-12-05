@@ -336,6 +336,12 @@ let g:any_jump_disable_vcs_ignore = 0
 " disable default key map
 let g:any_jump_disable_default_keybindings = 1
 '''
+
+# When output .coverage file
+# run :HighlightCoverage
+# NOTE: rspec is not supported
+[[plugins]]
+repo = 'mgedmin/coverage-highlight.vim'
 # }}}
 
 # vim extension {{{
