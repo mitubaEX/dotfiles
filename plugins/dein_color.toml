@@ -31,3 +31,6 @@ repo = 'rhysd/vim-color-spring-night'
 
 [[plugins]]
 repo = 'embark-theme/vim'
+
+[[plugins]]
+repo = 'sainnhe/edge'

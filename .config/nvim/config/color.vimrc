@@ -70,5 +70,9 @@ set background=dark
 " }}}
 
 " embark {{{
-colorscheme embark
+" colorscheme embark
+" }}}
+
+" edge {{{
+colorscheme edge
 " }}}
