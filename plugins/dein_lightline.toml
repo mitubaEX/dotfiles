@@ -5,7 +5,7 @@ hook_add = '''
 set noshowmode
 let g:lightline = {
      \ 'separator': { 'left': '', 'right': '' },
-     \ 'colorscheme': 'onedark',
+     \ 'colorscheme': 'elly',
      \ 'subseparator': { 'left': '', 'right': '' },
      \ 'tabline': {
      \   'left': [['tabs']],

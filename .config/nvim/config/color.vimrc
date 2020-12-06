@@ -3,7 +3,7 @@ syntax enable
 
 " color
 " let g:seoul256_background = 234
-set background=dark
+" set background=dark
 
 " colorscheme hybrid
 " colorscheme purpura
@@ -74,5 +74,9 @@ set background=dark
 " }}}
 
 " edge {{{
-colorscheme edge
+" colorscheme edge
+" }}}
+
+" elly {{{
+colorscheme elly
 " }}}

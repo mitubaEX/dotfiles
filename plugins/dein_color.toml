@@ -34,3 +34,6 @@ repo = 'embark-theme/vim'
 
 [[plugins]]
 repo = 'sainnhe/edge'
+
+[[plugins]]
+repo = 'ulwlu/elly.vim'
