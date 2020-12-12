@@ -28,6 +28,8 @@
   "tsserver.enableJavascript": true,
   "typescript.referencesCodeLens.enable": false,
 
+  "coc.source.emoji.filetypes":["markdown", "gitcommit"],
+
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
