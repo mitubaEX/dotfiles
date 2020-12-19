@@ -528,7 +528,7 @@ let g:cursorhold_updatetime = 100
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
-let g:fern#disable_viewer_hide_cursor = 1
+let g:fern#smart_cursor = 'hide'
 '''
 
 [[plugins]]
@@ -540,6 +540,9 @@ let g:fern#renderer = "nerdfont"
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'junegunn/vim-emoji'
 # }}}
 
 # other (ex: hobby) {{{

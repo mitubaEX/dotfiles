@@ -37,3 +37,11 @@ function! s:openCurrentBlameFile() abort
 endfunction
 command! -nargs=* OpenCurrentBlameFile call s:openCurrentBlameFile()
 nmap <Leader>b :OpenCurrentBlameFile<CR>
+
+function! s:fillEmoji() abort
+  for e in emoji#list()
+    call append(line('$'), printf('%s (%s)', emoji#for(e), e))
+  endfor
+endfunction
+
+command! -nargs=* FillEmoji call s:fillEmoji()
