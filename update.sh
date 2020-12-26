@@ -21,7 +21,7 @@ brew upgrade direnv
 
 # fonts
 brew tap homebrew/cask-fonts
-brew cask upgrade font-hack-nerd-font
+brew upgrade --cask font-hack-nerd-font
 
 echo 'npm update'
 npm update -g neovim
