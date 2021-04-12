@@ -4,17 +4,17 @@ find plugins -type f | xargs -I% ln -sf $(pwd)/% $HOME/%
 
 # .config
 mkdir -p $HOME/.config
-mkdir -p $HOME/.config/nvim
-mkdir -p $HOME/.config/nvim/config
+# mkdir -p $HOME/.config/nvim
+# mkdir -p $HOME/.config/nvim/config
 mkdir -p $HOME/.config/alacritty
 mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/oni
-mkdir -p $HOME/.config/nvim/template
+# mkdir -p $HOME/.config/nvim/template
 mkdir -p $HOME/.config/solargraph
-mkdir -p $HOME/.config/nvim/UltiSnips
+# mkdir -p $HOME/.config/nvim/UltiSnips
 
 # copy all .config file
-find .config -type f | xargs -I% ln -sf $(pwd)/% $HOME/%
+# find .config -type f | xargs -I% ln -sf $(pwd)/% $HOME/%
 
 # zsh
 mkdir -p $HOME/.zsh.d
