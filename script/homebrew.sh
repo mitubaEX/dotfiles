@@ -6,7 +6,9 @@ set -ex
 
 # yabai
 brew install koekeishiya/formulae/yabai
-sudo yabai --install-sa
+# Please change permission for mac
+# ref: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#macos-big-sur---automatically-load-scripting-addition-on-startup
+# sudo yabai --install-sa
 
 # khd
 brew install koekeishiya/formulae/skhd
