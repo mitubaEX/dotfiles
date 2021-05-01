@@ -99,4 +99,4 @@ export JAVA_HOME=`/usr/libexec/java_home -v 11`
 test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
 
 # fzf floating window
-export FZF_TMUX_OPTS="-p"
+export FZF_TMUX_OPTS="-w80% -h80%"
