@@ -23,29 +23,25 @@
   ## ref: https://www.matsub.net/posts/2017/12/01/ghq-fzf-on-tmux
   ## ref: http://blog.chairoi.me/entry/2017/12/26/233926
   function create_session_with_ghq_for_popup() {
-    tmux popup -E '
-      moveto=$(ghq root)/$(ghq list | fzf)
-      repo_name=$(basename $moveto)
-      if [ $repo_name != $(basename $(ghq root)) ]
-      then
-        tmux new-session -d -c $moveto -s $repo_name
-        tmux switch-client -t $repo_name
-      fi
-    '
+    local moveto=$(ghq root)/$(ghq list | fzf-tmux -w80% -h80%)
+    local repo_name=$(basename $moveto)
+    if [ $repo_name != $(basename $(ghq root)) ]
+    then
+      tmux new-session -d -c $moveto -s $repo_name
+      tmux switch-client -t $repo_name
+    fi
   }
   zle -N create_session_with_ghq_for_popup
   bindkey '^G' create_session_with_ghq_for_popup
 
   function switch_session_with_fzf() {
-    tmux popup -E '
-      # rename session if in tmux
-      moveto=$(tmux ls | cut -d ':' -f 1 | fzf --height='30%' --layout='reverse')
-      if [[ ! -z ${TMUX} ]]
-      then
-          zle reset-prompt
-          tmux switch-client -t $moveto 2> /dev/null
-      fi
-    '
+    # rename session if in tmux
+    local moveto=$(tmux ls | cut -d ':' -f 1 | fzf-tmux -w80% -h80%)
+    if [[ ! -z ${TMUX} ]]
+    then
+      zle reset-prompt
+      tmux switch-client -t $moveto 2> /dev/null
+    fi
   }
 
   zle -N switch_session_with_fzf
