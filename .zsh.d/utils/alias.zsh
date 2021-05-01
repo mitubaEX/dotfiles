@@ -1,4 +1,4 @@
-alias tmux='tmux -u'
+# alias tmux='tmux -u'
 
 # alias
 alias e='exit'
