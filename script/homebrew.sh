@@ -25,6 +25,7 @@ brew install reattach-to-user-namespace
 brew install rust
 brew install ripgrep
 brew install direnv
+brew install ghq
 
 # launchctl load
 brew services start yabai

@@ -51,9 +51,7 @@ bindkey -v '^N'   down-line-or-history
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# go
-export GOPATH=$HOME/.ghq
-export PATH=$PATH:$HOME/.ghq/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.cabal:/usr/local/bin:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.cabal:/usr/local/bin:$HOME/.cargo/bin
 
 # vim
 stty stop undef
