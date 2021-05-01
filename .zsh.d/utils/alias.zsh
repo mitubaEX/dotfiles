@@ -1,10 +1,10 @@
-alias tmux='tmux -u'
+# alias tmux='tmux -u'
 
 # alias
 alias e='exit'
 alias rm='rm -rf'
 alias v='vim'
-alias vi='nvim'
+alias vi='$HOME/nvim-osx64/bin/nvim'
 
 # docker
 alias dockerrm='docker rm -f $(docker ps -qa)'

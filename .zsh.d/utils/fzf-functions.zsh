@@ -1,24 +1,5 @@
 # fzf functions ================= {{{
-  # ref: https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
-  # CTRL-R - Paste the selected command from history into the command line
-  fzf-history-widget() {
-    local selected num
-    setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
-    selected=( $(fc -rl 1 |
-      FZF_DEFAULT_OPTS="--layout='reverse' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
-    local ret=$?
-    if [ -n "$selected" ]; then
-      num=$selected[1]
-      if [ -n "$num" ]; then
-        zle vi-fetch-history -n $num
-      fi
-    fi
-    zle reset-prompt
-    return $ret
-  }
-  zle     -N   fzf-history-widget
-  bindkey '^R' fzf-history-widget
-
+  # When launch tmux, select session by user
   # ref: https://qiita.com/ssh0/items/a9956a74bff8254a606a
   if [[ ! -n $TMUX ]]; then
     # get the IDs
@@ -41,50 +22,30 @@
 
   ## ref: https://www.matsub.net/posts/2017/12/01/ghq-fzf-on-tmux
   ## ref: http://blog.chairoi.me/entry/2017/12/26/233926
-  function create_session_with_ghq() {
-      # rename session if in tmux
-      local moveto=$(ghq root)/$(ghq list | fzf --height='30%' --layout='reverse')
-      local repo_name=`basename $moveto`
-      if [ $repo_name != `basename $(ghq root)` ]
-      then
-        tmux new-session -d -c $moveto -s $repo_name
-        tmux switch-client -t $repo_name
-      fi
+  function create_session_with_ghq_for_popup() {
+    local moveto=$(ghq root)/$(ghq list | fzf-tmux -w80% -h80%)
+    local repo_name=$(basename $moveto)
+    if [ $repo_name != $(basename $(ghq root)) ]
+    then
+      tmux new-session -d -c $moveto -s $repo_name
+      tmux switch-client -t $repo_name
+    fi
   }
-
-  zle -N create_session_with_ghq
-  bindkey '^G' create_session_with_ghq
+  zle -N create_session_with_ghq_for_popup
+  bindkey '^G' create_session_with_ghq_for_popup
 
   function switch_session_with_fzf() {
-      # rename session if in tmux
-      local moveto=$(tmux ls | cut -d ':' -f 1 | fzf --height='30%' --layout='reverse')
-      if [[ ! -z ${TMUX} ]]
-      then
-          zle reset-prompt
-          tmux switch-client -t $moveto 2> /dev/null
-      fi
+    # rename session if in tmux
+    local moveto=$(tmux ls | cut -d ':' -f 1 | fzf-tmux -w80% -h80%)
+    if [[ ! -z ${TMUX} ]]
+    then
+      zle reset-prompt
+      tmux switch-client -t $moveto 2> /dev/null
+    fi
   }
 
   zle -N switch_session_with_fzf
   bindkey '^U' switch_session_with_fzf
-
-  # deprecated
-  function create_session_with_dir() {
-      # rename session if in tmux
-      local moveto=$(pwd)/$(find . -type d | fzf --height='30%' --layout='reverse')
-      if [[ ! -z ${TMUX} ]]
-      then
-          local dir_name=`basename $moveto`
-          if [ $dir_name != `basename $(pwd)` ]
-          then
-            tmux new-session -d -c $moveto -s $dir_name  2> /dev/null
-            zle reset-prompt
-            tmux switch-client -t $dir_name 2> /dev/null
-          else
-            zle reset-prompt
-          fi
-      fi
-  }
 
   function remove_session() {
       local session_name=$(tmux display-message -p '#S')
@@ -133,7 +94,6 @@
   # ref: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
   # Aliases
   # (sorted alphabetically)
-  #
 
   # ref: https://dev.classmethod.jp/tool/fzf-original-app-for-git-add/
   function ggaa() {

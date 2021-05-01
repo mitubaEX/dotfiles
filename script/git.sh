@@ -11,11 +11,8 @@ ln -sf $(pwd)/.gitignore_global $HOME/.gitignore_global
 git config --global core.excludesfile $HOME/.gitignore_global
 
 mkdir $HOME/.ghq
-export GOPATH=$HOME/.ghq
 
 # ghq
-go get -u github.com/motemen/ghq
-
 echo '[ghq]' >> $HOME/.gitconfig
 echo '    root = ~/.ghq/src' >> $HOME/.gitconfig
 

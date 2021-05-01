@@ -25,7 +25,6 @@ alias rm='rm -rf'
 alias vi='nvim'
 alias vim='nvim'
 alias nv='nvim'
-export GOPATH=/Users/mituba/go
 stty stop undef
 stty start undef
 
