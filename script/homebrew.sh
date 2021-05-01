@@ -15,7 +15,10 @@ brew install koekeishiya/formulae/skhd
 
 brew install fzf
 brew install zsh
-brew install neovim
+
+# use nightly version
+# brew install neovim
+
 brew install tree
 brew install wget
 brew install tmux

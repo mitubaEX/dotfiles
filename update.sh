@@ -8,7 +8,10 @@ brew upgrade koekeishiya/formulae/skhd
 
 brew upgrade fzf
 brew upgrade zsh
-brew upgrade neovim
+
+# use nightly version
+# brew upgrade neovim
+
 brew upgrade tree
 brew upgrade wget
 brew upgrade tmux
