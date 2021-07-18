@@ -110,3 +110,6 @@ export FZF_TMUX_OPTS="-w80% -h80%"
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh.d/.p10k.zsh.
 [[ ! -f ~/.zsh.d/.p10k.zsh ]] || source ~/.zsh.d/.p10k.zsh
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
