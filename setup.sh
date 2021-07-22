@@ -4,28 +4,10 @@ find plugins -type f | xargs -I% ln -sf $(pwd)/% $HOME/%
 
 # .config
 mkdir -p $HOME/.config
-# mkdir -p $HOME/.config/nvim
-# mkdir -p $HOME/.config/nvim/config
 mkdir -p $HOME/.config/alacritty
 mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/oni
-# mkdir -p $HOME/.config/nvim/template
 mkdir -p $HOME/.config/solargraph
-# mkdir -p $HOME/.config/nvim/UltiSnips
-
-# copy all .config file
-# find .config -type f | xargs -I% ln -sf $(pwd)/% $HOME/%
-
-# zsh
-mkdir -p $HOME/.zsh.d
-mkdir -p $HOME/.zsh.d/utils
-ln -sf $(pwd)/.zsh.d/.zshrc $HOME/.zsh.d/.zshrc
-ln -sf $(pwd)/.zsh.d/.zshenv $HOME/.zsh.d/.zshenv
-ln -sf $(pwd)/.zsh.d/.zprofile $HOME/.zsh.d/.zprofile
-find .zsh.d -type f | xargs -I% ln -sf $(pwd)/% $HOME/%
-
-ln -sf $(pwd)/.zshenv $HOME/.zshenv
-ln -sf $(pwd)/.zpreztorc $HOME/.zsh.d/.zpreztorc
 
 # tmux
 ln -sf $(pwd)/tmux/.tmux.conf $HOME/.tmux.conf
