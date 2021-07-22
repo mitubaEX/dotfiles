@@ -20,6 +20,8 @@ Please use config of these repository in bellow.
 - [vim(vim-plug)](https://github.com/mitubaEX/vim_plug_conf)
 - [vim(packer)](https://github.com/mitubaEX/nvim_lua_config)
 
+### Other config
+
 ```
 sh setup.sh
 ```
