@@ -19,5 +19,7 @@ config.font_size = 13.0
 config.use_ime = true
 config.macos_forward_to_ime_modifier_mask = "CTRL"
 
+config.audible_bell = "Disabled"
+
 -- and finally, return the configuration to wezterm
 return config
