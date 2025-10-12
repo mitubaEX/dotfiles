@@ -9,4 +9,5 @@
 
 ```sh
 ln -sf $(pwd)/.config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua
+ln -sf $(pwd)/.config/aerospace/aerospace.toml $HOME/.config/aerospace/aerospace.toml
 ```
