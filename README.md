@@ -16,10 +16,11 @@ ln -sf $(pwd)/.config/cmux/settings.json $HOME/.config/cmux/settings.json
 
 ## Claude Code statusline
 
-statusline 本体は外部リポジトリ ([kama-meshi/cc-my-statusline](https://github.com/kama-meshi/cc-my-statusline)) を `~/.claude/statusline` にクローンして利用する。
+`.claude/statusline/statusline.sh` を `~/.claude/statusline/` に symlink して利用する。Nerd Font 等の依存はなし。
 
 ```sh
-git clone git@github.com:kama-meshi/cc-my-statusline.git $HOME/.claude/statusline
+mkdir -p $HOME/.claude/statusline
+ln -sfn $(pwd)/.claude/statusline/statusline.sh $HOME/.claude/statusline/statusline.sh
 ```
 
 `~/.claude/settings.json` に `.claude/settings.statusline.json` の内容を取り込む (env など他の設定とマージする想定)。
