@@ -1,0 +1,59 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux-settings.schema.json",
+  "schemaVersion": 1,
+
+  // This file uses JSON with comments (JSONC).
+  // Uncomment and edit any setting to make it file-managed.
+  // Remove a setting to fall back to the value saved in Settings.
+  // ~/.config/cmux/settings.json takes precedence over the Application Support fallback.
+
+  "app": {
+    "warnBeforeQuit": true,
+    "keepWorkspaceOpenWhenClosingLastSurface": true,
+    "reorderOnNotification": true,
+
+    // 多ワークスペース運用向け
+    "commandPaletteSearchesAllSurfaces": true,
+    "newWorkspacePlacement": "top",
+
+    // 集中モード向け
+    "minimalMode": true,
+
+    // ブラウザ/ドキュメント連携
+    "openMarkdownInCmuxViewer": true
+  },
+
+  "automation": {
+    "claudeCodeIntegration": true
+  },
+
+  "sidebar": {
+    "showProgress": true,
+    "showPullRequests": true,
+    "showPorts": true,
+    "showNotificationMessage": true
+  },
+
+  "notifications": {
+    "dockBadge": true,
+    "unreadPaneRing": true,
+    "paneFlash": true,
+    // 主張の強いデフォルト音を控えめな Tink に
+    "sound": "Tink"
+  },
+
+  "browser": {
+    "interceptTerminalOpenCommandInCmuxBrowser": true,
+    "openTerminalLinksInCmuxBrowser": true,
+    // 頻繁にアクセスするドメインは埋め込みブラウザに固定
+    "hostsToOpenInEmbeddedBrowser": [
+      "github.com",
+      "jira-freee.atlassian.net"
+    ]
+  },
+
+  "workspaceColors": {
+    // 案件色分け運用の準備。色指定はワークスペースごとに UI から行う想定
+    "indicatorStyle": "leftRail"
+  }
+}
