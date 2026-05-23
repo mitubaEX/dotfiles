@@ -2,3 +2,5 @@
 .worktrees/
 tmp_task.md
 .envrc
+tags
+.solargraph.yml
