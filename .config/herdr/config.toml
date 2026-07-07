@@ -1,0 +1,54 @@
+# ~/.config/herdr/config.toml (symlinked from dotfiles/.config/herdr/config.toml)
+# herdr 0.7.1 / upstream
+
+onboarding = false
+
+[theme]
+name = "catppuccin"
+auto_switch = true
+dark_name = "catppuccin"
+light_name = "catppuccin-latte"
+
+[terminal]
+default_shell = ""
+shell_mode = "auto"
+new_cwd = "follow"
+
+[worktrees]
+directory = "~/.herdr/worktrees"
+
+[session]
+resume_agents_on_restore = true
+
+[keys]
+prefix = "ctrl+b"
+split_horizontal = "prefix+minus"
+split_vertical = "prefix+v"
+open_notification_target = "prefix+o"
+reload_config = "prefix+shift+r"
+# Agent 上下移動とタブリネームを楽に (Meijin_garden tip)
+rename_tab = "prefix+comma"
+previous_agent = "cmd+alt+up"
+next_agent = "cmd+alt+down"
+# worktree 操作 (default 準拠、new_worktree のみ default 明示)
+new_worktree = "prefix+shift+g"        # UI ダイアログで新規作成 (格納先: [worktrees] directory)
+
+[ui]
+agent_panel_sort = "spaces"
+accent = "cyan"
+show_agent_labels_on_pane_borders = true
+pane_borders = true
+pane_gaps = true
+# タブをサクサク切りたい (Meijin_garden tip)
+prompt_new_tab_name = false
+# 誤閉じ防止 (miyagawa 参考)
+confirm_close = true
+
+[ui.sound]
+enabled = true
+
+[experimental]
+switch_ascii_input_source_in_prefix = true
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude", "codex"]
+cjk_ime_cursor_shape = "steady_block"

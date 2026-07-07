@@ -12,6 +12,8 @@ ln -sf $(pwd)/.config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua
 ln -sf $(pwd)/.config/aerospace/aerospace.toml $HOME/.config/aerospace/aerospace.toml
 mkdir -p $HOME/.config/cmux
 ln -sf $(pwd)/.config/cmux/settings.json $HOME/.config/cmux/settings.json
+mkdir -p $HOME/.config/herdr
+ln -sfn $(pwd)/.config/herdr/config.toml $HOME/.config/herdr/config.toml
 ```
 
 ## Claude Code statusline
