@@ -33,6 +33,13 @@ next_agent = "cmd+alt+down"
 # worktree 操作 (default 準拠、new_worktree のみ default 明示)
 new_worktree = "prefix+shift+g"        # UI ダイアログで新規作成 (格納先: [worktrees] directory)
 
+# 一時ペインで nvim を開いてファイル閲覧 (カレントディレクトリを開く)
+[[keys.command]]
+key = "prefix+e"
+type = "pane"
+command = "nvim ."
+description = "open nvim in current dir"
+
 [ui]
 agent_panel_sort = "spaces"
 accent = "cyan"
