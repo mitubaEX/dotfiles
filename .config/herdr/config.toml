@@ -28,8 +28,8 @@ open_notification_target = "prefix+o"
 reload_config = "prefix+shift+r"
 # Agent 上下移動とタブリネームを楽に (Meijin_garden tip)
 rename_tab = "prefix+comma"
-previous_agent = "cmd+alt+up"
-next_agent = "cmd+alt+down"
+previous_agent = "prefix+ctrl+n"
+next_agent = "prefix+ctrl+p"
 # worktree 操作 (default 準拠、new_worktree のみ default 明示)
 new_worktree = "prefix+shift+g"        # UI ダイアログで新規作成 (格納先: [worktrees] directory)
 
