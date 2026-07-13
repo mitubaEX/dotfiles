@@ -32,6 +32,7 @@ previous_agent = "prefix+ctrl+n"
 next_agent = "prefix+ctrl+p"
 # worktree 操作 (default 準拠、new_worktree のみ default 明示)
 new_worktree = "prefix+shift+g"        # UI ダイアログで新規作成 (格納先: [worktrees] directory)
+open_worktree = "prefix+shift+o"
 
 # 一時ペインで nvim を開いてファイル閲覧 (カレントディレクトリを開く)
 [[keys.command]]
