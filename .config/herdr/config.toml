@@ -50,6 +50,14 @@ type = "pane"
 command = "sh ~/.config/herdr/new-worktree-from-main.sh"
 description = "new worktree from latest main"
 
+# PR 番号を対話入力して PR head branch の worktree を作成 (PR review 用)
+# default の rename_pane を shadow するが rename_pane は普段使わない想定。
+[[keys.command]]
+key = "prefix+shift+p"
+type = "pane"
+command = "sh ~/.config/herdr/pr-review-worktree.sh"
+description = "new worktree from PR"
+
 [ui]
 agent_panel_sort = "priority"
 accent = "cyan"
