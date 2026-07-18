@@ -10,7 +10,8 @@ fail() {
   exit 1
 }
 
-script_dir=$(cd "$(dirname "$0")" && pwd)
+# symlink 経由 (~/.local/bin 等) でも実体の隣の lib/ を参照できるよう実パスを解決する
+script_dir=$(dirname "$(readlink -f "$0")")
 . "$script_dir/lib/copy-worktree-include.sh" || fail "lib/copy-worktree-include.sh を読み込めません"
 
 git rev-parse --git-dir >/dev/null 2>&1 || fail "git リポジトリ内で実行してください (cwd: $(pwd))"
