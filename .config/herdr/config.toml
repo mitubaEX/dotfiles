@@ -36,12 +36,14 @@ next_agent = "prefix+ctrl+p"
 new_worktree = "prefix+alt+g"          # UI ダイアログで新規作成 (格納先: [worktrees] directory)
 open_worktree = "prefix+shift+o"
 
-# 一時ペインで nvim を開いてファイル閲覧 (カレントディレクトリを開く)
+# floating popup で nvim を開いてファイル閲覧 (カレントディレクトリを開く)
 [[keys.command]]
 key = "prefix+shift+e"
-type = "pane"
+type = "popup"
 command = "nvim ."
-description = "open nvim in current dir"
+description = "open nvim popup in current dir"
+width = "90%"
+height = "90%"
 
 # 最新 origin/main (default branch) を fetch してから worktree を作成
 [[keys.command]]
@@ -57,7 +59,6 @@ key = "prefix+shift+p"
 type = "pane"
 command = "sh ~/.config/herdr/pr-review-worktree.sh"
 description = "new worktree from PR"
-
 [ui]
 agent_panel_sort = "priority"
 accent = "cyan"
